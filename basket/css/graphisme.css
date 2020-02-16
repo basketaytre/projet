@@ -1,10 +1,16 @@
 #fond{
-    background-image: url(../images/fond1.png);
-    height:1000px;
-    size:50%;
-       
+    background: url("../images/fond1.png")no-repeat;
+    background-size: cover;
+
+
+
+}
+h1{
+
+    color: black;
+    fond-size:3.5em;
 }
 
-h1{
+h2{
     color:white;
 }

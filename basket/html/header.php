@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, intitial-scale=1.0">
         <link rel="stylesheet" href="css/graphisme.css" />
-        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     </head>
     <body>
         <header>
@@ -31,5 +31,5 @@ and open the template in the editor.
                     </button>
                 </nav>
             </div>
-        <div id='fond'>
+            <div id="fond" >
             <section>
