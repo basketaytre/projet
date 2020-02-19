@@ -17,6 +17,12 @@ if($action=='creer_sponsor'){
 if($action=='supprimer_sponsor'){
     include 'html/gestion_admin/sponsor/supprimer_sponsor.php';
 }
+elseif ($action=='creer_article') {
+    include './html/gestion_admin/article/creer_article.php';
+}
+elseif ($action=='affiche_sponsor') {
+    include './html/sponsors/affiche_sponsor.php';
+}
 //elseif($action=='exercice1'){
 //    include 'exercice1.php';
 //}
