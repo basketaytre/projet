@@ -1,7 +1,4 @@
-
-        </section>
-        <br>
-        </div>
+        
         <footer>
             <div class="navbar-dark bg-dark text-center text-white">
             <strong>======== *| Site provisoire |* ======== </strong>
