@@ -1,0 +1,1 @@
+<h1>je suis une page d'erreur</h1>
