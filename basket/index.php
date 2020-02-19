@@ -17,8 +17,8 @@ if($action=='creer_sponsor'){
 //elseif($action=='exercice1'){
 //    include 'exercice1.php';
 //}
-elseif{
-    include 'page_erreur.php';
-}
+//else{
+  //  include 'page_erreur.php';
+//}
 include 'html/footer.php';
 ?>
