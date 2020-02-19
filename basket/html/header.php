@@ -17,10 +17,10 @@ and open the template in the editor.
             <div class="pos-f-t">
                 <div class="collapse" id="navbarToggleExternalContent"></div>
                 <nav class="navbar navbar-dark bg-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=creer_sponsor'">
                         <span class="title">Créer un SP</span>
                     </button>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=supprimer_sponsor'">
                         <span class="title">Supprimer un SP</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">

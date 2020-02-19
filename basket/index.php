@@ -12,13 +12,16 @@ if($action==''){
     include 'html/acceuil/accueil.php';
 }
 if($action=='creer_sponsor'){
-    include 'html/gestion_admin/creer_sponsor.php';
+    include 'html/gestion_admin/sponsor/creer_sponsor.php';
+}
+if($action=='supprimer_sponsor'){
+    include 'html/gestion_admin/sponsor/supprimer_sponsor.php';
 }
 //elseif($action=='exercice1'){
 //    include 'exercice1.php';
 //}
-//else{
-  //  include 'page_erreur.php';
+//if{
+  // 
 //}
 include 'html/footer.php';
 ?>
