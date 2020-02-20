@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+include 'connexion.php';
 include 'html/header.php';
 //include 'connexion.php';
 
