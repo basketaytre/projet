@@ -1,12 +1,12 @@
 <?php
-$Nom = '';
-$Adresse = '';
-$Ville = '';
-$CodePostal = '';
-$Telephone = '';
-$Lien = '';
-$Description = '';
-$Image = '';
+$nom = '';
+$adresse = '';
+$ville = '';
+$codePostal = '';
+$telephone = '';
+$lien = '';
+$description = '';
+$image = '';
 
 if (isset($_POST['nom'])) {
     $nom = $_POST["nom"];
@@ -16,9 +16,9 @@ if (isset($_POST['nom'])) {
     $telephone = intval($_POST["telephone"]);
     $lien = ($_POST["lien"]);
     $description = ($_POST["description"]);
-    $image = $_POST["Image"];
+    $image = $_POST["image"];
     
-    $requete = "insert into sponsor (nom,adresse,ville,codePostal,telephone,lien,description,image) values ('$nom',$adresse,$ville,$codePostal,$telephone,$lien,$description,$image);";
+    $requete = "insert into sponsor (nom,adresse,ville,codePostal,telephone,lien,description,image) values ('$nom','$adresse','$ville',$codePostal,$telephone,'$lien','$description','$image');";
     echo $requete;
     $connexion->exec($requete);
     $message = 'Traitement effectué';
