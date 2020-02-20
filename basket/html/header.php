@@ -55,5 +55,4 @@ and open the template in the editor.
                     </button>
                 </nav>
             </div>
-            <div id="fond" >
             <section>
