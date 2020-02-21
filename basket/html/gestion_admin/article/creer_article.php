@@ -5,6 +5,7 @@ $departement = '';
 $descriptionArticle = '';
 $imageArticle = '';
 $message = '';
+
 $donneeErreur = '';
 
 if (isset($_POST['titre'])) {
@@ -13,27 +14,33 @@ if (isset($_POST['titre'])) {
     $departement = intval($_POST["departement"]);
     $descriptionArticle = $_POST["descriptionArticle"];
     $imageArticle = ($_POST["imageArticle"]);
-
-    if (((strlen($titre)) >100) || ((strlen($titre)) <1)) {
+    $requete = "insert into article (titre,dateArticle,villeArticle,departement,descriptionArticle,imageArticle) values ('$titre',NOW(),'$villeArticle','$departement','$descriptionArticle',";
+    if (((strlen($titre)) > 100) || ((strlen($titre)) < 1)) {
         $donneeErreur = $donneeErreur . "Titre invalide,<br>";
     }
-    if (((strlen($villeArticle)) >50) || (strlen($villeArticle)) <1) {
+    if (((strlen($villeArticle)) > 50) || (strlen($villeArticle)) < 1) {
         $donneeErreur = $donneeErreur . "Ville invalide, <br>";
     }
-    if ((strlen($departement)) <>5) {
+    if ((strlen($departement)) <> 5) {
         $donneeErreur = $donneeErreur . "Département invalide, <br>";
     }
-    if (((strlen($descriptionArticle)) >10000) || (strlen($descriptionArticle)) <1) {
+    if (((strlen($descriptionArticle)) > 10000) || (strlen($descriptionArticle)) < 1) {
         $donneeErreur = $donneeErreur . "Description invalide, <br>";
     }
     if (((strlen($imageArticle)) > 500) || (strlen($imageArticle)) < 1) {
-        $donneeErreur = $donneeErreur . "Image invalide, <br>";
+        if ((strlen($imageArticle)) > 500) {
+            $donneeErreur = $donneeErreur . "Image invalide, <br>";
+        } else {
+            $requete = $requete . "NULL);";
+        }
+    } else {
+        $requete = $requete . "'$imageArticle');";
     }
+
     if ($donneeErreur != '') {
         $message = "Erreur,<br>" . $donneeErreur;
     }
-    if ($donneeErreur==''){
-        $requete = "insert into article (titre,dateArticle,villeArticle,departement,descriptionArticle,imageArticle) values ('$titre',NOW(),'$villeArticle','$departement','$descriptionArticle','$imageArticle');";
+    if ($donneeErreur == '') {
         echo $requete;
         $connexion->exec($requete);
         $message = 'Traitement effectué';
