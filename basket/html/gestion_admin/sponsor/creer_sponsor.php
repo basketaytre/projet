@@ -9,7 +9,7 @@ $description = '';
 $image = '';
 $message = '';
 $donneeErreur = '';
-$valide=false;
+$valide = false;
 
 if (isset($_POST['nom'])) {
     $nom = $_POST["nom"];
@@ -23,7 +23,7 @@ if (isset($_POST['nom'])) {
 
     if ((strlen($codePostal)) != 5) {
         $donneeErreur = $donneeErreur . "Code postal invalide,<br>";
-        $valide=false;
+        $valide = false;
     }
     if (((strlen($telephone)) > 15) || (strlen($telephone)) < 10) {
         $donneeErreur = $donneeErreur . "Numero de téléphone invalide, <br>";
@@ -46,15 +46,14 @@ if (isset($_POST['nom'])) {
     if (((strlen($image)) > 750) || (strlen($image)) < 1) {
         $donneeErreur = $donneeErreur . "Image invalide, <br>";
     }
-    
-    else {
+    if ($donneeErreur != '') {
+        $message = "Erreur,<br>" . $donneeErreur;
+    }
+    if ($donneeErreur==''){
         $requete = "insert into sponsor (nom,adresse,ville,codePostal,telephone,lien,description,image) values ('$nom','$adresse','$ville',$codePostal,$telephone,'$lien','$description','$image');";
         echo $requete;
         $connexion->exec($requete);
         $message = 'Traitement effectué';
-    }
-    if ($donneeErreur != '') {
-        $message = "Erreur,<br>" . $donneeErreur;
     }
 }
 ?>
