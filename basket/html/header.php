@@ -21,22 +21,13 @@ and open the template in the editor.
                         <span class="title">Gestion Sponsors</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href='index.php?action=affiche_sponsor'">
-                        <span class="title">Voir les Sponsors</span>
-                    </button>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=creer_article'">
-                        <span class="title">Créer des articles</span>
+                        <span class="title">Sponsors</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=gestion_article'">
                         <span class="title">Gestion articles</span>
                     </button>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=modifier_article'">
-                        <span class="title">Modifier un article</span>
-                    </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href='index.php?action=affiche_article'">
-                        <span class="title">Voir les aticles</span>
-                    </button>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=creer_action'">
-                        <span class="title">Créer des actions</span>
+                        <span class="title">Aticles</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=gestion_action'">
                         <span class="title">Gestion actions</span>
@@ -45,7 +36,7 @@ and open the template in the editor.
                         <span class="title">Modifier une action</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href='index.php?action=affiche_action'">
-                        <span class="title">Voir les action</span>
+                        <span class="title">Action</span>
                     </button>
                 </nav>
             </div>

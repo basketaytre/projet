@@ -90,7 +90,7 @@
 ?>
 <form  name="monForm" method="post" action="index.php?action=modifier_sponsor&valide=ok">
     <h1>Modification d'un sponsor</h1>
-    <p>ID Sponsor : <input type="text" name="idSponsor" value='<?= $idSponsor ?>'  ></p>
+    <p>ID Sponsor : <input type="text" name="idSponsor" readonly="" value='<?= $idSponsor ?>'  ></p>
     <p>Nom* : <input type="text" name="nom" value='<?= $nom ?>'  ></p>
     <p>Adresse* : <input type="text" name="adresse" value='<?= $adresse ?>'   ></p>
     <p>Ville* : <input type="text" name="ville" value='<?= $ville ?>'  ></p>
