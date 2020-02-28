@@ -17,17 +17,11 @@ and open the template in the editor.
             <div class="pos-f-t">
                 <div class="collapse" id="navbarToggleExternalContent"></div>
                 <nav class="navbar navbar-dark bg-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=creer_sponsor'">
-                        <span class="title">Créer un SP</span>
-                    </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=gestion_sponsor'">
-                        <span class="title">Gestion SP</span>
-                    </button>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=modifier_sponsor'">
-                        <span class="title">Modifier un SP</span>
+                        <span class="title">Gestion Sponsors</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href='index.php?action=affiche_sponsor'">
-                        <span class="title">Voir les SP</span>
+                        <span class="title">Voir les Sponsors</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=creer_article'">
                         <span class="title">Créer des articles</span>
