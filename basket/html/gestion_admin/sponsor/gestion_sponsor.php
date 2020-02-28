@@ -9,6 +9,6 @@
     $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
     foreach ($lignes as $ligne) {
         //on affiche la ligne qu'on vient de lire
-        echo $ligne['idSponsor']," ",$ligne['nom']," ",$ligne['adresse']," ",$ligne['ville']," ",$ligne['codePostal']," ",$ligne['telephone']," ",$ligne['lien']," ",$ligne['description']," ","<img src='http://localhost/basket/basket/images/".$ligne['image']."'>"," <br/>\n";
+        echo $ligne['idSponsor']," ",$ligne['nom']," ",$ligne['adresse']," ",$ligne['ville']," ",$ligne['codePostal']," ",$ligne['telephone']," ",$ligne['lien']," ",$ligne['description']," ","<img style="."'width: 10%'"."src='http://localhost/basket/basket/images/".$ligne['image']."'>"," <br/>\n";
     }
 ?>
