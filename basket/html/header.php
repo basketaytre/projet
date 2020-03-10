@@ -21,19 +21,19 @@ and open the template in the editor.
                         <span class="title">Gestion Sponsors</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href='index.php?action=affiche_sponsor'">
-                        <span class="title">Voir Sponsors</span>
+                        <span class="title">Sponsors</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=gestion_article'">
                         <span class="title">Gestion articles</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href='index.php?action=affiche_article'">
-                        <span class="title">Voir Aticles</span>
+                        <span class="title">Articles</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href='index.php?action=gestion_action'">
                         <span class="title">Gestion actions</span>
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href='index.php?action=affiche_action'">
-                        <span class="title">Voir Action</span>
+                        <span class="title">Action</span>
                     </button>
                 </nav>
             </div>

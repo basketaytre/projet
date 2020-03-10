@@ -52,8 +52,8 @@ if (isset($_POST['titre'])) {
     <p>Titre* : <input type="text" name="titre" value='<?= $titre ?>'  ></p>
     <p>Ville* : <input type="text" name="villeArticle" value='<?= $villeArticle ?>'  ></p>
     <p>Departement : <input type="text" name="departement" value='<?= $departement ?>'  ></p>
-    <p>Description* : <input type="text" name="descriptionArticle" value='<?= $descriptionArticle ?>'  ><p/>
-    <p>Image : <input type="text" name="imageArticle" value='<?= $imageArticle ?>'  ><p/>
+    <div><label for="desArt" >Description* : </label><textarea id='desArt'  name="descriptionArticle" value='<?= $descriptionArticle ?>'></textarea></div>
+    <p>Image : <input type="text"  name="imageArticle" value='<?= $imageArticle ?>'  ><p/>
     <br>
     <strong><?= $message ?></strong>
     <div>

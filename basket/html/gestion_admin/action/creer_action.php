@@ -22,8 +22,8 @@ if (isset($_POST['idArticle'])) {
     if ((strlen($idSponsor)) < 1) {
         $donneeErreur = $donneeErreur . "Id Sponsor invalide,<br>";
     }
-    if (((strlen($typeDon)) > 20) || (strlen($typeDon)) < 1) {
-        $donneeErreur = $donneeErreur . "Numero de téléphone invalide, <br>";
+    if ((strlen($typeDon)) > 0){
+        $donneeErreur = $donneeErreur . "Don invalide, <br>";
     }
     if ($donneeErreur != '') {
         $message = "Erreur,<br>" . $donneeErreur;

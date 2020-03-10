@@ -1,10 +1,9 @@
 <h1>Page d'affichage des articles</h1>
+<h3>Listes des Articles</h3>
 <?php
-    include 'connexion.php';
     $requete = "select * from article";
     //Exécution de  la requête qui renvoie le résultat dans  $resultats, 
     $resultats = $connexion->query($requete);
-    echo "<h2>Listes des Articles</h2>";
     //On récupère toutes les lignes de la table dans la variable $lignes qui est un tableau associatif
     $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
     foreach ($lignes as $ligne) {
