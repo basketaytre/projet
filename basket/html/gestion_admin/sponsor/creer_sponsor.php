@@ -61,7 +61,7 @@ if (isset($_POST['nom'])) {
         <?= $message ?>
     </div>
     <h1>Création d'un sponsor</h1>
-    <p>Nom* : <input type="text" name="nom" value='<?= $nom ?>'  ></p>
+    <label class="form_col" for="nom">Nom* : </label><input type="text" name="nom" value='<?= $nom ?>'><span class="tooltip" id="controlNom">Doit être compris entre 1 et 70 caractères</span>
     <p>Adresse* : <input type="text" name="adresse" value='<?= $adresse ?>'   ></p>
     <p>Ville* : <input type="text" name="ville" value='<?= $ville ?>'  ></p>
     <p>Code Postal* : <input type="text" name="codePostal" value='<?= $codePostal ?>'   ></p>
@@ -77,5 +77,7 @@ if (isset($_POST['nom'])) {
     <br>
 </form>
 <div>
-    <input type='submit' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_sponsor'"/>
+    <input type='button' value='Retour' OnClick="test()"/>
+    <!--'index.php?action=gestion_sponsor'"-->
 </div>
+<script src="../../../js/sponsor/creer_sponsor.js"></script>
