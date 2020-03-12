@@ -9,23 +9,21 @@ $description = '';
 $image = '';
 $message = '';
 $donneeErreur = '';
-$valide = false;
 
 if (isset($_POST['nom'])) {
     $nom = $_POST["nom"];
     $adresse = $_POST["adresse"];
     $ville = $_POST["ville"];
     $codePostal = intval($_POST["codePostal"]);
-    $telephone = intval($_POST["telephone"]);
+    $telephone = $_POST["telephone"];
     $lien = ($_POST["lien"]);
     $description = ($_POST["description"]);
     $image = $_POST["image"];
 
     if ((strlen($codePostal)) != 5) {
         $donneeErreur = $donneeErreur . "- Code postal invalide,<br>";
-        $valide = false;
     }
-    if (((strlen($telephone)) > 15) || (strlen($telephone)) < 10) {
+    if (strlen(preg_replace('/\s/', '', $telephone)) != 10){
         $donneeErreur = $donneeErreur . "- Numero de téléphone invalide, <br>";
     }
     if (((strlen($nom)) > 70) || (strlen($nom)) < 1) {
@@ -50,18 +48,22 @@ if (isset($_POST['nom'])) {
         $message = "<div class='alert alert-danger'><strong>Erreur !</strong> Le sponsor n'a pas pu être créé .<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
+        $telephone=(preg_replace('/\s/', '', $telephone));
         $requete = "insert into sponsor (nom,adresse,ville,codePostal,telephone,lien,description,image) values ('$nom','$adresse','$ville',$codePostal,$telephone,'$lien','$description','$image');";
         $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre sponsor à bien été créé .</div>";
         $connexion->exec($requete);
     }
 }
 ?>
+
 <form  name="monForm" method="post" action="index.php?action=creer_sponsor" >
     <div>
         <?= $message ?>
     </div>
     <h1>Création d'un sponsor</h1>
-    <label class="form_col" for="nom">Nom* : </label><input type="text" name="nom" value='<?= $nom ?>'><span class="tooltip" id="controlNom">Doit être compris entre 1 et 70 caractères</span>
+    <label class="form_col" for="nom">Nom* : </label>
+    <input name="nom" id="nom" type="text"  value='<?= $ville ?>'>
+    <!--<span class="tooltip" id="tooltipnom">Doit être compris entre 1 et 70 caractères</span>-->
     <p>Adresse* : <input type="text" name="adresse" value='<?= $adresse ?>'   ></p>
     <p>Ville* : <input type="text" name="ville" value='<?= $ville ?>'  ></p>
     <p>Code Postal* : <input type="text" name="codePostal" value='<?= $codePostal ?>'   ></p>
@@ -72,12 +74,13 @@ if (isset($_POST['nom'])) {
     <br>
     <br>
     <div>
-        <input type='submit' value='Enregistrer' />
+        <input type='submit' value='Enregistrer' OnClick="validform()" />
     </div>
     <br>
 </form>
 <div>
-    <input type='button' value='Retour' OnClick="test()"/>
+    <input type='button' value='Retour' OnClick="window.location.href='index.php?action=gestion_sponsor'" />
     <!--'index.php?action=gestion_sponsor'"-->
 </div>
-<script src="../../../js/sponsor/creer_sponsor.js"></script>
+<!--<script src="js/sponsor/creer_sponsor.js">
+</script>-->

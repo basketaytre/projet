@@ -8,6 +8,6 @@
     $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
     foreach ($lignes as $ligne) {
         //on affiche la ligne qu'on vient de lire
-        echo "<p>",$ligne['titre'],$ligne['dateArticle']," ",$ligne['villeArticle'],$ligne['departement']," ",$ligne['descriptionArticle']," ","<img style="."'width: 10%'"."src='http://localhost/basket/basket/images/".$ligne['imageArticle']."'></p>";
+        echo "<p>". " " . $ligne['titre'] . " " . $ligne['dateArticle'] . " " . $ligne['villeArticle'] . " " . $ligne['departement'] . " " . $ligne['descriptionArticle'] . " " . "<img src=images/". $ligne['imageArticle'] . "> "."</p>";
     }
 ?>

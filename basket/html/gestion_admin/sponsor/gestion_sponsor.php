@@ -22,7 +22,7 @@ $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
 <?php 
 foreach ($lignes as $ligne) {
     //on affiche la ligne qu'on vient de lire
-    echo "<p>" . $ligne['nom'] . " " . $ligne['adresse'] . " " . $ligne['ville'] . " " . $ligne['codePostal'] . " " . $ligne['telephone'] . " " . $ligne['lien'] . " " . $ligne['description'] . " " . "<img src=images/". $ligne['image']."> " 
+    echo "<p>" . $ligne['nom'] . " " . $ligne['adresse'] . " " . $ligne['ville'] . " " . $ligne['codePostal'] . " " . $ligne['telephone'] . " " ."<a href=".$ligne['lien'] .">". $ligne['lien'] . "</a>" . " " . $ligne['description'] . " " . "<img src=images/". $ligne['image']."> " 
             . "<input type='submit' value='Modifier' OnClick=window.location.href=" . "'index.php?action=modifier_sponsor&idSponsor={$ligne['idSponsor']}'" . ">"
             . "<input type='submit' value='Supprimer' OnClick=window.location.href=" . "'index.php?action=gestion_sponsor&idSponsor={$ligne['idSponsor']}'>" . "</p>";
 
