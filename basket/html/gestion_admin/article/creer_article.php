@@ -12,7 +12,7 @@ if (isset($_POST['titre'])) {
     $villeArticle = $_POST["villeArticle"];
     $departement = $_POST["departement"];
     $departement=preg_replace('/\s/', '', $departement);
-    $descriptionArticle = $_POST["descriptionArticle"];
+    $descriptionArticle = addslashes($_POST["descriptionArticle"]);
     $imageArticle = ($_POST["imageArticle"]);
     $requete = "insert into article (titre,dateArticle,villeArticle,departement,descriptionArticle,imageArticle) values ('$titre',NOW(),'$villeArticle','$departement','$descriptionArticle',";
 
@@ -42,10 +42,14 @@ if (isset($_POST['titre'])) {
         $message = "<div class='alert alert-danger'><strong>Erreur !</strong> L'article n'a pas pu être créé .<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
+        
         $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre sponsor à bien été créé .</div>";
         $connexion->exec($requete);
+        $descriptionArticle=stripslashes($descriptionArticle);
+        echo $descriptionArticle;
     }
 }
+echo $descriptionArticle;
 ?>
 <form  name="monForm" method="post" action="index.php?action=creer_article" >
     <div>
@@ -55,7 +59,7 @@ if (isset($_POST['titre'])) {
     <p>Titre* : <input type="text" name="titre" value='<?= $titre ?>'  ></p>
     <p>Ville* : <input type="text" name="villeArticle" value='<?= $villeArticle ?>'  ></p>
     <p>Departement : <input type="text" name="departement" value='<?= $departement ?>'  ></p>
-    <div><label for="desArt" >Description* : </label><textarea id='desArt'  name="descriptionArticle" value='<?= $descriptionArticle ?>'></textarea></div>
+    <div><label for="desArt" >Description* : </label><input type="text" maxlength="10000" id='desArt'  name="descriptionArticle" value='<?= stripslashes($descriptionArticle) ?>'></div>
     <p>Image : <input type="text"  name="imageArticle" value='<?= $imageArticle ?>'  ><p/>
     <br>
     <div>

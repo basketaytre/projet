@@ -1,5 +1,5 @@
 
-<h2>Listes des Actions</h2>
+<h1>Listes des Actions</h1>
 <?php
     $requete = "select * from action";
     //Exécution de  la requête qui renvoie le résultat dans  $resultats, 

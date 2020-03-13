@@ -48,6 +48,15 @@ elseif ($action=='modifier_action') {
 elseif ($action=='affiche_action') {
     include './html/action/affiche_action.php';
 }
+elseif ($action=='affiche_utilisateur') {
+    include './html/utilisateur/affiche_utilisateur.php';
+}
+elseif ($action=='gestion_utilisateur') {
+    include './html/gestion_admin/utilisateur/gestion_utilisateur.php';
+}
+elseif ($action=='inscription_utilisateur') {
+    include './html/gestion_admin/utilisateur/inscription_utilisateur.php';
+}
 else{
     include './page_erreur.php';
 }

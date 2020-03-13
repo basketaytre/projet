@@ -1,42 +1,35 @@
 <?php
+$pseudonyme = '';
 $nom = '';
-$adresse = '';
-$ville = '';
-$codePostal = '';
-$telephone = '';
-$lien = '';
-$description = '';
-$image = '';
+$prenom = '';
+$adresseMail='';
+$telephone='';
 $message = '';
 $donneeErreur = '';
 
-if (isset($_POST['nom'])) {
+if (isset($_POST['pseudonyme'])) {
+    $pseudonyme = $_POST["pseudonyme"];
     $nom = $_POST["nom"];
-    $adresse = $_POST["adresse"];
-    $ville = $_POST["ville"];
-    $codePostal = $_POST["codePostal"]);
+    $prenom = $_POST["prenom"];
+    $adresseMail = $_POST["adresse"];
     $telephone = $_POST["telephone"];
-    $lien = ($_POST["lien"]);
-    $description = ($_POST["description"]);
-    $image = $_POST["image"];
+    $anonyme = ($_POST["anonyme"]);
 
-    if ((strlen($codePostal)) != 5) {
-        $donneeErreur = $donneeErreur . "- Code postal invalide,<br>";
+    if ((strlen($pseudonyme) > 30) || (strlen($nom)) < 1)  {
+        $donneeErreur = $donneeErreur . "- Pseudonyme invalidde,<br>";
+    }
+
+    if (((strlen($nom)) > 50) || (strlen($nom)) < 1) {
+        $donneeErreur = $donneeErreur . "- Nom invalide, <br>";
+    }
+    if (((strlen($prenom)) > 50) || (strlen($prenom)) < 1) {
+        $donneeErreur = $donneeErreur . "- Prénom invalide, <br>";
+    }
+    if (((strlen($adresseMail)) > 50) || (strlen($adresseMail)) < 6) {
+        $donneeErreur = $donneeErreur . "- Adresse mail invalide, <br>";
     }
     if (strlen(preg_replace('/\s/', '', $telephone)) != 10){
         $donneeErreur = $donneeErreur . "- Numero de téléphone invalide, <br>";
-    }
-    if (((strlen($nom)) > 70) || (strlen($nom)) < 1) {
-        $donneeErreur = $donneeErreur . "- Nom invalide, <br>";
-    }
-    if (((strlen($adresse)) > 50) || (strlen($adresse)) < 1) {
-        $donneeErreur = $donneeErreur . "- Adresse invalide, <br>";
-    }
-    if (((strlen($ville)) > 50) || (strlen($ville)) < 1) {
-        $donneeErreur = $donneeErreur . "- Ville invalide, <br>";
-    }
-    if (((strlen($lien)) > 70) || (strlen($lien)) < 1) {
-        $donneeErreur = $donneeErreur . "- Lien sponsor invalide, <br>";
     }
     if (((strlen($description)) > 750) || (strlen($description)) < 1) {
         $donneeErreur = $donneeErreur . "- Description invalide, <br>";
@@ -44,12 +37,18 @@ if (isset($_POST['nom'])) {
     if (((strlen($image)) > 750) || (strlen($image)) < 1) {
         $donneeErreur = $donneeErreur . "- Image invalide, <br>";
     }
+    if (isset($_POST['anonyme'])){
+        $anonyme=1;
+    }
+    else{
+        $anonyme=0;
+    }        
     if ($donneeErreur != '') {
-        $message = "<div class='alert alert-danger'><strong>Erreur !</strong> Le sponsor n'a pas pu être créé .<br> $donneeErreur </div>";
+        $message = "<div class='alert alert-danger'><strong>Erreur !</strong>Votre profil n'a pas pu être créé.<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
         $telephone=(preg_replace('/\s/', '', $telephone));
-        $requete = "insert into sponsor (nom,adresse,ville,codePostal,telephone,lien,description,image) values ('$nom','$adresse','$ville',$codePostal,$telephone,'$lien','$description','$image');";
+        $requete = "insert into utilisateur (pseudonyme,nom,prenom,adresseMail,telephone,lien,description,image) values ('$nom','$adresse','$ville',$codePostal,$telephone,'$lien','$description','$image');";
         $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre sponsor à bien été créé .</div>";
         $connexion->exec($requete);
     }

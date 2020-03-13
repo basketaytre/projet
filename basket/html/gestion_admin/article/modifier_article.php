@@ -61,6 +61,7 @@ if (isset($_GET['valide'])) {
         $message = "<div class='alert alert-danger'><strong>Erreur !</strong> L'article n'a pas pu être modifié.<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
+        $descriptionArticle= addslashes($descriptionArticle);
         $requete = "update article set titre='$titre',descriptionArticle='$descriptionArticle', imageArticle='$imageArticle', villeArticle='$villeArticle', departement='$departement' where idArticle='$idArticle'";
         $connexion->exec($requete);
         $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre modification à bien été prise en compte .</div>";
@@ -78,7 +79,7 @@ if (isset($_GET['valide'])) {
     <p>Titre* : <input type="text" name="titre" value='<?= $titre ?>'  ></p>
     <p>Ville* : <input type="text" name="villeArticle" value='<?= $villeArticle ?>'  ></p>
     <p>Departement : <input type="text" name="departement" value='<?= $departement ?>'  ></p>
-    <p>Description* : <input type="text" name="descriptionArticle" value='<?= $descriptionArticle ?>'  ><p/>
+    <p>Description* : <input type="text" name="descriptionArticle" value="<?= stripcslashes($descriptionArticle) ?>"  ><p/>
     <p>Image : <input type="text" name="imageArticle" value='<?= $imageArticle ?>'  ><p/>
     <br>
     <div>
