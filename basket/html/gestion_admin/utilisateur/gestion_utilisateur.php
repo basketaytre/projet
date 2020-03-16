@@ -1,7 +1,7 @@
 <?php
 $message = '';
 if (isset($_GET['idUtilisateur'])) {
-    $idSponsor = $_GET['idUtilisateur'];
+    $idUtilisateur = $_GET['idUtilisateur'];
     $requete = "delete from utilisateur where idUtilisateur='$idUtilisateur'";
     $message = "<div class='alert alert-warning'><strong>Traitement effectué !</strong> Un utilisateur a été supprimé .</div>";
     $connexion->exec($requete);
