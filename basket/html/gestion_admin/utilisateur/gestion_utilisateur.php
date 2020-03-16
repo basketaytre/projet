@@ -5,7 +5,6 @@ if (isset($_GET['idUtilisateur'])) {
     $requete = "delete from utilisateur where idUtilisateur='$idUtilisateur'";
     $message = "<div class='alert alert-warning'><strong>Traitement effectué !</strong> Un utilisateur a été supprimé .</div>";
     $connexion->exec($requete);
-    echo $requete;
 }
 $requete = "select * from utilisateur";
 //Exécution de  la requête qui renvoie le résultat dans  $resultats, 
@@ -23,7 +22,7 @@ $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
 <?php 
 foreach ($lignes as $ligne) {
     //on affiche la ligne qu'on vient de lire
-    echo "<p>" . $ligne['nom'] . " " . $ligne['statut'] . " " . $ligne['pseudonyme'] . " " . $ligne['nom'] . " " . $ligne['prenom'] . " " . $ligne['adresseMail'] . " " .  $ligne['mdp'] . " " . $ligne['telephone'] . " "
+    echo "<p>" . $ligne['statut'] . " " . $ligne['pseudonyme'] . " " . $ligne['nom'] . " " . $ligne['prenom'] . " " . $ligne['adresseMail'] . " " .  $ligne['mdp'] . " " . $ligne['telephone'] . " "
             . "<input type='submit' value='Modifier' OnClick=window.location.href=" . "'index.php?action=modifier_utilisateur&idUtilisateur={$ligne['idUtilisateur']}'" . ">"
             . "<input type='submit' value='Supprimer' OnClick=window.location.href=" . "'index.php?action=gestion_utilisateur&idUtilisateur={$ligne['idUtilisateur']}'>" . "</p>";
 

@@ -54,6 +54,9 @@ elseif ($action=='affiche_utilisateur') {
 elseif ($action=='gestion_utilisateur') {
     include './html/gestion_admin/utilisateur/gestion_utilisateur.php';
 }
+elseif ($action=='modifier_utilisateur') {
+    include './html/gestion_admin/utilisateur/modifier_utilisateur.php';
+}
 elseif ($action=='inscription_utilisateur') {
     include './html/gestion_admin/utilisateur/inscription_utilisateur.php';
 }
