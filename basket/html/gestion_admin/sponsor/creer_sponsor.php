@@ -14,7 +14,7 @@ if (isset($_POST['nom'])) {
     $nom = $_POST["nom"];
     $adresse = $_POST["adresse"];
     $ville = $_POST["ville"];
-    $codePostal = $_POST["codePostal"]);
+    $codePostal = $_POST["codePostal"];
     $telephone = $_POST["telephone"];
     $lien = ($_POST["lien"]);
     $description = ($_POST["description"]);
