@@ -90,6 +90,7 @@ if (isset($_GET['valide'])) {
 }
 ?>
 <form  name="monForm" method="post" action="index.php?action=modifier_sponsor&valide=ok">
+    <br><br>
     <div>
         <?= $message ?>
     </div>

@@ -1,5 +1,5 @@
-<h1>Page d'affichage des articles</h1>
-<h3>Listes des Articles</h3>
+<br><br>
+<h3>Listes des Articles</h3><br>
 <?php
     $requete = "select * from article";
     //Exécution de  la requête qui renvoie le résultat dans  $resultats, 
@@ -11,3 +11,5 @@
         echo "<p>". " " . $ligne['titre'] . " " . $ligne['dateArticle'] . " " . $ligne['villeArticle'] . " " . $ligne['departement'] . " " . $ligne['descriptionArticle'] . " " . "<img src=images/". $ligne['imageArticle'] . "> "."</p>";
     }
 ?>
+<br>
+<input type='button' value='Retour' OnClick="window.location.href='index.php'" />

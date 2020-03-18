@@ -52,6 +52,7 @@ if (isset($_POST['titre'])) {
 echo $descriptionArticle;
 ?>
 <form  name="monForm" method="post" action="index.php?action=creer_article" >
+    <br><br>
     <div>
         <?= $message ?>
     </div>

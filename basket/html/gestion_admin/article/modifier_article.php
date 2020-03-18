@@ -70,6 +70,7 @@ if (isset($_GET['valide'])) {
 ?>
 
 <form  name="monForm" method="post" action="index.php?action=modifier_article&valide=ok" >
+    <br><br>
     <div>
         <?= $message ?>
     </div>

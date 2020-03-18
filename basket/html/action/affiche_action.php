@@ -1,5 +1,5 @@
-
-<h1>Listes des Actions</h1>
+<br><br>
+<h3>Listes des Actions</h3><br>
 <?php
     $requete = "select * from action";
     //Exécution de  la requête qui renvoie le résultat dans  $resultats, 
@@ -11,4 +11,6 @@
         echo "<p>",$ligne['typeDon']," ",$ligne['montant']," ",$ligne['date'],"</p>";
     }
 ?>
+<br>
+<input type='button' value='Retour' OnClick="window.location.href='index.php'" />
 

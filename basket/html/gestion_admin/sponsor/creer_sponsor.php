@@ -57,6 +57,7 @@ if (isset($_POST['nom'])) {
 ?>
 
 <form  name="monForm" method="post" action="index.php?action=creer_sponsor" >
+    <br><br>
     <div>
         <?= $message ?>
     </div>

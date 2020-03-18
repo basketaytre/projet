@@ -11,6 +11,9 @@ if(isset($_GET['action'])){
 if($action==''){
     include 'html/acceuil/accueil.php';
 }
+elseif ($action=='gestion_admin') {
+    include './html/gestion_admin/gestion_admin.php';
+}
 elseif($action=='creer_sponsor'){
     include 'html/gestion_admin/sponsor/creer_sponsor.php';
 }

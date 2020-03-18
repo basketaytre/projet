@@ -1,7 +1,7 @@
 <?php
 $adresseMail= '';
 
-if (isset($_POST['pseudonyme']) {
+if (isset($_POST['pseudonyme'])) {
     $pseudonyme = $_POST["pseudonyme"];
     $nom = $_POST["nom"];
     $prenom = $_POST["prenom"];
@@ -44,6 +44,7 @@ if (isset($_POST['pseudonyme']) {
 ?>
 
 <form  name="monForm" method="post" action="index.php?action=inscription_utilisateur" >
+    <br><br>
     <div>
         <?= $message ?>
     </div>

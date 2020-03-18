@@ -44,6 +44,7 @@ if (isset($_POST['idArticle'])) {
 }
 ?>
 <form  name="monForm" method="post" action="index.php?action=creer_action" >
+    <br><br>
     <div>
         <?= $message ?>
     </div>

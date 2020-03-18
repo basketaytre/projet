@@ -61,6 +61,7 @@ if (isset($_POST['pseudonyme'])) {
 ?>
 
 <form  name="monForm" method="post" action="index.php?action=inscription_utilisateur" >
+    <br><br>
     <div>
         <?= $message ?>
     </div>
