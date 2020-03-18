@@ -17,6 +17,9 @@ and open the template in the editor.
             <div class="pos-f-t">
                 <div class="collapse" id="navbarToggleExternalContent"></div>
                 <nav class="navbar navbar-dark bg-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href = 'index.php?action='">
+                        <span class="title">Accueil</span>
+                    </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" OnClick="window.location.href = 'index.php?action=gestion_sponsor'">
                         <span class="title">Gestion Sponsors</span>
                     </button>
@@ -40,6 +43,9 @@ and open the template in the editor.
                     </button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href = 'index.php?action=affiche_utilisateur'">
                         <span class="title">Utilisateurs</span>
+                    </button>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href = 'index.php?action=inscription_utilisateur'">
+                        <span class="title">Connexion</span>
                     </button>
                 </nav>
             </div>

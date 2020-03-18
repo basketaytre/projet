@@ -58,7 +58,7 @@ elseif ($action=='modifier_utilisateur') {
     include './html/gestion_admin/utilisateur/modifier_utilisateur.php';
 }
 elseif ($action=='inscription_utilisateur') {
-    include './html/gestion_admin/utilisateur/inscription_utilisateur.php';
+    include './html/utilisateur/inscription_utilisateur.php';
 }
 else{
     include './page_erreur.php';
