@@ -42,8 +42,8 @@ if (isset($_GET['valide'])) {
         $departement = $_POST["departement"];
         $departement = preg_replace('/\s/', '', $departement);
     }
-    if ((strlen(preg_replace('/\s/', '', $departement))) != 5) {
-        $donneeErreur = $donneeErreur . "- Code postal invalide<br>";
+    if ((strlen(preg_replace('/\s/', '', $departement))) != 2) {
+        $donneeErreur = $donneeErreur . "- Departement invalide<br>";
     }
     if (((strlen($titre)) > 100) || (strlen($titre)) < 1) {
         $donneeErreur = $donneeErreur . "- Titre invalide <br>";

@@ -22,7 +22,7 @@ if (isset($_POST['titre'])) {
     if (((strlen($villeArticle)) > 50) || (strlen($villeArticle)) < 1) {
         $donneeErreur = $donneeErreur . "- Ville invalide, <br>";
     }
-    if ((strlen(preg_replace('/\s/', '', $departement))) != 5) {
+    if ((strlen(preg_replace('/\s/', '', $departement))) != 2) {
         $donneeErreur = $donneeErreur . "- Département invalide, <br>";
     }
     if (((strlen($descriptionArticle)) > 10000) || (strlen($descriptionArticle)) < 2) {
