@@ -3,7 +3,6 @@
 session_start();
 include 'connexion.php';
 include 'html/header.php';
-//include 'connexion.php';
 
 $action='';
 if(isset($_GET['action'])){
@@ -55,7 +54,7 @@ elseif ($action=='gestion_utilisateur') {
     include './html/gestion_admin/utilisateur/gestion_utilisateur.php';
 }
 elseif ($action=='inscription_utilisateur') {
-    include './html/gestion_admin/utilisateur/inscription_utilisateur.php';
+    include './html/utilisateur/inscription_utilisateur.php';
 }
 else{
     include './page_erreur.php';

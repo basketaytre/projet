@@ -1,16 +1,40 @@
-#fond{
-    background: url("../images/fond1.png")no-repeat;
+html, body{
+    height:100%;
+    width:100%;
+    display:block;
+
+}
+/*body{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}*/
+.conteneur{
+    height:100%;
+    width:100%;
+
+}
+
+.fond{
+
+    background-image: url('../images/fond2.jpg');
+    background-repeat: no-repeat;
     background-size: cover;
-
-
-
-}
-h1{
-
-    color: black;
-    fond-size:3.5em;
+    background-position: center center;
+    height:100%;
+    max-height: auto;
 }
 
-h2{
+.titre{
+    font-family: 'Kalam', cursive;
+    font-size: 80px;
     color:white;
+    text-shadow:0.1em 0.1em 0.9em black, 0 0 0.3em black;
+
+}
+
+
+
+footer{
+    bottom: 0;
 }

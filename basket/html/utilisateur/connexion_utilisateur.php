@@ -1,22 +1,11 @@
 <?php
-$pseudonyme = '';
-$nom = '';
-$prenom = '';
-$adresseMail='';
-$mdp='';
-$mdp2='';
-$telephone='';
-$anonyme='';
-$message = '';
-$donneeErreur = '';
+$adresseMail= '';
 
-if (isset($_POST['pseudonyme'])) {
+if (isset($_POST['pseudonyme']) {
     $pseudonyme = $_POST["pseudonyme"];
     $nom = $_POST["nom"];
     $prenom = $_POST["prenom"];
     $adresseMail = $_POST["adresseMail"];
-    $mdp=$_POST["mdp"];
-    $mdp2=$_POST["mdp2"];
     $telephone = $_POST["telephone"];
 
     if ((strlen($pseudonyme) > 30) || (strlen($pseudonyme)) < 1)  {
@@ -24,22 +13,16 @@ if (isset($_POST['pseudonyme'])) {
     }
 
     if (((strlen($nom)) > 50) || (strlen($nom)) < 1) {
-        $donneeErreur = $donneeErreur . "- Nom invalide <br>";
+        $donneeErreur = $donneeErreur . "- Nom invalide, <br>";
     }
     if (((strlen($prenom)) > 50) || (strlen($prenom)) < 1) {
-        $donneeErreur = $donneeErreur . "- Prénom invalide <br>";
+        $donneeErreur = $donneeErreur . "- Prénom invalide, <br>";
     }
     if (((strlen($adresseMail)) > 50) || (strlen($adresseMail)) < 6) {
-        $donneeErreur = $donneeErreur . "- Adresse mail invalide <br>";
-    }
-    if (((strlen($mdp)) > 50) || (strlen($mdp) < 6))  {
-        $donneeErreur = $donneeErreur . "- Mot de passe invalide <br>";
-    }
-    if (strlen($mdp)!= strlen($mdp2))  {
-        $donneeErreur = $donneeErreur . "- Vos mots de passes ne correspondent pas <br>";
+        $donneeErreur = $donneeErreur . "- Adresse mail invalide, <br>";
     }
     if (strlen(preg_replace('/\s/', '', $telephone)) != 10){
-        $donneeErreur = $donneeErreur . "- Numero de téléphone invalide <br>";
+        $donneeErreur = $donneeErreur . "- Numero de téléphone invalide, <br>";
     }
     if (isset($_POST['anonyme'])){
         $anonyme=1;
@@ -53,8 +36,8 @@ if (isset($_POST['pseudonyme'])) {
     if ($donneeErreur == '') {
         echo $anonyme;
         $telephone=(preg_replace('/\s/', '', $telephone));
-        $requete = "insert into utilisateur (pseudonyme,nom,prenom,adresseMail,mdp,telephone,anonyme) values ('$pseudonyme','$nom','$prenom','$adresseMail','$mdp',$telephone,$anonyme);";
-        $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Vottre prfil a bien été créé .</div>";
+        $requete = "insert into utilisateur (pseudonyme,nom,prenom,adresseMail,telephone,anonyme) values ('$pseudonyme','$nom','$prenom','$adresseMail',$telephone,$anonyme);";
+        $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre sponsor à bien été créé .</div>";
         $connexion->exec($requete);
     }
 }
@@ -71,8 +54,6 @@ if (isset($_POST['pseudonyme'])) {
     <p>Nom* : <input type="text" name="nom" value='<?= $nom ?>'   ></p>
     <p>Prénom* : <input type="text" name="prenom" value='<?= $prenom ?>'  ></p>
     <p>Adresse mail* : <input type="email" name="adresseMail" value='<?= $adresseMail ?>'   ></p>
-    <p>Mot de passe* : <input type="password" name="mdp" value='<?= $mdp ?>'  ></p>
-    <p>Verification mot de passe* : <input type="password" name="mdp2" value='<?= $mdp2 ?>'  ></p>
     <p>Téléphone* : <input type="text" name="telephone" value='<?= $telephone ?>' </p>
     <p>Anonyme <input type="checkbox" name='anonyme' <?php if ($anonyme) echo 'checked'; ?>/><p>
     <div>
