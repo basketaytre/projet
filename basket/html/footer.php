@@ -15,6 +15,8 @@
                                 <li class="mb-3">17440 AYTRÉ</li>
                                 <li>Téléphone : xx-xx-xx-xx-xx                            </ul>
                         </small>
+                        <button class="btn btn-outline-light pr-2 pl-2">Nous contacter</button>
+
                     </div>
                 </div>
             </div>
@@ -29,8 +31,8 @@
                     </div>
                     <div class="col text-left">
                         <ul class="list-unstyled">
-                            <li>Accueil</li>
-                            <li>Article</li>
+                            <li><a href="#" class="text-white" >Partenaires</a></li>
+                            <li><a href="#" class="text-white" >Utilisateurs</a></li>
                         </ul>
                     </div>
                 </div>
@@ -39,7 +41,7 @@
                 <h5>Réseau sociaux</h5>
                 <div id="fb-root"></div>
 
-<div class="fb-page" data-href="https://www.facebook.com/aytrebasket/" data-tabs="timeline" data-width="" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/aytrebasket/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/aytrebasket/">ABBA Association Basket Ball Aytré</a></blockquote></div>
+                <div class="fb-page" data-href="https://www.facebook.com/aytrebasket/" data-tabs="timeline" data-width="" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/aytrebasket/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/aytrebasket/">ABBA Association Basket Ball Aytré</a></blockquote></div>
             </div>
         </div>
         <hr class='hrp'>
@@ -50,9 +52,10 @@
                 <small>Mention légales</small>
                 <small class="pl-2 pr-2">|</small>
                 <small>Plan du site</small>
-
+                <br>
+                <small>© 2020</small>
+            </div>
         </div>
-    </div>
 </footer>
 </body>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v6.0"></script>

@@ -46,13 +46,10 @@ if (isset($_POST['titre'])) {
         $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre sponsor à bien été créé .</div>";
         $connexion->exec($requete);
         $descriptionArticle=stripslashes($descriptionArticle);
-        echo $descriptionArticle;
     }
 }
-echo $descriptionArticle;
 ?>
 <form  name="monForm" method="post" action="index.php?action=creer_article" >
-    <br><br>
     <div>
         <?= $message ?>
     </div>

@@ -1,4 +1,6 @@
-
+body{
+    background-color: #f5f5f5;
+}
 .conteneur{
     height:100%;
     width:100%;
@@ -94,3 +96,33 @@ input:focus {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
+
+.form-connexion{
+    max-width: 400px;
+    margin:auto;
+}
+
+#logonav {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin: -40px;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  line-height:75px;
+  color: #fff;
+  
+  
+  }
+
+  .categ{
+      background-color: #404040;
+      border-radius: 5px;
+  }
+  
+  .bouton{
+      margin-left: 20%;
+      margin-right: 20%;
+      width:auto;
+  }

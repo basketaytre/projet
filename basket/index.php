@@ -62,6 +62,9 @@ elseif ($action=='modifier_utilisateur') {
 elseif ($action=='inscription_utilisateur') {
     include './html/utilisateur/inscription_utilisateur.php';
 }
+elseif ($action=='connexion_utilisateur') {
+    include './html/utilisateur/connexion_utilisateur.php';
+}
 else{
     include './page_erreur.php';
 }

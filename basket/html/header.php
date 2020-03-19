@@ -20,25 +20,18 @@ and open the template in the editor.
             <div class="pos-f-t">
                 <div class="collapse" id="navbarToggleExternalContent"></div>
                 <nav class="navbar navbar-dark bg-dark">
-                    <a class='p-2 text-white nav-link' href='index.php'>Acceuil</a>
+                    <a class='p-2 text-white nav-link ' href='index.php'>Acceuil</a>
                     <a class='p-2 text-white nav-link' href='index.php?action=affiche_article'>Actualité</a>
-                    <a class='p-2 text-white nav-link' href='index.php?action=affiche_article'>Actualité</a>
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href = 'index.php?action=affiche_sponsor'">
-                        <span class="title">Sponsors</span>
-                    </button>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href = 'index.php?action=affiche_action'">
-                        <span class="title">Voir les actions</span>
-                    </button>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href = 'index.php?action=affiche_utilisateur'">
-                        <span class="title">Voir les utilisateurs</span>
-                    </button>
+                    <a class='p-2 text-white nav-link' href='index.php?action=affiche_sponsor'>Partenaires</a>
+                    <a class='p-2 text-white nav-link' href='index.php?action=affiche_action'>Actions</a>
+<!--                    <img id="logonav" src="images/logo_mini.PNG" height="50" width="44" class="float-left">-->
+                    <a class='p-2 text-white nav-link' href='index.php?action=affiche_utilisateur'>Utilisateurs<a>
+                    
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href = 'index.php?action=gestion_admin'">
                         <span class="title">Gestion Administrateur</span>
                     </button>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" onclick="window.location.href = 'index.php?action=inscription_utilisateur'">
-                        <span class="title">Inscription</span>
-                    </button>
+                    <a class="btn btn-outline-primary" href="index.php?action=connexion_utilisateur">Se connecter</a>
                 </nav>
+                <div></div>
             </div>
         </header>
