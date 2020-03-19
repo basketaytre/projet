@@ -75,7 +75,7 @@ if (isset($_POST['pseudonyme'])) {
     <p>Mot de passe* : <input type="password" name="mdp" value='<?= $mdp ?>'  ></p>
     <p>Verification mot de passe* : <input type="password" name="mdp2" value='<?= $mdp2 ?>'  ></p>
     <p>Téléphone* : <input type="text" name="telephone" value='<?= $telephone ?>' </p>
-    <p>Anonyme <input type="checkbox" name='anonyme' <?php if ($anonyme) echo 'checked'; ?>/><p>
+    <p>Anonyme <input type="checkbox" name='anonyme' <?php if ($anonyme) echo 'checked'; ?>/></p>
     <div>
         <input type='submit' value='Enregistrer' OnClick="validform()" />
     </div>

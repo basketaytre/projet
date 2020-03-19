@@ -7,6 +7,7 @@ $prenom = '';
 $adresseMail = '';
 $mdp = '';
 $telephone = '';
+$anonyme = 0;
 $message = '';
 $succes = '';
 $donneeErreur = '';
@@ -24,6 +25,7 @@ if (isset($_GET['idUtilisateur'])) {
     $prenom = $ligne['prenom'];
     $adresseMail = $ligne['adresseMail'];
     $mdp = $ligne['mdp'];
+    $anonyme = $ligne['anonyme'];
     $telephone = $ligne['telephone'];
 }
 if (isset($_GET['valide'])) {
@@ -70,12 +72,18 @@ if (isset($_GET['valide'])) {
     if (strlen(preg_replace('/\s/', '', $telephone)) != 10){
         $donneeErreur = $donneeErreur . "- Numero de téléphone invalide, <br>";
     }
+    if (isset($_POST['anonyme'])){
+        $anonyme=1;
+    }
+    else{
+        $anonyme=0;
+    }   
     if ($donneeErreur != '') {
         $message = "<div class='alert alert-danger'><strong>Erreur !</strong> Le sponsor n'a pas pu être modifié.<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
         $telephone = (preg_replace('/\s/', '', $telephone));
-        $requete = "update utilisateur set statut='$statut',pseudonyme='$pseudonyme',nom='$nom',prenom='$prenom',telephone='$telephone',adresseMail='$adresseMail',mdp='$mdp' where idUtilisateur='$idUtilisateur'";
+        $requete = "update utilisateur set statut='$statut',pseudonyme='$pseudonyme',nom='$nom',prenom='$prenom',telephone='$telephone',adresseMail='$adresseMail',mdp='$mdp',anonyme='$anonyme' where idUtilisateur='$idUtilisateur'";
         $connexion->exec($requete);
         $message="<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre modification à bien été prise en compte .</div>";
     }
@@ -95,6 +103,7 @@ if (isset($_GET['valide'])) {
     <p>Telephone : <input type="text" name="telephone" value='<?= $telephone ?>'  ></p>
     <p>Adresse Mail : <input type="text" name="adresseMail" value='<?= $adresseMail ?>'  ></p>
     <p>Mot de passe : <input type="text" name="mdp" value='<?= $mdp ?>'  ></p>
+    <p>Anonyme <input type="checkbox" name='anonyme' <?php if ($anonyme) echo 'checked'; ?>/></p>
     <br>
     <br>
 
