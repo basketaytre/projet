@@ -75,20 +75,42 @@ if (isset($_GET['valide'])) {
         <?= $message ?>
     </div>
     <h1>Page de modification d'article</h1>
-    <p>ID Article : <input type="text" name="idArticle" readonly="" value='<?= $idArticle ?>'  ></p>
-    <p>Date Article : <input type="text" name="dateArticle" readonly="" value='<?= $dateArticle ?>'  ></p>
-    <p>Titre* : <input type="text" name="titre" value='<?= $titre ?>'  ></p>
-    <p>Ville* : <input type="text" name="villeArticle" value='<?= $villeArticle ?>'  ></p>
-    <p>Departement : <input type="text" name="departement" value='<?= $departement ?>'  ></p>
-    <p>Description* : <input type="text" name="descriptionArticle" value="<?= stripcslashes($descriptionArticle) ?>"  ><p/>
-    <p>Image : <input type="text" name="imageArticle" value='<?= $imageArticle ?>'  ><p/>
+    <label class="form_col" for="idArticle">ID Article : </label>
+    <input type="text" name="idArticle" readonly="" value='<?= $idArticle ?>'>
+    <br>
+    <br>
+    <label class="form_col" for="titre">Titre* : </label>
+    <input type="text" id="titre" name="titre" value='<?= $titre ?>' onblur="VerifTitre()">
+    <span class="tooltip" id="tooltiptitre">Doit être compris entre 1 et 100 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="ville">Ville* : </label>
+    <input type="text" id="ville" name="villeArticle" value='<?= $villeArticle ?>' onblur="VerifVille()">
+    <span class="tooltip" id="tooltipville">Doit être compris entre 1 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="departement">Departement : </label>
+    <input type="text" id="departement" name="departement" value='<?= $departement ?>' onblur="VerifDepartement()">
+    <span class="tooltip" id="tooltipdepartement">Doit faire 2 caractéres</span>
+    <br>
+    <br>
+    <label class="form_col" for="desArt" >Description* : </label>
+    <input type="text" maxlength="10000" id='desArt'  name="descriptionArticle" value='<?= stripslashes($descriptionArticle) ?>' onblur="VerifDescription()">
+    <span class="tooltip" id="tooltipdescription">Doit être compris entre 1 et 10000 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="image">Image : </label>
+    <input type="text" id="image" name="imageArticle" value='<?= $imageArticle ?>' onblur="VerifImage()">
+    <span class="tooltip" id="tooltipimage">Doit être compris entre 1 et 100 caractères</span>
+    <br>
     <br>
     <div>
-        <input type='submit' value='Enregistrer' />
+        <input type='submit' value='Enregistrer' onclick="return ValidFormModifierArticle()"/>
+        <input type='reset' value="Réinitialiser le formulaire" />
+        <input type='button' value='Retour' OnClick="window.location.href='index.php?action=gestion_article'" />
     </div>
     <br>
 </form>
-<div>
-    <input type='submit' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_article'"/>
-</div>
-
+<script src="./js/article/modifier_article.js">
+    
+</script>

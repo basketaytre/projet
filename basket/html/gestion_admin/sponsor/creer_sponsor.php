@@ -4,7 +4,7 @@ $adresse = '';
 $ville = '';
 $codePostal = '';
 $telephone = '';
-$liensponsors = '';
+$lien = '';
 $description = '';
 $image = '';
 $message = '';
@@ -16,7 +16,7 @@ if (isset($_POST['nom'])) {
     $ville = $_POST["ville"];
     $codePostal = $_POST["codePostal"];
     $telephone = $_POST["telephone"];
-    $liensponsors = ($_POST["liensponsors"]);
+    $lien = ($_POST["lien"]);
     $description = ($_POST["description"]);
     $image = $_POST["image"];
 
@@ -35,7 +35,7 @@ if (isset($_POST['nom'])) {
     if (((strlen($ville)) > 50) || (strlen($ville)) < 1) {
         $donneeErreur = $donneeErreur . "- Ville invalide, <br>";
     }
-    if (((strlen($liensponsors)) > 70) || (strlen($liensponsors)) < 1) {
+    if (((strlen($lien)) > 70) || (strlen($lien)) < 1) {
         $donneeErreur = $donneeErreur . "- Lien sponsor invalide, <br>";
     }
     if (((strlen($description)) > 750) || (strlen($description)) < 1) {
@@ -57,7 +57,6 @@ if (isset($_POST['nom'])) {
 ?>
 
 <form  name="monForm" method="post" action="index.php?action=creer_sponsor" >
-    <br><br>
     <div>
         <?= $message ?>
     </div>
@@ -89,9 +88,9 @@ if (isset($_POST['nom'])) {
     <span class="tooltip" id="tooltiptelephone">Doit faire 10 caractéres</span>
     <br>
     <br>
-    <label class="form_col" for="liensponsor">Lien sponsor* :</label> 
-    <input type="text" id="liensponsors" name="liensponsors" value='<?= $liensponsors ?>' onblur="VerifLienSponsors()">
-    <span class="tooltip" id="tooltipliensponsors">Doit être compris entre 1 et 70 caractères</span>
+    <label class="form_col" for="lien">Lien sponsor* :</label> 
+    <input type="text" id="lien" name="lien" value='<?= $lien ?>' onblur="VerifLienSponsors()">
+    <span class="tooltip" id="tooltiplien">Doit être compris entre 1 et 70 caractères</span>
     <br>
     <br>
     <label class="form_col" for="description">Description* :</label>

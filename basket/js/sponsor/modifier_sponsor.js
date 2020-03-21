@@ -127,7 +127,7 @@ function VerifImage() {
 }
 
 // ERREUR formulaire
-function ValidFormCreerSponsors() {
+function ValidFormModifierSponsors() {
     var coderet = true;
     VerifNom();
     if (VerifNom()==false){
@@ -163,3 +163,5 @@ function ValidFormCreerSponsors() {
     }
     return coderet;
 }
+
+

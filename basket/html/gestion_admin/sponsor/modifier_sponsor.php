@@ -90,28 +90,64 @@ if (isset($_GET['valide'])) {
 }
 ?>
 <form  name="monForm" method="post" action="index.php?action=modifier_sponsor&valide=ok">
-    <br><br>
     <div>
         <?= $message ?>
     </div>
     <h1>Modification d'un sponsor</h1>
-    <p>ID Sponsor : <input type="text" name="idSponsor" readonly="" value='<?= $idSponsor ?>'  ></p>
-    <p>Nom* : <input type="text" name="nom" value='<?= $nom ?>'  ></p>
-    <p>Adresse* : <input type="text" name="adresse" value='<?= $adresse ?>'   ></p>
-    <p>Ville* : <input type="text" name="ville" value='<?= $ville ?>'  ></p>
-    <p>Code Postal* : <input type="text" name="codePostal" value='<?= $codePostal ?>'   ></p>
-    <p>Téléphone* : <input type="text" name="telephone" value='<?= $telephone ?>' </p>
-    <p>Lien sponsor* : <input type="text" name="lien" value='<?= $lien ?>'  </p>
-    <p>Description* : <input type="text" name="description" value='<?= $description ?>' ></p>
-    <p>Lien image : <input type="text" name="image" value='<?= $image ?>'  </p>
     <br>
     <br>
-
+    <label class="form_col" for="idsponsor">ID Sponsor : </label>
+    <input type="text" name="idSponsor" readonly="" value='<?= $idSponsor ?>'>
+    <br>
+    <br>
+    <label class="form_col" for="nom">Nom* : </label>
+    <input name="nom" id="nom" type="text" value='<?= $nom ?>' onblur="VerifNom()">
+    <span class="tooltip" id="tooltipnom">Doit être compris entre 1 et 70 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="adresse">Adresse* :</label>
+    <input type="text" id="adresse" name="adresse" value='<?= $adresse ?>' onblur="VerifAdresse()">
+    <span class="tooltip" id="tooltipadresse">Doit être compris entre 1 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="ville">Ville* :</label> 
+    <input type="text" id="ville" name="ville" value='<?= $ville ?>' onblur="VerifVille()">
+    <span class="tooltip" id="tooltipville">Doit être compris entre 1 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="codePostal">Code Postal* :</label>
+    <input type="text" id="codepostal" name="codePostal" value='<?= $codePostal ?>' onblur="VerifCodePostal()">
+    <span class="tooltip" id="tooltipcodepostal">Doit faire 5 caractéres</span>
+    <br>
+    <br>
+    <label class="form_col" for="telephone">Téléphone* :</label> 
+    <input type="text" id="telephone" name="telephone" value='<?= $telephone ?>' onblur="VerifTelephone()">
+    <span class="tooltip" id="tooltiptelephone">Doit faire 10 caractéres</span>
+    <br>
+    <br>
+    <label class="form_col" for="lien">Lien sponsor* :</label> 
+    <input type="text" id="lien" name="lien" value='<?= $lien ?>' onblur="VerifLienSponsors()">
+    <span class="tooltip" id="tooltiplien">Doit être compris entre 1 et 70 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="description">Description* :</label>
+    <input type="text" id="description" name="description" value='<?= $description ?>' onblur="VerifDescription()">
+    <span class="tooltip" id="tooltipdescription">Doit être compris entre 1 et 750 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="lienimage">Lien image* :</label>
+    <input type="text" id="image" name="image" value='<?= $image ?>' onblur="VerifImage()">
+    <span class="tooltip" id="tooltipimage">Doit être compris entre 1 et 750 caractères</span>
+    <br>
+    <br>
     <div>
-        <input type='submit' value='Enregistrer' />
+        <span class="form_col"></span>
+        <input type='submit' value='Enregistrer' onclick="return ValidFormModifierSponsors()"/>
+        <input type='reset' value="Réinitialiser le formulaire" />
+        <input type='button' value='Retour' OnClick="window.location.href='index.php?action=gestion_sponsor'" />
     </div>
     <br>
 </form>
-<div>
-    <input type='submit' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_sponsor'"/>
-</div>
+<script src="./js/sponsor/modifier_sponsor.js">
+    
+</script>

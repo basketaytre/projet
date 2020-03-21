@@ -1,4 +1,3 @@
-<br><br>
 <h1>Gestion Administrateur</h1>
 <input type='submit' value='Gestion Sponsors' OnClick="window.location.href = 'index.php?action=gestion_sponsor'"/>
 <input type='submit' value='Gestion Articles' OnClick="window.location.href = 'index.php?action=gestion_article'"/>
