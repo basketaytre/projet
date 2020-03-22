@@ -147,6 +147,4 @@ if (isset($_GET['valide'])) {
     </div>
     <br>
 </form>
-
-
 <script src="./js/sponsor/modifier_sponsor.js"></script>

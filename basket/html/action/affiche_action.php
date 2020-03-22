@@ -1,4 +1,3 @@
-<br><br>
 <h3>Listes des Actions</h3><br>
 <?php
     $requete = "select * from action";

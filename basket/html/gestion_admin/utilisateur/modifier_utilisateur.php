@@ -6,6 +6,7 @@ $nom = '';
 $prenom = '';
 $adresseMail = '';
 $mdp = '';
+$mdp2 = '';
 $telephone = '';
 $anonyme = 0;
 $message = '';
@@ -25,6 +26,7 @@ if (isset($_GET['idUtilisateur'])) {
     $prenom = $ligne['prenom'];
     $adresseMail = $ligne['adresseMail'];
     $mdp = $ligne['mdp'];
+    $mdp2 = $ligne['mdp'];
     $anonyme = $ligne['anonyme'];
     $telephone = $ligne['telephone'];
 }
@@ -48,6 +50,9 @@ if (isset($_GET['valide'])) {
     if (isset($_POST["mdp"])) {
         $mdp = $_POST["mdp"];
     }
+    if (isset($_POST["mdp2"])) {
+        $mdp2 = $_POST["mdp2"];
+    }
     if (isset($_POST["telephone"])) {
         $telephone = $_POST["telephone"];
     }
@@ -68,6 +73,9 @@ if (isset($_GET['valide'])) {
     }
     if (((strlen($mdp)) > 50) || (strlen($mdp)) < 6) {
         $donneeErreur = $donneeErreur . "- Mot de passe invalide, <br>";
+    }
+    if (strlen($mdp)!= strlen($mdp2))  {
+        $donneeErreur = $donneeErreur . "- Vos mots de passes ne correspondent pas <br>";
     }
     if (strlen(preg_replace('/\s/', '', $telephone)) != 10){
         $donneeErreur = $donneeErreur . "- Numero de téléphone invalide, <br>";
@@ -90,28 +98,63 @@ if (isset($_GET['valide'])) {
 }
 ?>
 <form  name="monForm" method="post" action="index.php?action=modifier_utilisateur&valide=ok">
-    <br><br>
     <div>
         <?= $message ?>
     </div>
-    <h1>Modification d'un sponsor</h1>
-    <p>ID Utilisateur : <input type="text" name="idUtilisateur" readonly="" value='<?= $idUtilisateur ?>'  ></p>
-    <p>Statut : <input type="text" name="statut" value='<?= $statut ?>'  ></p>
-    <p>Pseudonyme : <input type="text" name="pseudonyme" value='<?= $pseudonyme ?>'  ></p>
-    <p>Nom : <input type="text" name="nom" value='<?= $nom ?>'  ></p>
-    <p>Prenom : <input type="text" name="prenom" value='<?= $prenom ?>'  ></p>
-    <p>Telephone : <input type="text" name="telephone" value='<?= $telephone ?>'  ></p>
-    <p>Adresse Mail : <input type="text" name="adresseMail" value='<?= $adresseMail ?>'  ></p>
-    <p>Mot de passe : <input type="text" name="mdp" value='<?= $mdp ?>'  ></p>
-    <p>Anonyme <input type="checkbox" name='anonyme' <?php if ($anonyme) echo 'checked'; ?>/></p>
+    <h1>Modification d'un utilisateur</h1>
     <br>
     <br>
-
+    <label class="form_col" for="pseudonyme">ID Utilisateur : </label>
+    <input type="text" name="idUtilisateur" readonly="" value='<?= $idUtilisateur ?>'>
+    <br>
+    <br>
+    <label class="form_col" for="pseudonyme">Pseudonyme: </label>
+    <input name="pseudonyme" id="pseudonyme" type="text"  value='<?= $pseudonyme ?>' onblur="indexDonnees(0, 1)">
+    <span class="tooltip" id="tooltipPseudonyme">Doit être compris entre 1 et 30 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="statut">Statut: </label>
+    <input name="statut" id="statut" type="text"  value='<?= $statut ?>' onblur="indexDonnees(1, 1)">
+    <span class="tooltip" id="tooltipStatut">Doit être compris entre 1 et 30 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="nom">Nom* : </label>
+    <input type="text" id="nom" name="nom" value='<?= $nom ?>' onblur="indexDonnees(2, 1)">
+    <span class="tooltip" id="tooltipNom">Doit être compris entre 1 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="prenom">Prénom* : </label>
+    <input type="text" id="prenom" name="prenom" value='<?= $prenom ?>' onblur="indexDonnees(3, 1)">
+    <span class="tooltip" id="tooltipPrenom">Doit être compris entre 1 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="adresseMail">Adresse mail* : </label>
+    <input type="email" id="adresseMail" name="adresseMail" value='<?= $adresseMail ?>' onblur="indexDonnees(4, 1)">
+    <span class="tooltip" id="tooltipAdresseMail">Doit être compris entre 6 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="mdp">Mot de passe* : </label>
+    <input type="password" id="mdp" name="mdp" value='<?= $mdp ?>' onblur="indexDonnees(5, 1)">
+    <span class="tooltip" id="tooltipMdp">Doit être compris entre 6 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="mdp2">Verification mot de passe* : </label>
+    <input type="password" id="mdp2" name="mdp2" value='<?= $mdp2 ?>' onblur="validMdp()">
+    <span class="tooltip" id="tooltipMdp2">Doit être identique</span>
+    <br>
+    <br>
+    <label class="form_col" for="telephone">Téléphone* : </label>
+    <input type="text" id="telephone" name="telephone" value='<?= $telephone ?>' onblur="indexDonnees(6, 1)">
+    <span class="tooltip" id="tooltipTelephone">Doit faire 10 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="anonyme">Anonyme </label>
+    <input type="checkbox" id="anonyme" name='anonyme' <?php if ($anonyme) echo 'checked'; ?>/>
     <div>
-        <input type='submit' value='Enregistrer' />
+        <input type='submit' value='Enregistrer' OnClick="return validFormulaire()"/>
+        <input type='reset' value="Réinitialiser le formulaire" />
+        <input type='button' value='Retour' OnClick="window.location.href='index.php?action=gestion_utilisateur'" />
     </div>
     <br>
 </form>
-<div>
-    <input type='submit' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_utilisateur'"/>
-</div>
+<script src="js/utilisateur/modifier_utilisateur.js"></script>

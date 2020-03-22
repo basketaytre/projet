@@ -46,20 +46,37 @@ if (isset($_GET['valide'])) {
 }
 ?>
 <form  name="monForm" method="post" action="index.php?action=modifier_action&valide=ok">
-    <br><br>
     <div>
         <?= $message ?>
     </div>
     <h1>Modification d'une action</h1>
-    <p>ID Sponsor : <input type="text" name="idSponsor" readonly="" value='<?= $idSponsor ?>'  ></p>
-    <p>ID Article : <input type="text" name="idArticle" readonly="" value='<?= $idArticle ?>'  ></p>
-    <p>Type de don* : <input type="text" name="typeDon" value='<?= $typeDon ?>'   ></p>
-    <p>Montant* : <input type="text" name="montant" value='<?= $montant ?>'  ></p>
-    <p>date : <input type="text" name="date" readonly="" value='<?= $date ?>'   ></p>
+    <br>
+    <br>
+    <label class="form_col" for="idArticle">ID Article* : </label>
+    <input type="text" id="idArticle" name="idArticle" value='<?= $idArticle ?>' onblur="indexDonnees(0, 1)">
+    <span class="tooltip" id="tooltipIdArticle">Doit être choisis</span>
+    <br>
+    <br>
+    <label class="form_col" for="idSponsor">ID Sponsor* : </label>
+    <input type="text" id="idSponsor" name="idSponsor" value='<?= $idSponsor ?>' onblur="indexDonnees(1, 1)">
+    <span class="tooltip" id="tooltipIdSponsor">Doit être choisis</span>
+    <br>
+    <br>
+    <label class="form_col" for="typeDon">Type de don* : </label>
+    <input type="text" id="typeDon" name="typeDon" value='<?= $typeDon ?>' onblur="indexDonnees(2, 1)">
+    <span class="tooltip" id="tooltipTypeDon">Doit être compris entre 1 et 1000 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="montant">Montant* : </label>
+    <input type="text" id="montant" name="montant" value='<?= $montant ?>' onblur="indexDonnees(3, 1)">
+    <span class="tooltip" id="tooltipMontant">Doit être compris entre 1 et 10000 caractères</span>
     <br>
     <br>
     <div>
-        <input type='submit' value='Enregistrer' />
+        <input type='submit' value='Enregistrer' onclick="return validFormulaire()"/>
+        <input type='reset' value="Réinitialiser le formulaire" />
+        <input type='button' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_action'" />
     </div>
     <br>
 </form>
+<script src="./js/action/modifier_action.js"></script>

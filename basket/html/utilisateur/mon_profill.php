@@ -5,7 +5,6 @@ $resultats = $connexion->query($requete);
 //On récupère toutes les lignes de la table dans la variable $lignes qui est un tableau associatif
 $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
 ?>
-<br><br>
 <h1>Bienvenue sur votre profil, </h1><br>
 <h3>Vos informations</h3><br>
 <?php

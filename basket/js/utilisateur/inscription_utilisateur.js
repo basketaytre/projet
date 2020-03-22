@@ -4,10 +4,12 @@ function indexDonnees(nb,choix)  {
     // choix == 1 : Renvoie à la vérification du champ
     let donnees=[
         // [nom_tooltip, id, min, max] 
-        ['tooltipIdArticle','idArticle',1,2],                   // 0
-        ['tooltipIdSponsor','idSponsor',1,2],                   // 1
-        ['tooltipTypeDon','typeDon',1,1000],                    // 2
-        ['tooltipMontant','montant',1,10000],                   // 3
+        ['tooltipPseudonyme','pseudonyme',1,30],        // 0
+        ['tooltipNom','nom',1,50],                      // 1
+        ['tooltipPrenom','prenom',1,50],                // 2
+        ['tooltipAdresseMail','adresseMail',6,50],      // 3
+        ['tooltipMdp','mdp',6,50],                      // 4
+        ['tooltipTelephone','telephone',10,10],         // 5
     ];
     if (choix==0){
         return donnees.length;
@@ -34,6 +36,23 @@ function verifTaille(toolName, name, min, max) {
     }
 }
 
+//ERREUR MDP2
+function validMdp() {
+    var tooltipMdp2 = document.getElementById('tooltipMdp2');
+    var mdp = document.getElementById('mdp');
+    var mdp2 = document.getElementById('mdp2');
+    if (mdp.value == mdp2.value) {
+        mdp2.className = 'correct';
+        tooltipMdp2.style.display = 'none';
+        return true;
+    } else {
+        mdp2.className = 'incorrect';
+        tooltipMdp2.style.display = 'inline-block';
+        return false;
+    }
+}    
+
+
 // ERREUR formulaire
 function validFormulaire() {
     var coderet = true;
@@ -44,4 +63,5 @@ function validFormulaire() {
     }
     return coderet;
 }
+
 

@@ -5,10 +5,10 @@ $resultats = $connexion->query($requete);
 //On récupère toutes les lignes de la table dans la variable $lignes qui est un tableau associatif
 $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
 
-$idArticle = 0;
-$idSponsor = 0;
+$idArticle = '';
+$idSponsor = '';
 $typeDon = '';
-$montant = 0;
+$montant = '';
 $message = '';
 $donneeErreur = '';
 
@@ -21,16 +21,16 @@ if (isset($_POST['idArticle'])) {
     //$resultats = $connexion->query($requete);
     //$t = $resultats->fetchALL(PDO::FETCH_ASSOC);
 
-    if ((strlen($montant)) < 1) {
+    if ((strlen($montant)) < 1 || strlen($montant) > 10000) {
         $donneeErreur = $donneeErreur . "- Montant invalide,<br>";
     }
-    if ((strlen($idArticle)) < 1) {
+    if ((strlen($idArticle)) < 1 || strlen($idArticle) > 2) {
         $donneeErreur = $donneeErreur . "- Id Article invalide,<br>";
     }
-    if ((strlen($idSponsor)) < 1) {
+    if ((strlen($idSponsor)) < 1 || strlen($idSponsor) > 2) {
         $donneeErreur = $donneeErreur . "- Id Sponsor invalide,<br>";
     }
-    if ((strlen($typeDon)) < 1) {
+    if ((strlen($typeDon)) < 1 || strlen($typeDon) >1000) {
         $donneeErreur = $donneeErreur . "- Don invalide, <br>";
     }
     if ($donneeErreur != '') {
@@ -44,22 +44,37 @@ if (isset($_POST['idArticle'])) {
 }
 ?>
 <form  name="monForm" method="post" action="index.php?action=creer_action" >
-    <br><br>
     <div>
         <?= $message ?>
     </div>
     <h1>Création d'une action</h1>
-    <p>ID Article* : <input type="text" name="idArticle" value='<?= $idArticle ?>'  ></p>
-    <p>ID Sponsor* : <input type="text" name="idSponsor" value='<?= $idSponsor ?>'   ></p>
-    <p>Type de don* : <input type="text" name="typeDon" value='<?= $typeDon ?>'  ></p>
-    <p>Montant* : <input type="text" name="montant" value='<?= $montant ?>'   ></p>
+    <br>
+    <br>
+    <label class="form_col" for="idArticle">ID Article* : </label>
+    <input type="text" id="idArticle" name="idArticle" value='<?= $idArticle ?>' onblur="indexDonnees(0, 1)">
+    <span class="tooltip" id="tooltipIdArticle">Doit être choisis</span>
+    <br>
+    <br>
+    <label class="form_col" for="idSponsor">ID Sponsor* : </label>
+    <input type="text" id="idSponsor" name="idSponsor" value='<?= $idSponsor ?>' onblur="indexDonnees(1, 1)">
+    <span class="tooltip" id="tooltipIdSponsor">Doit être choisis</span>
+    <br>
+    <br>
+    <label class="form_col" for="typeDon">Type de don* : </label>
+    <input type="text" id="typeDon" name="typeDon" value='<?= $typeDon ?>' onblur="indexDonnees(2, 1)">
+    <span class="tooltip" id="tooltipTypeDon">Doit être compris entre 1 et 1000 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="montant">Montant* : </label>
+    <input type="text" id="montant" name="montant" value='<?= $montant ?>' onblur="indexDonnees(3, 1)">
+    <span class="tooltip" id="tooltipMontant">Doit être compris entre 1 et 10000 caractères</span>
     <br>
     <br>
     <div>
-        <input type='submit' value='Enregistrer' />
+        <input type='submit' value='Enregistrer' onclick="return validFormulaire()"/>
+        <input type='reset' value="Réinitialiser le formulaire" />
+        <input type='button' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_action'" />
     </div>
     <br>
 </form>
-<div>
-    <input type='button' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_action'" />
-</div>
+<script src="./js/action/creer_action.js"></script>

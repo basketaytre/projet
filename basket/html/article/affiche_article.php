@@ -1,4 +1,3 @@
-<br><br>
 <h3>Listes des Articles</h3><br>
 <?php
     $requete = "select * from article";

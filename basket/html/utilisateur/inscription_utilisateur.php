@@ -61,29 +61,54 @@ if (isset($_POST['pseudonyme'])) {
 ?>
 
 <form  name="monForm" method="post" action="index.php?action=inscription_utilisateur" >
-    <br><br>
     <div>
         <?= $message ?>
     </div>
     <h1>S'inscrire</h1>
-    <label class="form_col" for="nom">Pseudonyme: </label>
-    <input name="pseudonyme" id="pseudonyme" type="text"  value='<?= $pseudonyme ?>'>
-    <!--<span class="tooltip" id="tooltipnom">Doit être compris entre 1 et 70 caractères</span>-->
-    <p>Nom* : <input type="text" name="nom" value='<?= $nom ?>'   ></p>
-    <p>Prénom* : <input type="text" name="prenom" value='<?= $prenom ?>'  ></p>
-    <p>Adresse mail* : <input type="email" name="adresseMail" value='<?= $adresseMail ?>'   ></p>
-    <p>Mot de passe* : <input type="password" name="mdp" value='<?= $mdp ?>'  ></p>
-    <p>Verification mot de passe* : <input type="password" name="mdp2" value='<?= $mdp2 ?>'  ></p>
-    <p>Téléphone* : <input type="text" name="telephone" value='<?= $telephone ?>' </p>
-    <p>Anonyme <input type="checkbox" name='anonyme' <?php if ($anonyme) echo 'checked'; ?>/></p>
+    <br>
+    <br>
+    <label class="form_col" for="pseudonyme">Pseudonyme: </label>
+    <input name="pseudonyme" id="pseudonyme" type="text"  value='<?= $pseudonyme ?>' onblur="indexDonnees(0, 1)">
+    <span class="tooltip" id="tooltipPseudonyme">Doit être compris entre 1 et 30 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="nom">Nom* : </label>
+    <input type="text" id="nom" name="nom" value='<?= $nom ?>' onblur="indexDonnees(1, 1)">
+    <span class="tooltip" id="tooltipNom">Doit être compris entre 1 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="prenom">Prénom* : </label>
+    <input type="text" id="prenom" name="prenom" value='<?= $prenom ?>' onblur="indexDonnees(2, 1)">
+    <span class="tooltip" id="tooltipPrenom">Doit être compris entre 1 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="adresseMail">Adresse mail* : </label>
+    <input type="email" id="adresseMail" name="adresseMail" value='<?= $adresseMail ?>' onblur="indexDonnees(3, 1)">
+    <span class="tooltip" id="tooltipAdresseMail">Doit être compris entre 6 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="mdp">Mot de passe* : </label>
+    <input type="password" id="mdp" name="mdp" value='<?= $mdp ?>' onblur="indexDonnees(4, 1)">
+    <span class="tooltip" id="tooltipMdp">Doit être compris entre 6 et 50 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="mdp2">Verification mot de passe* : </label>
+    <input type="password" id="mdp2" name="mdp2" value='<?= $mdp2 ?>' onblur="validMdp()">
+    <span class="tooltip" id="tooltipMdp2">Doit être identique</span>
+    <br>
+    <br>
+    <label class="form_col" for="telephone">Téléphone* : </label>
+    <input type="text" id="telephone" name="telephone" value='<?= $telephone ?>' onblur="indexDonnees(5, 1)">
+    <span class="tooltip" id="tooltipTelephone">Doit faire 10 caractères</span>
+    <br>
+    <br>
+    <label class="form_col" for="anonyme">Anonyme </label>
+    <input type="checkbox" id="anonyme" name='anonyme' <?php if ($anonyme) echo 'checked'; ?>/>
     <div>
-        <input type='submit' value='Enregistrer' OnClick="validform()" />
+        <input type='submit' value='Enregistrer' OnClick="return validFormulaire()"/>
+        <input type='reset' value="Réinitialiser le formulaire" />
+        <input type='button' value='Retour' OnClick="window.location.href='index.php'" />
     </div>
     <br>
 </form>
-<div>
-    <input type='button' value='Retour' OnClick="window.location.href='index.php'" />
-    <!--'index.php?action=gestion_sponsor'"-->
-</div>
-<!--<script src="js/sponsor/creer_sponsor.js">
-</script>-->
+<script src="js/utilisateur/modifier_utilisateur.js"></script>

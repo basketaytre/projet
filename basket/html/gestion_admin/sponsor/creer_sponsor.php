@@ -110,6 +110,4 @@ if (isset($_POST['nom'])) {
     </div>
     <br>
 </form>
-
-
 <script src="./js/sponsor/creer_sponsor.js"></script>
