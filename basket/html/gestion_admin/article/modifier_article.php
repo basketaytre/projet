@@ -80,32 +80,32 @@ if (isset($_GET['valide'])) {
     <br>
     <br>
     <label class="form_col" for="titre">Titre* : </label>
-    <input type="text" id="titre" name="titre" value='<?= $titre ?>' onblur="VerifTitre()">
-    <span class="tooltip" id="tooltiptitre">Doit être compris entre 1 et 100 caractères</span>
+    <input type="text" id="titre" name="titre" value='<?= $titre ?>' onblur="indexDonnees(0, 1)">
+    <span class="tooltip" id="tooltipTitre">Doit être compris entre 1 et 100 caractères</span>
     <br>
     <br>
     <label class="form_col" for="ville">Ville* : </label>
-    <input type="text" id="ville" name="villeArticle" value='<?= $villeArticle ?>' onblur="VerifVille()">
-    <span class="tooltip" id="tooltipville">Doit être compris entre 1 et 50 caractères</span>
+    <input type="text" id="ville" name="villeArticle" value='<?= $villeArticle ?>' onblur="indexDonnees(1, 1)">
+    <span class="tooltip" id="tooltipVille">Doit être compris entre 1 et 50 caractères</span>
     <br>
     <br>
     <label class="form_col" for="departement">Departement : </label>
-    <input type="text" id="departement" name="departement" value='<?= $departement ?>' onblur="VerifDepartement()">
-    <span class="tooltip" id="tooltipdepartement">Doit faire 2 caractéres</span>
+    <input type="text" id="departement" name="departement" value='<?= $departement ?>' onblur="indexDonnees(2, 1)">
+    <span class="tooltip" id="tooltipDepartement">Doit faire 2 caractéres</span>
     <br>
     <br>
     <label class="form_col" for="desArt" >Description* : </label>
-    <input type="text" maxlength="10000" id='desArt'  name="descriptionArticle" value='<?= stripslashes($descriptionArticle) ?>' onblur="VerifDescription()">
-    <span class="tooltip" id="tooltipdescription">Doit être compris entre 1 et 10000 caractères</span>
+    <input type="text" maxlength="10000" id='desArt'  name="descriptionArticle" value='<?= stripslashes($descriptionArticle) ?>' onblur="indexDonnees(3, 1)">
+    <span class="tooltip" id="tooltipDescription">Doit être compris entre 1 et 10000 caractères</span>
     <br>
     <br>
     <label class="form_col" for="image">Image : </label>
-    <input type="text" id="image" name="imageArticle" value='<?= $imageArticle ?>' onblur="VerifImage()">
-    <span class="tooltip" id="tooltipimage">Doit être compris entre 1 et 100 caractères</span>
+    <input type="text" id="image" name="imageArticle" value='<?= $imageArticle ?>' onblur="indexDonnees(4, 1)">
+    <span class="tooltip" id="tooltipImage">Doit être compris entre 1 et 100 caractères</span>
     <br>
     <br>
     <div>
-        <input type='submit' value='Enregistrer' onclick="return ValidFormModifierArticle()"/>
+        <input type='submit' value='Enregistrer' onclick="return validFormulaire()"/>
         <input type='reset' value="Réinitialiser le formulaire" />
         <input type='button' value='Retour' OnClick="window.location.href='index.php?action=gestion_article'" />
     </div>
