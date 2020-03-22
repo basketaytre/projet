@@ -7,7 +7,7 @@ $resultats = $connexion->query($requeteRecher);
 $article = array();
 $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
 foreach ($lignes as $ligne) {
-    $article[] = $ligne['idArticle'];
+    $article[] = $ligne['idArticle']; 
 }
 
 // Récupèration des informations de l'article le plus récent :
