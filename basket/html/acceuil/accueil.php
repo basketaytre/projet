@@ -31,7 +31,7 @@ $articleDeux_date = explode(' ', $articleDeux['dateArticle']);
             <h2 class="lead text-white">Acceuil du site</h2>
         </div>
         <div class="bouton text-center">
-        <button class="btn btn-outline-light pr-5 pl-5 mt-3">Nous contacter</button>
+            <button class="btn btn-outline-light pr-5 pl-5 mt-3">Nous contacter</button>
         </div>
     </div>
 </div>
@@ -42,15 +42,17 @@ $articleDeux_date = explode(' ', $articleDeux['dateArticle']);
     <!--Premier article-->
     <div class="col-md-6 mt-4 ">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
+            <div class="col p-4 d-flex flex-column position-static d-inline">
                 <h3 class="mb-0"><?= $articleUn['titre'] ?></h3>
                 <div class="mb-1 text-muted"><?= $articleUn_date[0] ?></div>
                 <p class="card-text mb-auto"><?= substr(stripcslashes($articleUn['descriptionArticle']), 0, 300); ?>...</p>
                 <a href="#" class="stretched-link text-right">Continuer à lire</a>
+                <div class="col-auto d-none d-lg-block">
+<!--                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+                    <img src="images/fond2.jpg" class="img-actu">
+                </div>
             </div>
-            <div class="col-auto d-none d-lg-block">
-                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            </div>
+
         </div>
     </div>
     <!--Second article-->

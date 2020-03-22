@@ -79,13 +79,13 @@ if (isset($_GET['valide'])) {
         $donneeErreur = $donneeErreur . "- Image invalide, <br>";
     }
     if ($donneeErreur != '') {
-        $message = "<div class='alert alert-danger'><strong>Erreur !</strong> Le sponsor n'a pas pu être modifié.<br> $donneeErreur </div>";
+        $message = "<div onload='validForm()' class='alert alert-danger'><strong>Erreur !</strong> Le sponsor n'a pas pu être modifié.<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
         $telephone = (preg_replace('/\s/', '', $telephone));
         $requete = "update sponsor set nom='$nom',adresse='$adresse',ville='$ville',codePostal='$codePostal',telephone='$telephone',lien='$lien',description='$description',image='$image' where idSponsor='$idSponsor'";
         $connexion->exec($requete);
-        $message="<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre modification à bien été prise en compte .</div>";
+        $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre modification à bien été prise en compte .</div>";
     }
 }
 ?>
@@ -101,53 +101,52 @@ if (isset($_GET['valide'])) {
     <br>
     <br>
     <label class="form_col" for="nom">Nom* : </label>
-    <input name="nom" id="nom" type="text" value='<?= $nom ?>' onblur="VerifNom()">
-    <span class="tooltip" id="tooltipnom">Doit être compris entre 1 et 70 caractères</span>
+    <input name="nom" id="nom" type="text" value='<?= $nom ?>' onblur="indexDonnees(0, 1)">
+    <span class="tooltip" id="tooltipNom">Doit être compris entre 1 et 70 caractères</span>
     <br>
     <br>
     <label class="form_col" for="adresse">Adresse* :</label>
-    <input type="text" id="adresse" name="adresse" value='<?= $adresse ?>' onblur="VerifAdresse()">
-    <span class="tooltip" id="tooltipadresse">Doit être compris entre 1 et 50 caractères</span>
+    <input type="text" id="adresse" name="adresse" value='<?= $adresse ?>' onblur="indexDonnees(1, 1)">
+    <span class="tooltip" id="tooltipAdresse">Doit être compris entre 1 et 50 caractères</span>
     <br>
     <br>
     <label class="form_col" for="ville">Ville* :</label> 
-    <input type="text" id="ville" name="ville" value='<?= $ville ?>' onblur="VerifVille()">
-    <span class="tooltip" id="tooltipville">Doit être compris entre 1 et 50 caractères</span>
+    <input type="text" id="ville" name="ville" value='<?= $ville ?>' onblur="indexDonnees(2, 1)">
+    <span class="tooltip" id="tooltipVille">Doit être compris entre 1 et 50 caractères</span>
     <br>
     <br>
     <label class="form_col" for="codePostal">Code Postal* :</label>
-    <input type="text" id="codepostal" name="codePostal" value='<?= $codePostal ?>' onblur="VerifCodePostal()">
-    <span class="tooltip" id="tooltipcodepostal">Doit faire 5 caractéres</span>
+    <input type="text" id="codePost" name="codePostal" value='<?= $codePostal ?>' onblur="indexDonnees(3, 1)">
+    <span class="tooltip" id="tooltipCodePost">Doit faire 5 caractéres</span>
     <br>
     <br>
     <label class="form_col" for="telephone">Téléphone* :</label> 
-    <input type="text" id="telephone" name="telephone" value='<?= $telephone ?>' onblur="VerifTelephone()">
-    <span class="tooltip" id="tooltiptelephone">Doit faire 10 caractéres</span>
+    <input type="text" id="telephone" name="telephone" value='<?= $telephone ?>' onblur="indexDonnees(4, 1)">
+    <span class="tooltip" id="tooltipTelephone">Doit faire 10 caractéres</span>
     <br>
     <br>
     <label class="form_col" for="lien">Lien sponsor* :</label> 
-    <input type="text" id="lien" name="lien" value='<?= $lien ?>' onblur="VerifLienSponsors()">
-    <span class="tooltip" id="tooltiplien">Doit être compris entre 1 et 70 caractères</span>
+    <input type="text" id="lien" name="lien" value='<?= $lien ?>' onblur="indexDonnees(5, 1)">
+    <span class="tooltip" id="tooltipLien">Doit être compris entre 1 et 70 caractères</span>
     <br>
     <br>
     <label class="form_col" for="description">Description* :</label>
-    <input type="text" id="description" name="description" value='<?= $description ?>' onblur="VerifDescription()">
-    <span class="tooltip" id="tooltipdescription">Doit être compris entre 1 et 750 caractères</span>
+    <input type="text" id="description" name="description" value='<?= $description ?>' onblur="indexDonnees(6, 1)">
+    <span class="tooltip" id="tooltipDescription">Doit être compris entre 1 et 750 caractères</span>
     <br>
     <br>
     <label class="form_col" for="lienimage">Lien image* :</label>
-    <input type="text" id="image" name="image" value='<?= $image ?>' onblur="VerifImage()">
-    <span class="tooltip" id="tooltipimage">Doit être compris entre 1 et 750 caractères</span>
+    <input type="text" id="image" name="image" value='<?= $image ?>' onblur="indexDonnees(7, 1)">
+    <span class="tooltip" id="tooltipImage">Doit être compris entre 1 et 750 caractères</span>
     <br>
     <br>
-    <div>
-        <span class="form_col"></span>
-        <input type='submit' value='Enregistrer' onclick="return ValidFormModifierSponsors()"/>
-        <input type='reset' value="Réinitialiser le formulaire" />
-        <input type='button' value='Retour' OnClick="window.location.href='index.php?action=gestion_sponsor'" />
+    <div class="ml-5" >
+            <input  type='submit' value='Enregistrer' onclick="return validFormulaire()" />
+            <input type='reset' value="Réinitialiser le formulaire" />
+            <input type='button' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_sponsor'" />
     </div>
     <br>
 </form>
-<script src="./js/sponsor/modifier_sponsor.js">
-    
-</script>
+
+
+<script src="./js/sponsor/modifier_sponsor.js"></script>

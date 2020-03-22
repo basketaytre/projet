@@ -1,167 +1,50 @@
-// ERREUR nom
-function VerifNom() {
-    var tooltipnom = document.getElementById('tooltipnom');
-    var nom = document.getElementById("nom");
-    if ((nom.value.length >= 1) && (nom.value.length <= 70)) {    
+//Rassemble toutes les données pour pouvoir les réutiliser ensuite dans différentes fonctions
+function indexDonnees(nb,choix)  {
+    // choix == 0 : Renvoie le nombre de liste de données
+    // choix == 1 : Renvoie à la vérification du champ
+    let donnees=[
+        // [nom_tooltip, id, min, max] 
+        ['tooltipNom','nom',1,70],                  // 0
+        ['tooltipAdresse','adresse',1,50],          // 1
+        ['tooltipVille','ville',1,50],              // 2
+        ['tooltipCodePost','codePost',5,5],         // 3
+        ['tooltipTelephone','telephone',10,10],     // 4
+        ['tooltipLien','lien',1,70],                // 5
+        ['tooltipDescription','description',1,750], // 6
+        ['tooltipImage','image',1,750]              // 7
+    ];
+    if (choix==0){
+        return donnees.length;
+    }
+    if (choix==1){
+        return verifTaille(donnees[nb][0],donnees[nb][1],donnees[nb][2],donnees[nb][3]);
+    }
+}
+
+// ERREUR taille de champ.
+function verifTaille(toolName, name, min, max) {
+    // min : Nombre minimum de caractères que doit contenir le champ
+    // max : Nombre maximum de caractères que doit contenir le champ
+    var tooltipname = document.getElementById(toolName);
+    var nom = document.getElementById(name);
+    if ((nom.value.length >= min) && (nom.value.length <= max)) {
         nom.className = 'correct';
-        tooltipnom.style.display = 'none';
+        tooltipname.style.display = 'none';
         return true;
-    }
-    else {
+    } else {
         nom.className = 'incorrect';
-        tooltipnom.style.display = 'inline-block';
-        return false;
-    }
-}
-
-// ERREUR adresse
-function VerifAdresse() {
-    var tooltipadresse = document.getElementById('tooltipadresse');
-    var adresse = document.getElementById("adresse");
-    if ((adresse.value.length >= 1) && (adresse.value.length <= 50)) {    
-        adresse.className = 'correct';
-        tooltipadresse.style.display = 'none';
-        return true;
-    } 
-    else {
-        adresse.className = 'incorrect';
-        tooltipadresse.style.display = 'inline-block';
-        return false;
-    }
-}
-
-// ERREUR ville
-function VerifVille() {
-    var tooltipville = document.getElementById('tooltipville');
-    var ville = document.getElementById("ville");
-    if ((ville.value.length >= 1) && (ville.value.length <= 50)) {    
-        ville.className = 'correct';
-        tooltipville.style.display = 'none';
-        return true;
-    } 
-    else {
-        ville.className = 'incorrect';
-        tooltipville.style.display = 'inline-block';
-        return false;
-    }
-}
-
-// ERREUR codepostal
-function VerifCodePostal() {
-    var tooltipcodepostal = document.getElementById('tooltipcodepostal');
-    var codepostal = document.getElementById("codepostal");
-    if ((codepostal.value.length == 5)) {    
-        codepostal.className = 'correct';
-        tooltipcodepostal.style.display = 'none';
-        return true;
-    } 
-    else {
-        codepostal.className = 'incorrect';
-        tooltipcodepostal.style.display = 'inline-block';
-        return false;
-    }
-}
-
-// ERREUR telephone
-function VerifTelephone() {
-    var tooltiptelephone = document.getElementById('tooltiptelephone');
-    var telephone = document.getElementById("telephone");
-    if ((telephone.value.length == 10)) {    
-        telephone.className = 'correct';
-        tooltiptelephone.style.display = 'none';
-        return true;
-    } 
-    else {
-        telephone.className = 'incorrect';
-        tooltiptelephone.style.display = 'inline-block';
-        return false;
-    }
-}
-
-// ERREUR liensponsors
-function VerifLienSponsors() {
-    var tooltiplien = document.getElementById('tooltiplien');
-    var lien = document.getElementById("lien");
-    if ((lien.value.length >= 1) && (lien.value.length <= 70)) {    
-        lien.className = 'correct';
-        tooltiplien.style.display = 'none';
-        return true;
-    } 
-    else {
-        lien.className = 'incorrect';
-        tooltiplien.style.display = 'inline-block';
-        return false;
-    }
-}
-
-// ERREUR description
-function VerifDescription() {
-    var tooltipdescription = document.getElementById('tooltipdescription');
-    var description = document.getElementById("description");
-    if ((description.value.length >= 1) && (description.value.length <= 750)) {    
-        description.className = 'correct';
-        tooltipdescription.style.display = 'none';
-        return true;
-    } 
-    else {
-        description.className = 'incorrect';
-        tooltipdescription.style.display = 'inline-block';
-        return false;
-    }
-}
-
-// ERREUR image
-function VerifImage() {
-    var tooltipimage = document.getElementById('tooltipimage');
-    var image = document.getElementById("image");
-    if ((image.value.length >= 1) && (image.value.length <= 750)) {    
-        image.className = 'correct';
-        tooltipimage.style.display = 'none';
-        return true;
-    } 
-    else {
-        image.className = 'incorrect';
-        tooltipimage.style.display = 'inline-block';
+        tooltipname.style.display = 'inline-block';
         return false;
     }
 }
 
 // ERREUR formulaire
-function ValidFormModifierSponsors() {
+function validFormulaire() {
     var coderet = true;
-    VerifNom();
-    if (VerifNom()==false){
+    for (let i=0; i<indexDonnees(0,0); i++){
+        if (indexDonnees(i,1)==false){
         coderet =false;
-    }
-    VerifAdresse();
-    if (VerifAdresse()==false){
-        coderet =false;
-    }
-    VerifVille();
-    if (VerifVille()==false){
-        coderet =false;
-    }
-    VerifCodePostal();
-    if (VerifCodePostal()==false){
-        coderet =false;
-    }
-    VerifTelephone();
-    if (VerifTelephone()==false){
-        coderet =false;
-    }
-    VerifLienSponsors();
-    if (VerifLienSponsors()==false){
-        coderet =false;
-    }
-    VerifDescription();
-    if (VerifDescription()==false){
-        coderet =false;
-    }
-    VerifImage();
-    if (VerifImage()==false){
-        coderet =false;
+        }
     }
     return coderet;
 }
-
-
