@@ -24,7 +24,7 @@ elseif ($action=='modifier_sponsor') {
     include './html/gestion_admin/sponsor/modifier_sponsor.php';
 }
 elseif ($action=='affiche_sponsor') {
-    include './html/sponsors/affiche_sponsor.php';
+    include './html/sponsor/affiche_sponsor.php';
 }
 elseif($action=='gestion_article'){
     include 'html/gestion_admin/article/gestion_article.php';
@@ -64,6 +64,15 @@ elseif ($action=='inscription_utilisateur') {
 }
 elseif ($action=='connexion_utilisateur') {
     include './html/utilisateur/connexion_utilisateur.php';
+}
+elseif ($action=='protec_donnees') {
+    include './html/information/protec_donnees.php';
+}
+elseif ($action=='mention_legales') {
+    include './html/information/mention_legales.php';
+}
+elseif ($action=='plan_site') {
+    include './html/information/plan_site.php';
 }
 else{
     include './page_erreur.php';

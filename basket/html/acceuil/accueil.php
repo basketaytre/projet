@@ -5,22 +5,27 @@ $requete = " SELECT idArticle,titre,dateArticle,VilleArticle,departement,descrip
 $requeteRecher = $requete . "ORDER BY `dateArticle` DESC LIMIT 2 ;";
 $resultats = $connexion->query($requeteRecher);
 $article = array();
+
 $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
 foreach ($lignes as $ligne) {
-    $article[] = $ligne['idArticle']; 
+    $article[] = $ligne['idArticle'];
 }
+if (($article[0] <> 0) && ($article[1] <> 0)){
+    // Récupèration des informations de l'article le plus récent :
+    $requeteArtiUn = $requete . "WHERE idArticle=" . $article[0] . ";";
+    $resultArtiUn = $connexion->query($requeteArtiUn);
+    $articleUn = $resultArtiUn->fetch();
+    $articleUn_date = explode(' ', $articleUn['dateArticle']);
 
-// Récupèration des informations de l'article le plus récent :
-$requeteArtiUn = $requete . "WHERE idArticle=" . $article[0] . ";";
-$resultArtiUn = $connexion->query($requeteArtiUn);
-$articleUn = $resultArtiUn->fetch();
-$articleUn_date = explode(' ', $articleUn['dateArticle']);
-
-// Récupèration des informations de l'article le second article le plus récent :
-$requeteArtiDeux = $requete . "WHERE idArticle=" . $article[1] . ";";
-$resultArtiDeux = $connexion->query($requeteArtiDeux);
-$articleDeux = $resultArtiDeux->fetch();
-$articleDeux_date = explode(' ', $articleDeux['dateArticle']);
+// Récupèration des informations du second article le plus récent :
+    $requeteArtiDeux = $requete . "WHERE idArticle=" . $article[1] . ";";
+    $resultArtiDeux = $connexion->query($requeteArtiDeux);
+    $articleDeux = $resultArtiDeux->fetch();
+    $articleDeux_date = explode(' ', $articleDeux['dateArticle']);
+} else {
+    
+    echo "pas ok";
+}
 ?>
 
 <!--Image d'acceuil-->
@@ -35,7 +40,7 @@ $articleDeux_date = explode(' ', $articleDeux['dateArticle']);
         </div>
     </div>
 </div>
-<div class="categ text-center text-white p-3 m-3 mt-5">
+<div class="rounded text-center text-white p-3 m-3 mt-5 bg-dark">
     <h1><i>Actualité</i></h1>
 </div>
 <div class="row m-2">
@@ -47,9 +52,9 @@ $articleDeux_date = explode(' ', $articleDeux['dateArticle']);
                 <div class="mb-1 text-muted"><?= $articleUn_date[0] ?></div>
                 <p class="card-text mb-auto"><?= substr(stripcslashes($articleUn['descriptionArticle']), 0, 300); ?>...</p>
                 <a href="#" class="stretched-link text-right">Continuer à lire</a>
-<!--                <div class="col-auto d-none d-lg-block">
-                    <img src="images/fond2.jpg" class="img-actu">
-                </div>-->
+                <!--                <div class="col-auto d-none d-lg-block">
+                                    <img src="images/fond2.jpg" class="img-actu">
+                                </div>-->
             </div>
 
         </div>
@@ -63,9 +68,9 @@ $articleDeux_date = explode(' ', $articleDeux['dateArticle']);
                 <p class="card-text mb-auto"><?= substr(stripcslashes($articleDeux['descriptionArticle']), 0, 300); ?>...</p>
                 <a href="#" class="stretched-link text-right">Continuer à lire</a>
             </div>
-<!--            <div class="col-auto d-none d-lg-block">
-                <img src="images/fond2.jpg" class="img-actu">
-            </div>-->
+            <!--            <div class="col-auto d-none d-lg-block">
+                            <img src="images/fond2.jpg" class="img-actu">
+                        </div>-->
         </div>
     </div>
 </div>

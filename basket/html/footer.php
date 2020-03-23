@@ -31,7 +31,7 @@
                     </div>
                     <div class="col text-left">
                         <ul class="list-unstyled">
-                            <li><a href="#" class="text-white" >Partenaires</a></li>
+                            <li><a href="html/sponsor/affiche_sponsor.php" class="text-white" >Partenaires</a></li>
                             <li><a href="#" class="text-white" >Utilisateurs</a></li>
                         </ul>
                     </div>
@@ -47,11 +47,11 @@
         <hr class='hrp'>
         <div class="row">
             <div class="col">
-                <small>Protection des données</small>
+                <small><a class="text-white" href="index.php?action=protec_donnees">Protection des données</a></small>
                 <small class="pl-2 pr-2">|</small>
-                <small>Mention légales</small>
+                <small><a class="text-white" href="index.php?action=mention_legales">Mention légales</a></small>
                 <small class="pl-2 pr-2">|</small>
-                <small>Plan du site</small>
+                <small><a class="text-white" href="index.php?action=plan_site">Plan du site</a></small>
                 <br>
                 <small>© 2020</small>
             </div>
