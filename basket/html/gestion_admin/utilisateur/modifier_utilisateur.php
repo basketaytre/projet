@@ -90,6 +90,8 @@ if (isset($_GET['valide'])) {
         $message = "<div class='alert alert-danger'><strong>Erreur !</strong> Le sponsor n'a pas pu être modifié.<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
+        $option = ['cost' => 12,];
+        $mdp = password_hash($mdp,PASSWORD_BCRYPT,$option);
         $telephone = (preg_replace('/\s/', '', $telephone));
         $requete = "update utilisateur set statut='$statut',pseudonyme='$pseudonyme',nom='$nom',prenom='$prenom',telephone='$telephone',adresseMail='$adresseMail',mdp='$mdp',anonyme='$anonyme' where idUtilisateur='$idUtilisateur'";
         $connexion->exec($requete);

@@ -20,9 +20,8 @@ if (isset($_POST['pseudonyme'])) {
     $telephone = $_POST["telephone"];
 
     if ((strlen($pseudonyme) > 30) || (strlen($pseudonyme)) < 1)  {
-        $donneeErreur = $donneeErreur . "- Pseudonyme invalidde,<br>";
+        $donneeErreur = $donneeErreur . "- Pseudonyme invalide,<br>";
     }
-
     if (((strlen($nom)) > 50) || (strlen($nom)) < 1) {
         $donneeErreur = $donneeErreur . "- Nom invalide <br>";
     }
@@ -51,11 +50,12 @@ if (isset($_POST['pseudonyme'])) {
         $message = "<div class='alert alert-danger'><strong>Erreur ! </strong>Votre profil n'a pas pu être créé.<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
-        echo $anonyme;
+        $option = ['cost' => 12,];
+        $mdp = password_hash($mdp,PASSWORD_BCRYPT,$option);
         $telephone=(preg_replace('/\s/', '', $telephone));
-        $requete = "insert into utilisateur (pseudonyme,nom,prenom,adresseMail,mdp,telephone,anonyme) values ('$pseudonyme','$nom','$prenom','$adresseMail','$mdp',$telephone,$anonyme);";
+        $requete2 = "insert into utilisateur (pseudonyme,nom,prenom,adresseMail,mdp,telephone,anonyme) values ('$pseudonyme','$nom','$prenom','$adresseMail','$mdp',$telephone,$anonyme);";
         $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Vottre prfil a bien été créé .</div>";
-        $connexion->exec($requete);
+        $connexion->exec($requete2);
     }
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 $idArticle = '';
-$dateArticle = 0;
+$dateArticle = '';
 $titre = '';
 $descriptionArticle = '';
 $imageArticle = '';
@@ -76,6 +76,10 @@ if (isset($_GET['valide'])) {
     <h1>Page de modification d'article</h1>
     <label class="form_col" for="idArticle">ID Article : </label>
     <input type="text" name="idArticle" readonly="" value='<?= $idArticle ?>'>
+    <br>
+    <br>
+    <label class="form_col" for="dateArticle">Date de l'article : </label>
+    <input type="text" name="dateArticle" readonly="" value='<?= $dateArticle ?>'>
     <br>
     <br>
     <label class="form_col" for="titre">Titre* : </label>
