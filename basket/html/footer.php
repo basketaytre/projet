@@ -1,4 +1,4 @@
-<footer class=" bg-dark pt-4 pb-3 pl-3 pr-4 text-white text-center ombres">
+<footer class=" bg-dark pt-4 pb-3 pl-3 pr-4 text-white text-center ombres mt-5">
     <div> 
         <div class="row">
             <div class="col">
