@@ -10,7 +10,7 @@
                         <h5 class="mb-0">ABBA</h5>
                         <small>
                             <ul class="list-unstyled">
-                                <li class="mb-2">Association BasketBall aytré</li>
+                                <li class="mb-2">Association BasketBall Aytré</li>
                                 <li>Gymnase - Rue des Pâquerettes</li>
                                 <li class="mb-3">17440 AYTRÉ</li>
                                 <li>Téléphone : xx-xx-xx-xx-xx                            </ul>

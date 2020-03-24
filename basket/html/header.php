@@ -26,7 +26,7 @@ and open the template in the editor.
                 <div class=" col-4 text-right">
                     <input type="button" value="Inscription" class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=inscription_utilisateur'">
                     <input type="button" value="Connexion"class="bouton-design rounded " OnClick="window.location.href = 'index.php?action=connexion_utilisateur'">
-                    <!--                <a class="btn btn-outline-primary" href="index.php?action=connexion_utilisateur">Se connecter</a>-->
+                    <!--     <a class="btn btn-outline-primary" href="index.php?action=connexion_utilisateur">Se connecter</a>-->
                 </div>
             </div>
         </div>
