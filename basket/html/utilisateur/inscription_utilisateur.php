@@ -54,7 +54,7 @@ if (isset($_POST['pseudonyme'])) {
         $mdp = password_hash($mdp,PASSWORD_BCRYPT,$option);
         $telephone=(preg_replace('/\s/', '', $telephone));
         $requete2 = "insert into utilisateur (pseudonyme,nom,prenom,adresseMail,mdp,telephone,anonyme) values ('$pseudonyme','$nom','$prenom','$adresseMail','$mdp',$telephone,$anonyme);";
-        $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Vottre prfil a bien été créé .</div>";
+        $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Vottre profil a bien été créé .</div>";
         $connexion->exec($requete2);
     }
 }

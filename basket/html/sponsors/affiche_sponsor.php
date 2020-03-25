@@ -1,4 +1,4 @@
-<?php
+<?php 
 $requete = "select * from sponsor";
 //Exécution de  la requête qui renvoie le résultat dans  $resultats, 
 $resultats = $connexion->query($requete);

@@ -1,4 +1,4 @@
-<?php
+<?php   
 $requete = "select idSponsor,nom,adresse,ville,codePostal,description,image FROM `sponsor` ";
 //Exécution de  la requête qui renvoie le résultat dans  $resultats, 
 $resultats = $connexion->query($requete);

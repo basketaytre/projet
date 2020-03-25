@@ -11,7 +11,12 @@ $typeDon = '';
 $montant = '';
 $message = '';
 $donneeErreur = '';
-
+$requete="select idSponsor from sponsor";
+$resultats = $connexion->query($requete);
+$listeSponsors = $resultats->fetchALL(PDO::FETCH_ASSOC);
+$requete="select idArticle from article";
+$resultats = $connexion->query($requete);
+$listeArticles = $resultats->fetchALL(PDO::FETCH_ASSOC);
 if (isset($_POST['idArticle'])) {
     $idArticle = $_POST["idArticle"];
     $idSponsor = $_POST["idSponsor"];

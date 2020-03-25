@@ -7,6 +7,12 @@ $message = '';
 $donneeErreur = '';
 $valide = '';
 
+$requete="select idSponsor from sponsor";
+$resultats = $connexion->query($requete);
+$listeSponsors = $resultats->fetchALL(PDO::FETCH_ASSOC);
+$requete="select idArticle from article";
+$resultats = $connexion->query($requete);
+$listeArticles = $resultats->fetchALL(PDO::FETCH_ASSOC);
 if (isset($_GET['idSponsor'])) {
     $idSponsor = $_GET['idSponsor'];
     $idArticle = $_GET['idArticle'];
@@ -21,7 +27,6 @@ if (isset($_GET['idSponsor'])) {
 if (isset($_GET['valide'])) {
     $idSponsor = $_POST['idSponsor'];
     $idArticle = $_POST['idArticle'];
-    $date = $_POST['date'];
     if (isset($_POST["typeDon"])) {
         $typeDon = $_POST["typeDon"];
     }
@@ -39,6 +44,7 @@ if (isset($_GET['valide'])) {
     }
     if ($donneeErreur == '') {
         $requete = "update action set typeDon='$typeDon',montant='$montant' where idSponsor='$idSponsor' and idArticle='$idArticle'";
+        // il faut ajouter a la requette idArticle=$listeArticle['idArticle'] et idSponsor=$listeSponsor['idSponsors']
         $connexion->exec($requete);
         $message="<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre modification à bien été prise en compte .</div>";
 
@@ -53,13 +59,33 @@ if (isset($_GET['valide'])) {
     <br>
     <br>
     <label class="form_col" for="idArticle">ID Article* : </label>
-    <input type="text" id="idArticle" name="idArticle" value='<?= $idArticle ?>' onblur="indexDonnees(0, 1)">
-    <span class="tooltip" id="tooltipIdArticle">Doit être choisis</span>
+    <select name='idArticle'>
+        <?php
+        foreach ($listeArticles as $listeArticle) {
+            echo "<option value={$listeArticle['idArticle']} ";
+            if ($idArticle == $listeArticle['idArticle'])
+                echo'selected';
+            echo ">";
+            echo "{$listeArticle['idArticle']}";
+            echo "</option>";
+        }
+        ?>
+    </select>
     <br>
     <br>
     <label class="form_col" for="idSponsor">ID Sponsor* : </label>
-    <input type="text" id="idSponsor" name="idSponsor" value='<?= $idSponsor ?>' onblur="indexDonnees(1, 1)">
-    <span class="tooltip" id="tooltipIdSponsor">Doit être choisis</span>
+    <select name='idSponsor'>
+        <?php
+        foreach ($listeSponsors as $listeSponsor) {
+            echo "<option value={$listeSponsor['idSponsor']} ";
+            if ($idSponsor == $listeSponsor['idSponsor'])
+                echo'selected';
+            echo ">";
+            echo "{$listeSponsor['idSponsor']}";
+            echo "</option>";
+        }
+        ?>
+    </select>
     <br>
     <br>
     <label class="form_col" for="typeDon">Type de don* : </label>
