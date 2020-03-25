@@ -34,7 +34,7 @@ and open the template in the editor.
             <div class="col-lg-5 col-md-12 mt-auto mb-auto">
                 <div class="row">
                     <div class="col-4 col-md-4 col-sm-12 col-xs-12">
-                        <a class='p-2 navig-link' href='index.php'>Acceuil</a>
+                        <a class='p-2 navig-link' href='index.php'>Accueil</a>
                     </div>
                     <div class="col-4 col-md-4 col-sm-12 col-xs-12">
                         <a class='p-2 navig-link' href='index.php?action=affiche_article'>Actualité</a>
