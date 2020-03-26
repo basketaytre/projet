@@ -56,7 +56,8 @@ if (isset($_POST['nom'])) {
     }
 }
 ?>
-
+<!-------------------------------------------------------Page de creation de sponsors---------------------------------------------------------------->
+<!-- Formulaire de creation des sponsors -->
 <form  name="monForm" method="post" action="index.php?action=creer_sponsor" >
     <div>
         <?= $message ?>
@@ -120,4 +121,6 @@ if (isset($_POST['nom'])) {
     </div>
     <br>
 </form>
+<!--Fin du formulaire de creation des sponsors-->
 <script src="./js/sponsor/creer_sponsor.js"></script>
+<!-------------------------------------------------------Fin de la page de creation de sponsors---------------------------------------------------------------->

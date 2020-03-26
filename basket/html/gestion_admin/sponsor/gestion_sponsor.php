@@ -22,6 +22,7 @@ foreach ($lignes as $ligne) {
 }
 $nbSponsor = count($sponsor);
 ?>
+<!-------------------------------------------------------Page de de gestion sponsors---------------------------------------------------------------->
 <br>
 <div class="rounded text-center text-white p-3 m-3 mt-5 bg-orange" >
     <h1 style="font-size:2em;"><i>Gestion des sponsors</i></h1>
@@ -70,3 +71,4 @@ for ($i = 0; $i < $nbSponsor; $i++) {
     . '</div>';
 }
 ?>
+<!-------------------------------------------------------Fin de la page de gestion de sponsors---------------------------------------------------------------->

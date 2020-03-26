@@ -99,6 +99,8 @@ if (isset($_GET['valide'])) {
     }
 }
 ?>
+<!-------------------------------------------------------Page de modification d'utilisateur---------------------------------------------------------------->
+<!-- Formulaire de modofication d'utilisateur-->
 <form  name="monForm" method="post" action="index.php?action=modifier_utilisateur&valide=ok">
     <div>
         <?= $message ?>
@@ -170,4 +172,6 @@ if (isset($_GET['valide'])) {
     </div>
     <br>
 </form>
+<!-- Fin du formulaire de modification d'utilisateur-->
 <script src="js/utilisateur/modifier_utilisateur.js"></script>
+<!-------------------------------------------------------Fin de la page de modification d'utilisateur--------------------------------------------------------------->

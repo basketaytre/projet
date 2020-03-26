@@ -57,6 +57,8 @@ if (isset($_POST['idArticle'])) {
     }
 }
 ?>
+<!-------------------------------------------------------Page de creation d'action---------------------------------------------------------------->
+<!--Formulaire de creation d'action-->
 <form  name="monForm" method="post" action="index.php?action=creer_action" >
     <div>
         <?= $message ?>
@@ -120,4 +122,6 @@ if (isset($_POST['idArticle'])) {
     </div>
     <br>
 </form>
+<!--Fin du formulaire de creation d'action-->
 <script src="./js/action/creer_action.js"></script>
+<!-----------------------------------------------------Fin de la page de creation d'action--------------------------------------------------------->

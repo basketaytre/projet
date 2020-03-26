@@ -1,3 +1,4 @@
+<!-------------------------------------------------------Page d'affichage des actions---------------------------------------------------------------->
 <h3>Listes des Actions</h3><br>
 <?php
     $requete = "select * from action";
@@ -13,4 +14,4 @@
 <br>
 <!-- Bouton retour --> 
 <input type='button' value='Retour' OnClick="window.location.href='index.php'" />
-
+<!-------------------------------------------------------Fin de la page d'affichage des action---------------------------------------------------------------->

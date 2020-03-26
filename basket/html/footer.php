@@ -1,3 +1,4 @@
+<!-------------------------------------------------------Page du footer---------------------------------------------------------------->
 <footer class=" bg-dark pt-4 pb-3 pl-3 pr-4 text-white text-center ombres mt-5">
     <div> 
         <div class="row">
@@ -60,3 +61,4 @@
 </body>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v6.0"></script>
 </html>
+<!-------------------------------------------------------Fin de la page du footer---------------------------------------------------------------->

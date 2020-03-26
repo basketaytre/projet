@@ -58,6 +58,8 @@ if (isset($_GET['valide'])) {
     }
 }
 ?>
+<!-------------------------------------------------------Page de modification des action---------------------------------------------------------------->
+<!--Formulaire de modification des action-->
 <form  name="monForm" method="post" action="index.php?action=modifier_action&valide=ok">
     <div>
         <?= $message ?>
@@ -95,4 +97,6 @@ if (isset($_GET['valide'])) {
     </div>
     <br>
 </form>
+<!--Fin du formulaire de modification des action-->
 <script src="./js/action/modifier_action.js"></script>
+<!-------------------------------------------------------Fin de la page de modification des action---------------------------------------------------------------->

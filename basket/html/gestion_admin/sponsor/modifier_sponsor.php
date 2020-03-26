@@ -89,6 +89,8 @@ if (isset($_GET['valide'])) {
     }
 }
 ?>
+<!-------------------------------------------------------Page de modification de sponsors---------------------------------------------------------------->
+<!-- Formulaire de modification de sponsors -->
 <form  name="monForm" method="post" action="index.php?action=modifier_sponsor&valide=ok">
     <div>
         <?= $message ?>
@@ -157,4 +159,6 @@ if (isset($_GET['valide'])) {
     </div>
     <br>
 </form>
+<!-- Fin du formulaire de modification de sponsors -->
 <script src="./js/sponsor/modifier_sponsor.js"></script>
+<!-------------------------------------------------------Fin de la page de modification de sponsors---------------------------------------------------------------->

@@ -59,7 +59,8 @@ if (isset($_POST['pseudonyme'])) {
     }
 }
 ?>
-
+<!-------------------------------------------------------Page d'inscription---------------------------------------------------------------->
+<!--Formulaire d'inscription-->
 <form  name="monForm" method="post" action="index.php?action=inscription_utilisateur" >
     <div>
         <?= $message ?>
@@ -111,4 +112,6 @@ if (isset($_POST['pseudonyme'])) {
     </div>
     <br>
 </form>
+<!--Fin du formulaire d'inscription-->
 <script src="js/utilisateur/modifier_utilisateur.js"></script>
+<!-------------------------------------------------------Fin de la page d'inscription---------------------------------------------------------------->

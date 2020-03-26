@@ -1,5 +1,6 @@
+<!-------------------------------------------------------Page d'affichage de profil---------------------------------------------------------------->
 <?php
-$requete = "select * from sponsor";
+$requete = "select * from utilisateur";
 //Exécution de  la requête qui renvoie le résultat dans  $resultats, 
 $resultats = $connexion->query($requete);
 //On récupère toutes les lignes de la table dans la variable $lignes qui est un tableau associatif
@@ -13,4 +14,4 @@ foreach ($lignes as $ligne) {
     echo "<p>" . $ligne['pseudonyme'] . " " . $ligne['nom'] . " " . $ligne['prenom'] . " " . $ligne['adresseMail'] . " " . $ligne['telephone'];
 }
 ?>
-
+<!-------------------------------------------------------Fin de la page d'affichage du profil---------------------------------------------------------------->

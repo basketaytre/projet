@@ -51,6 +51,8 @@ if (isset($_POST['titre'])) {
     }
 }
 ?>
+<!-------------------------------------------------------Page de creation d'article---------------------------------------------------------------->
+<!--Formulaire de creation d'article-->
 <form  name="monForm" method="post" action="index.php?action=creer_article" >
     <div>
         <?= $message ?>
@@ -96,4 +98,6 @@ if (isset($_POST['titre'])) {
     </div>
     <br>
 </form>
+<!--Fin du formulaire de creation d'article-->
 <script src="./js/article/creer_article.js"></script>
+<!-------------------------------------------------------Fin de la page de creation d'article---------------------------------------------------------------->

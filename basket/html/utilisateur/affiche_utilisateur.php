@@ -5,6 +5,7 @@ $resultats = $connexion->query($requete);
 //On récupère toutes les lignes de la table dans la variable $lignes qui est un tableau associatif
 $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
 ?>
+<!-------------------------------------------------------Page d'affichage des utilisateur---------------------------------------------------------------->
 <h3>Liste des utilisateurs</h3><br>
 <?php
 foreach ($lignes as $ligne) {
@@ -18,3 +19,4 @@ foreach ($lignes as $ligne) {
 ?>
 <br>
 <input type='button' value='Retour' OnClick="window.location.href='index.php'" />
+<!-------------------------------------------------------Fin de la page d'affichage des utilisateur---------------------------------------------------------------->
