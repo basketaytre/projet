@@ -1,6 +1,5 @@
 <?php
 $requete = " SELECT idArticle,titre,dateArticle,VilleArticle,departement,descriptionArticle FROM `article` ";
-
 // On récupère la liste des 2 derniers articles en date.
 $requeteRecher = $requete . "ORDER BY `dateArticle` DESC LIMIT 2 ;";
 $resultats = $connexion->query($requeteRecher);
