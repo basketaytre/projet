@@ -27,7 +27,7 @@ for ($i = 0; $i < $nbArticle; $i++) {
     .'<div class="row m-0 mt-4">'
         . '<div class="col-12 p-0">'
             . '<div class="row ml-5 mr-5  border no-gutters rounded overflow-hidden shadow-sm flex-md-row mb-4  h-md-250 position-relative bg-white ">'
-                . '<div class="col-8 p-3 text-center mt-auto mb-auto mr-3 ml-3 border shadow-sm ">'
+                . '<div class="col-8 p-3 text-center mt-auto mb-auto border shadow-sm ">'
                     . '<div class="row m-0 mt-0 mb-3 ">'
                         . '<div class="col-lg-12 col-md-12 col-sm-12">'
                             . '<h2 class="mb-0 " style="font-size:2rem;">' . $article[$i][0] . '</h2>'
