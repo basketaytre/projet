@@ -11,5 +11,6 @@
     }
 ?>
 <br>
+<!-- Bouton retour --> 
 <input type='button' value='Retour' OnClick="window.location.href='index.php'" />
 

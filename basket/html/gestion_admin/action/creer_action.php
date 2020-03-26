@@ -1,17 +1,20 @@
 <?php
-
+//initialisation des variable
 $idArticle = '';
 $idSponsor = '';
 $typeDon = '';
 $montant = '';
 $message = '';
 $donneeErreur = '';
+// recuperation de la table sponsors
 $requete = "select idSponsor,nom from sponsor";
 $resultats = $connexion->query($requete);
 $listeSponsors = $resultats->fetchALL(PDO::FETCH_ASSOC);
+// recuperation de la table article
 $requete = "select idArticle,titre from article";
 $resultats = $connexion->query($requete);
 $listeArticles = $resultats->fetchALL(PDO::FETCH_ASSOC);
+// si le formulaire a etait soumis
 if (isset($_POST['idArticle'])) {
     $idArticle = $_POST["idArticle"];
     $idSponsor = $_POST["idSponsor"];
@@ -97,16 +100,19 @@ if (isset($_POST['idArticle'])) {
     <span class="tooltip" id="tooltipIdSponsor">Doit être choisi</span>
     <br>
     <br>
+    <!-- Champ Type de don -->
     <label class="form_col" for="typeDon">Type de don* : </label>
     <input type="text" id="typeDon" name="typeDon" value='<?= $typeDon ?>' onblur="indexDonnees(2, 1)">
     <span class="tooltip" id="tooltipTypeDon">Doit être compris entre 1 et 1000 caractères</span>
     <br>
     <br>
+    <!-- Champ Montant -->
     <label class="form_col" for="montant">Montant* : </label>
     <input type="text" id="montant" name="montant" value='<?= $montant ?>' onblur="indexDonnees(3, 1)">
     <span class="tooltip" id="tooltipMontant">Doit être compris entre 1 et 10000 caractères</span>
     <br>
     <br>
+    <!-- Bouton -->
     <div>
         <input type='submit' value='Enregistrer' onclick="return validFormulaire()"/>
         <input type='reset' value="Réinitialiser le formulaire" />

@@ -32,6 +32,7 @@ $nbSponsor = count($sponsor);
     </div>
 </div>
 <?php
+// affichage du sponsor
 for ($i = 0; $i < $nbSponsor; $i++) {
     echo '<div class="row m-0 mt-4">'
     . '<div class="col-9 offset-1 p-0">'

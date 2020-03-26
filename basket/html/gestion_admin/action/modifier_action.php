@@ -66,25 +66,29 @@ if (isset($_GET['valide'])) {
     <h1>Modification d'une action</h1>
     <br>
     <br>
+    <!-- Champ ID Article -->
     <label class="form_col" for="idArticle">Article* : </label>
     <input type="text" name="idArticle" readonly="" style ="background-color: #ccc;" value='<?= $titre ?>'>
     <br>
     <br>
+    <!-- Champ ID Sponsors -->
     <label class="form_col" for="idSponsor">Sponsor* : </label>
     <input type="text" name="idArticle" readonly="" style ="background-color: #ccc;" value='<?= $nom ?>'>
-
     <br>
     <br>
+    <!-- Champ Type de don -->
     <label class="form_col" for="typeDon">Type de don* : </label>
     <input type="text" id="typeDon" name="typeDon" value='<?= $typeDon ?>' onblur="indexDonnees(2, 1)">
     <span class="tooltip" id="tooltipTypeDon">Doit être compris entre 1 et 1000 caractères</span>
     <br>
     <br>
+    <!-- Champ Montant -->
     <label class="form_col" for="montant">Montant* : </label>
     <input type="text" id="montant" name="montant" value='<?= $montant ?>' onblur="indexDonnees(3, 1)">
     <span class="tooltip" id="tooltipMontant">Doit être compris entre 1 et 10000 caractères</span>
     <br>
     <br>
+    <!-- Button -->
     <div>
         <input type='submit' value='Enregistrer' onclick="return validFormulaire()"/>
         <input type='reset' value="Réinitialiser le formulaire" />
