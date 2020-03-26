@@ -68,54 +68,45 @@ if (isset($_GET['valide'])) {
     }
 }
 ?>
-<!-------------------------------------------------------Page de modification d'article---------------------------------------------------------------->
-<!-- Formulaire de modification d'article -->
+
 <form  name="monForm" method="post" action="index.php?action=modifier_article&valide=ok" >
     <div>
         <?= $message ?>
     </div>
     <h1>Page de modification d'article</h1>
-    <!-- Champ ID Article -->
     <label class="form_col" for="idArticle">ID Article : </label>
-    <input type="text" name="idArticle" readonly="" value='<?= $idArticle ?>'>
+    <input type="text" name="idArticle" class="bg-grey" readonly="" value='<?= $idArticle ?>'>
     <br>
     <br>
-    <!-- Champ Date de l'article -->
     <label class="form_col" for="dateArticle">Date de l'article : </label>
-    <input type="text" name="dateArticle" readonly="" value='<?= $dateArticle ?>'>
+    <input type="text" name="dateArticle" readonly="" class="bg-grey" value='<?= $dateArticle ?>'>
     <br>
     <br>
-    <!-- Champ Titre -->
     <label class="form_col" for="titre">Titre* : </label>
     <input type="text" id="titre" name="titre" value='<?= $titre ?>' onblur="indexDonnees(0, 1)">
     <span class="tooltip" id="tooltipTitre">Doit être compris entre 1 et 100 caractères</span>
     <br>
     <br>
-    <!-- Champ Ville -->
     <label class="form_col" for="ville">Ville* : </label>
     <input type="text" id="ville" name="villeArticle" value='<?= $villeArticle ?>' onblur="indexDonnees(1, 1)">
     <span class="tooltip" id="tooltipVille">Doit être compris entre 1 et 50 caractères</span>
     <br>
     <br>
-    <!-- Champ Departement -->
     <label class="form_col" for="departement">Departement : </label>
     <input type="text" id="departement" name="departement" value='<?= $departement ?>' onblur="indexDonnees(2, 1)">
     <span class="tooltip" id="tooltipDepartement">Doit faire 2 caractéres</span>
     <br>
     <br>
-    <!-- Champ Description -->
     <label class="form_col" for="desArt" >Description* : </label>
     <input type="text" maxlength="10000" id='desArt'  name="descriptionArticle" value='<?= stripslashes($descriptionArticle) ?>' onblur="indexDonnees(3, 1)">
     <span class="tooltip" id="tooltipDescription">Doit être compris entre 1 et 10000 caractères</span>
     <br>
     <br>
-    <!-- Champ Image -->
     <label class="form_col" for="image">Image : </label>
     <input type="text" id="image" name="imageArticle" value='<?= $imageArticle ?>' onblur="indexDonnees(4, 1)">
     <span class="tooltip" id="tooltipImage">Doit être compris entre 1 et 100 caractères</span>
     <br>
     <br>
-    <!-- Bouton -->
     <div>
         <input type='submit' value='Enregistrer' onclick="return validFormulaire()"/>
         <input type='reset' value="Réinitialiser le formulaire" />
@@ -123,6 +114,6 @@ if (isset($_GET['valide'])) {
     </div>
     <br>
 </form>
-<!-- Fin du formulaire de modification d'article -->
-<script src="./js/article/modifier_article.js"></script>
-<!-------------------------------------------------------Fin de la page de modification d'article---------------------------------------------------------------->
+<script src="./js/article/modifier_article.js">
+    
+</script>

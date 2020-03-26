@@ -321,3 +321,6 @@ input:focus {
     transition-delay:.2s;
 }
 
+.bg-gris{
+    background-color: #ccc;
+}
