@@ -74,6 +74,9 @@ elseif ($action=='mention_legales') {
 elseif ($action=='plan_site') {
     include './html/information/plan_site.php';
 }
+elseif ($action=='regarder_article') {
+    include './html/article/regarder_article.php';
+}
 else{
     include './page_erreur.php';
 }

@@ -7,7 +7,7 @@ function indexDonnees(nb,choix)  {
         ['tooltipTitre','titre',1,100],                         // 0
         ['tooltipVille','ville',1,50],                          // 1
         ['tooltipDepartement','departement',2,2],               // 2
-        ['tooltipDescription','desArt',1,10000],                // 3
+        ['tooltipResume','resume',2,400],                       // 3
         ['tooltipImage','image',1,100],                         // 4
     ];
     if (choix==0){

@@ -3,6 +3,7 @@ $idArticle = '';
 $dateArticle = '';
 $titre = '';
 $descriptionArticle = '';
+$resumeArticle = '';
 $imageArticle = '';
 $villeArticle = '';
 $departement = '';
@@ -19,6 +20,7 @@ if (isset($_GET['idArticle'])) {
     $dateArticle = $ligne['dateArticle'];
     $titre = $ligne['titre'];
     $descriptionArticle = $ligne['descriptionArticle'];
+    $resumeArticle = $ligne['resumeArticle'];
     $imageArticle = $ligne['imageArticle'];
     $villeArticle = $ligne['villeArticle'];
     $departement = $ligne['departement'];
@@ -29,8 +31,11 @@ if (isset($_GET['valide'])) {
     if (isset($_POST["titre"])) {
         $titre = $_POST["titre"];
     }
-    if (isset($_POST["descriptionArticle"])) {
-        $descriptionArticle = $_POST["descriptionArticle"];
+    if (isset($_POST["descriptArticle"])) {
+        $descriptionArticle = $_POST["descriptArticle"];
+    }
+    if (isset($_POST["resumeArticle"])) {
+        $resumeArticle = addslashes($_POST["resumeArticle"]);
     }
     if (isset($_POST["imageArticle"])) {
         $imageArticle = $_POST["imageArticle"];
@@ -51,6 +56,9 @@ if (isset($_GET['valide'])) {
     if (((strlen($descriptionArticle)) > 10000) || (strlen($descriptionArticle)) < 1) {
         $donneeErreur = $donneeErreur . "- Description invalide <br>";
     }
+    if (((strlen($resumeArticle)) > 400) || (strlen($resumeArticle)) < 1) {
+        $donneeErreur = $donneeErreur . "- Résumé invalide <br>";
+    }
     if (((strlen($imageArticle)) > 20) || (strlen($imageArticle)) < 1) {
         $donneeErreur = $donneeErreur . "- Image invalide <br>";
     }
@@ -61,18 +69,21 @@ if (isset($_GET['valide'])) {
         $message = "<div class='alert alert-danger'><strong>Erreur !</strong> L'article n'a pas pu être modifié.<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
-        $descriptionArticle= addslashes($descriptionArticle);
-        $requete = "update article set titre='$titre',descriptionArticle='$descriptionArticle', imageArticle='$imageArticle', villeArticle='$villeArticle', departement='$departement' where idArticle='$idArticle'";
+        $descriptionArticle = addslashes($descriptionArticle);
+        $requete = "update article set titre='$titre',descriptionArticle='$descriptionArticle', imageArticle='$imageArticle', villeArticle='$villeArticle', departement='$departement', resumeArticle='$resumeArticle' where idArticle='$idArticle'";
         $connexion->exec($requete);
         $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre modification à bien été prise en compte .</div>";
     }
 }
 ?>
-
-<form  name="monForm" method="post" action="index.php?action=modifier_article&valide=ok" >
     <div>
         <?= $message ?>
     </div>
+<div class="rounded text-center text-white p-3 m-3 mt-5 bg-orange" >
+    <h1 style="font-size:2em;"><i>Modifier un article</i></h1>
+</div>
+<form  name="monForm" method="post" action="index.php?action=modifier_article&valide=ok&texte=ok" >
+
     <h1>Page de modification d'article</h1>
     <label class="form_col" for="idArticle">ID Article : </label>
     <input type="text" name="idArticle" class="bg-grey" readonly="" value='<?= $idArticle ?>'>
@@ -94,26 +105,44 @@ if (isset($_GET['valide'])) {
     <br>
     <label class="form_col" for="departement">Departement : </label>
     <input type="text" id="departement" name="departement" value='<?= $departement ?>' onblur="indexDonnees(2, 1)">
-    <span class="tooltip" id="tooltipDepartement">Doit faire 2 caractéres</span>
+    <span class="tooltip" id="tooltipDepartement">Doit faire 2 caractères</span>
     <br>
     <br>
-    <label class="form_col" for="desArt" >Description* : </label>
-    <input type="text" maxlength="10000" id='desArt'  name="descriptionArticle" value='<?= stripslashes($descriptionArticle) ?>' onblur="indexDonnees(3, 1)">
-    <span class="tooltip" id="tooltipDescription">Doit être compris entre 1 et 10000 caractères</span>
+    <label class="form_col" for="resume">Résumé : </label>
+    <textarea id="resume" name="resumeArticle" onblur="indexDonnees(3, 1)"  style='width:400px;' ><?= stripslashes($resumeArticle) ?> </textarea>
+    <span class="tooltip" id="tooltipResume">Doit faire entre 2 et 400 caractères</span>
     <br>
     <br>
-    <label class="form_col" for="image">Image : </label>
+    <label class="form_col" for="image">Image de présentation : </label>
     <input type="text" id="image" name="imageArticle" value='<?= $imageArticle ?>' onblur="indexDonnees(4, 1)">
     <span class="tooltip" id="tooltipImage">Doit être compris entre 1 et 100 caractères</span>
     <br>
     <br>
-    <div>
-        <input type='submit' value='Enregistrer' onclick="return validFormulaire()"/>
-        <input type='reset' value="Réinitialiser le formulaire" />
-        <input type='button' value='Retour' OnClick="window.location.href='index.php?action=gestion_article'" />
+    <div class="row m-0">
+        <div class="col-lg-12 p-5">
+            <textarea id='summernote' name='descriptArticle' >
+                <p><?= $descriptionArticle ?></p>
+            </textarea>
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="col-lg-4 offset-1">
+            <input type="submit" value="Enregistrer" class="bouton-design rounded" OnClick="return validFormulaire()">
+            <input type='reset' value="Réinitialiser le formulaire"  class="bouton-design rounded" style="width:200px;"/>
+            <input type='button' value='Retour' class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=gestion_article'" />
+        </div>
     </div>
     <br>
 </form>
-<script src="./js/article/modifier_article.js">
-    
+<script src="./js/article/verif_article.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
+<script>
+                $(document).ready(function () {
+                    $('#summernote').summernote({
+                        height: 400
+                    });
+                });
 </script>

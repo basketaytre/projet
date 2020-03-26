@@ -1,5 +1,4 @@
 <!-------------------------------------------------------Page du header---------------------------------------------------------------->
-<!DOCTYPE html>
 <html>
     <head>
         <title> Club de basket-ball d'Aytré</title> 
@@ -7,10 +6,22 @@
         <meta name="viewport" content="width=device-width, intitial-scale=1.0">
         <link rel="icon" type="image/png" href="images/logo_mini.png" />
         <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
-        <link rel="stylesheet" href="css/graphisme.css" />
+
         <!--        Police d'écriture-->
         <link href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet"> 
+        <?php
+        $texte = '';
+        if (isset($_GET['texte'])) {
+            $texte = $_GET['texte'];
+            if ($texte == 'ok') {
+                echo '<!-- Editeur de texte -->'
+                . '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">'
+                . ' <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">';
+            }
+        }
+        ?>
+        <link rel="stylesheet" href="css/graphisme.css" />
     </head>
     <body>
         <header >

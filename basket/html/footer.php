@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="col">
-                <h5>Réseau sociaux</h5>
+                <h5>Réseaux sociaux</h5>
                 <div id="fb-root"></div>
 
                 <div class="fb-page" data-href="https://www.facebook.com/aytrebasket/" data-tabs="timeline" data-width="" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/aytrebasket/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/aytrebasket/">ABBA Association Basket Ball Aytré</a></blockquote></div>
