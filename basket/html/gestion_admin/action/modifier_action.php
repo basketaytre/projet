@@ -53,7 +53,6 @@ if (isset($_GET['valide'])) {
     }
     if ($donneeErreur == '') {
         $requete = "update action set typeDon='$typeDon',montant='$montant' where idSponsor='$idSponsor' and idArticle='$idArticle'";
-        // il faut ajouter a la requette idArticle=$listeArticle['idArticle'] et idSponsor=$listeSponsor['idSponsors']
         $connexion->exec($requete);
         $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre modification à bien été prise en compte .</div>";
     }
