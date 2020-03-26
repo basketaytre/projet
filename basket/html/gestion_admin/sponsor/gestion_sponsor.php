@@ -29,7 +29,7 @@ $nbSponsor = count($sponsor);
 </div>
 <div class="row m-0">
     <div class="col-12 text-center">
-        <input type="button" value="Creer sponsor" class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=inscription_utilisateur'">
+        <input type="button" value="Creer sponsor" class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=creer_sponsor'">
     </div>
 </div>
 <?php
