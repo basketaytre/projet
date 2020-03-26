@@ -7,16 +7,25 @@ $message = '';
 $donneeErreur = '';
 $valide = '';
 
-$requete="select idSponsor from sponsor";
-$resultats = $connexion->query($requete);
-$listeSponsors = $resultats->fetchALL(PDO::FETCH_ASSOC);
-$requete="select idArticle from article";
-$resultats = $connexion->query($requete);
-$listeArticles = $resultats->fetchALL(PDO::FETCH_ASSOC);
+
 if (isset($_GET['idSponsor'])) {
     $idSponsor = $_GET['idSponsor'];
     $idArticle = $_GET['idArticle'];
-    $requete = "select * from action where idSponsor='$idSponsor' and idArticle='$idArticle'";
+    // Récuperer le sponsor
+    $requete = "select idSponsor,nom from sponsor where idSponsor='$idSponsor'";
+    $resultats = $connexion->query($requete);
+    $listeSponsors = $resultats->fetchALL(PDO::FETCH_ASSOC);
+    $listeSponsor = $listeSponsors[0];
+    $nom = $listeSponsor['nom'];
+    
+    // Récupérer l'article
+    $requete = "select idArticle,titre from article where idArticle='$idArticle'";
+    $resultats = $connexion->query($requete);
+    $listeArticles = $resultats->fetchALL(PDO::FETCH_ASSOC);
+    $listeArticle = $listeArticles[0];
+    $titre = $listeArticle['titre'];
+    
+    $requete = "select typeDon,montant,date from action where idArticle='$idArticle'";
     $resultats = $connexion->query($requete);
     $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
     $ligne = $lignes[0];
@@ -46,8 +55,7 @@ if (isset($_GET['valide'])) {
         $requete = "update action set typeDon='$typeDon',montant='$montant' where idSponsor='$idSponsor' and idArticle='$idArticle'";
         // il faut ajouter a la requette idArticle=$listeArticle['idArticle'] et idSponsor=$listeSponsor['idSponsors']
         $connexion->exec($requete);
-        $message="<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre modification à bien été prise en compte .</div>";
-
+        $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre modification à bien été prise en compte .</div>";
     }
 }
 ?>
@@ -58,34 +66,13 @@ if (isset($_GET['valide'])) {
     <h1>Modification d'une action</h1>
     <br>
     <br>
-    <label class="form_col" for="idArticle">ID Article* : </label>
-    <select name='idArticle'>
-        <?php
-        foreach ($listeArticles as $listeArticle) {
-            echo "<option value={$listeArticle['idArticle']} ";
-            if ($idArticle == $listeArticle['idArticle'])
-                echo'selected';
-            echo ">";
-            echo "{$listeArticle['idArticle']}";
-            echo "</option>";
-        }
-        ?>
-    </select>
+    <label class="form_col" for="idArticle">Article* : </label>
+    <input type="text" name="idArticle" readonly="" style ="background-color: #ccc;" value='<?= $titre ?>'>
     <br>
     <br>
-    <label class="form_col" for="idSponsor">ID Sponsor* : </label>
-    <select name='idSponsor'>
-        <?php
-        foreach ($listeSponsors as $listeSponsor) {
-            echo "<option value={$listeSponsor['idSponsor']} ";
-            if ($idSponsor == $listeSponsor['idSponsor'])
-                echo'selected';
-            echo ">";
-            echo "{$listeSponsor['idSponsor']}";
-            echo "</option>";
-        }
-        ?>
-    </select>
+    <label class="form_col" for="idSponsor">Sponsor* : </label>
+    <input type="text" name="idArticle" readonly="" style ="background-color: #ccc;" value='<?= $nom ?>'>
+
     <br>
     <br>
     <label class="form_col" for="typeDon">Type de don* : </label>

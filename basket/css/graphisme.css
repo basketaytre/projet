@@ -149,6 +149,10 @@ input:focus {
     color:#fe882a;
 }
 
+.bg-orange{
+    background-color:#fe882a;
+}
+
 .navigbar{
     margin-right: 0px;
     font-size: 25px;
@@ -317,6 +321,3 @@ input:focus {
     transition-delay:.2s;
 }
 
-.col-md-12 logonav{
-    display: none;
-} 

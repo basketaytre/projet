@@ -1,9 +1,4 @@
 <?php
-$requete = "select * from action ";
-//Exécution de  la requête qui renvoie le résultat dans  $resultats, 
-$resultats = $connexion->query($requete);
-//On récupère toutes les lignes de la table dans la variable $lignes qui est un tableau associatif
-$lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
 
 $idArticle = '';
 $idSponsor = '';
@@ -11,10 +6,10 @@ $typeDon = '';
 $montant = '';
 $message = '';
 $donneeErreur = '';
-$requete="select idSponsor from sponsor";
+$requete = "select idSponsor,nom from sponsor";
 $resultats = $connexion->query($requete);
 $listeSponsors = $resultats->fetchALL(PDO::FETCH_ASSOC);
-$requete="select idArticle from article";
+$requete = "select idArticle,titre from article";
 $resultats = $connexion->query($requete);
 $listeArticles = $resultats->fetchALL(PDO::FETCH_ASSOC);
 if (isset($_POST['idArticle'])) {
@@ -22,10 +17,21 @@ if (isset($_POST['idArticle'])) {
     $idSponsor = $_POST["idSponsor"];
     $typeDon = $_POST["typeDon"];
     $montant = $_POST["montant"];
-    //$requete = "select idArticle from article where idArticle=" . $idArticle;
-    //$resultats = $connexion->query($requete);
-    //$t = $resultats->fetchALL(PDO::FETCH_ASSOC);
 
+    // Vérification de l'ID'articles
+    $requete = "select idArticle, idSponsor from action where idArticle=" . $idArticle . " and idSponsor=" . $idSponsor . ";";
+    $resultats = $connexion->query($requete);
+    $verifIdArti = $resultats->fetchALL(PDO::FETCH_ASSOC);
+    $donne = false;
+    foreach ($verifIdArti as $ligne) {
+        if ($ligne['idArticle'] == $idArticle) {
+            $donne = true;
+        }
+    }
+    if ($donne == true) {
+        $donneeErreur = $donneeErreur . "- Une action à déjà été créé pour cet article et ce partenaire,<br>";
+    }
+    
     if ((strlen($montant)) < 1 || strlen($montant) > 10000) {
         $donneeErreur = $donneeErreur . "- Montant invalide,<br>";
     }
@@ -35,7 +41,7 @@ if (isset($_POST['idArticle'])) {
     if ((strlen($idSponsor)) < 1 || strlen($idSponsor) > 2) {
         $donneeErreur = $donneeErreur . "- Id Sponsor invalide,<br>";
     }
-    if ((strlen($typeDon)) < 1 || strlen($typeDon) >1000) {
+    if ((strlen($typeDon)) < 1 || strlen($typeDon) > 1000) {
         $donneeErreur = $donneeErreur . "- Don invalide, <br>";
     }
     if ($donneeErreur != '') {
@@ -55,14 +61,40 @@ if (isset($_POST['idArticle'])) {
     <h1>Création d'une action</h1>
     <br>
     <br>
-    <label class="form_col" for="idArticle">ID Article* : </label>
-    <input type="text" id="idArticle" name="idArticle" value='<?= $idArticle ?>' onblur="indexDonnees(0, 1)">
-    <span class="tooltip" id="tooltipIdArticle">Doit être choisis</span>
+    <!-- Champ Article -->
+    <label class="form_col" for="idArticle">Article* : </label>
+    <select name='idArticle' id="idArti" onblur="indexDonnees(0, 2)">
+        <option value="-1">Veuillez faire un choix</option>
+        <?php
+        foreach ($listeArticles as $listeArticle) {
+            echo "<option value={$listeArticle['idArticle']}";
+            if ($idArticle == $listeArticle['idArticle'])
+                echo ' selected';
+            echo ">";
+            echo "{$listeArticle['titre']}";
+            echo "</option>";
+        }
+        ?>
+    </select>
+    <span class="tooltip" id="tooltipIdArticle">Doit être choisi</span>
     <br>
     <br>
-    <label class="form_col" for="idSponsor">ID Sponsor* : </label>
-    <input type="text" id="idSponsor" name="idSponsor" value='<?= $idSponsor ?>' onblur="indexDonnees(1, 1)">
-    <span class="tooltip" id="tooltipIdSponsor">Doit être choisis</span>
+    <!--  Champ sponsor-->
+    <label class="form_col" for="idSponsor">Sponsor* : </label>
+    <select name='idSponsor' id="idSponso"  onblur="indexDonnees(1, 2)" >
+        <option value="-1">Veuillez faire un choix</option>
+        <?php
+        foreach ($listeSponsors as $listeSponsor) {
+            echo "<option value={$listeSponsor['idSponsor']}";
+            if ($idSponsor == $listeSponsor['idSponsor'])
+                echo ' selected';
+            echo ">";
+            echo "{$listeSponsor['nom']}";
+            echo "</option>";
+        }
+        ?>
+    </select>
+    <span class="tooltip" id="tooltipIdSponsor">Doit être choisi</span>
     <br>
     <br>
     <label class="form_col" for="typeDon">Type de don* : </label>
