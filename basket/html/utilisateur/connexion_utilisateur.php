@@ -1,6 +1,28 @@
 <?php
     
-    
+    if(isset($_POST['formconnect'])){
+        if(!empty($emailconnect) && !empty($mdpconnect)){
+            $requete = "select * from utilisateur where adresseMail = '$emailconnect'";
+            $resultats->exec($requete);
+            $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
+            if($lignes == true){
+                $hasspass = $lignes['mdp'];
+                if(password_verify($mdpconnect,$hasspass)){
+                    echo "le mot de passe est bon";
+                }
+                else{
+                    echo "le mot de passe n'est pas bon";
+                    $_SESSION['emailconnect']= $lignes['adresseMail'];
+                }
+            }
+            else{
+                echo "l'email '$emailconnect' n'existe pas";
+            }
+        }
+        else{
+            echo"Veuillez completer l'ensemble des champs";
+        }
+    }
 
 ?>
 <div class="text-center p-5" action="index.php?action=connexion_utilisateur">
