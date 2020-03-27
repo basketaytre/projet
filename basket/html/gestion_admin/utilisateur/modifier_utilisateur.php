@@ -71,7 +71,7 @@ if (isset($_GET['valide'])) {
     if (((strlen($adresseMail)) > 50) || (strlen($adresseMail)) < 1) {
         $donneeErreur = $donneeErreur . "- Adresse mail invalide, <br>";
     }
-    if (((strlen($mdp)) > 50) || (strlen($mdp)) < 6) {
+    if (((strlen($mdp)) > 255) || (strlen($mdp)) < 6) {
         $donneeErreur = $donneeErreur . "- Mot de passe invalide, <br>";
     }
     if (strlen($mdp)!= strlen($mdp2))  {
