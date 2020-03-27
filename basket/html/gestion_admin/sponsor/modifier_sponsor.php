@@ -104,49 +104,49 @@ if (isset($_GET['valide'])) {
     <br>
     <br>
     <!-- Champ nom -->
-    <label class="form_col" for="nom">Nom* : </label>
+    <label class="form_col" for="nom">Nom<span class="important">*</span> : </label>
     <input name="nom" id="nom" type="text" value='<?= $nom ?>' onblur="indexDonnees(0, 1)">
     <span class="tooltip" id="tooltipNom">Doit être compris entre 1 et 70 caractères</span>
     <br>
     <br>
     <!-- Champ adresse-->
-    <label class="form_col" for="adresse">Adresse* :</label>
+    <label class="form_col" for="adresse">Adresse<span class="important">*</span> : </label>
     <input type="text" id="adresse" name="adresse" value='<?= $adresse ?>' onblur="indexDonnees(1, 1)">
     <span class="tooltip" id="tooltipAdresse">Doit être compris entre 1 et 50 caractères</span>
     <br>
     <br>
     <!-- Champ ville-->
-    <label class="form_col" for="ville">Ville* :</label> 
+    <label class="form_col" for="ville">Ville<span class="important">*</span> : </label> 
     <input type="text" id="ville" name="ville" value='<?= $ville ?>' onblur="indexDonnees(2, 1)">
     <span class="tooltip" id="tooltipVille">Doit être compris entre 1 et 50 caractères</span>
     <br>
     <br>
     <!-- Champ codepostal-->
-    <label class="form_col" for="codePostal">Code Postal* :</label>
+    <label class="form_col" for="codePostal">Code Postal<span class="important">*</span> : </label>
     <input type="text" id="codePost" name="codePostal" value='<?= $codePostal ?>' onblur="indexDonnees(3, 1)">
     <span class="tooltip" id="tooltipCodePost">Doit faire 5 caractéres</span>
     <br>
     <br>
     <!-- Champ telephone-->
-    <label class="form_col" for="telephone">Téléphone* :</label> 
+    <label class="form_col" for="telephone">Téléphone<span class="important">*</span> : </label> 
     <input type="text" id="telephone" name="telephone" value='<?= $telephone ?>' onblur="indexDonnees(4, 1)">
     <span class="tooltip" id="tooltipTelephone">Doit faire 10 caractéres</span>
     <br>
     <br>
     <!-- Champ lien sponsors-->
-    <label class="form_col" for="lien">Lien sponsor* :</label> 
+    <label class="form_col" for="lien">Lien sponsor<span class="important">*</span> : </label> 
     <input type="text" id="lien" name="lien" value='<?= $lien ?>' onblur="indexDonnees(5, 1)">
     <span class="tooltip" id="tooltipLien">Doit être compris entre 1 et 70 caractères</span>
     <br>
     <br>
     <!-- Champ description-->
-    <label class="form_col" for="description">Description* :</label>
+    <label class="form_col" for="description">Description<span class="important">*</span> : </label>
     <input type="text" id="description" name="description" value='<?= $description ?>' onblur="indexDonnees(6, 1)">
     <span class="tooltip" id="tooltipDescription">Doit être compris entre 1 et 750 caractères</span>
     <br>
     <br>
     <!-- Champ lien image -->
-    <label class="form_col" for="lienimage">Lien image* :</label>
+    <label class="form_col" for="lienimage">Lien image<span class="important">*</span> : </label>
     <input type="text" id="image" name="image" value='<?= $image ?>' onblur="indexDonnees(7, 1)">
     <span class="tooltip" id="tooltipImage">Doit être compris entre 1 et 750 caractères</span>
     <br>

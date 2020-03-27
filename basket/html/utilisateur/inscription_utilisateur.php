@@ -68,37 +68,37 @@ if (isset($_POST['pseudonyme'])) {
     <h1>S'inscrire</h1>
     <br>
     <br>
-    <label class="form_col" for="pseudonyme">Pseudonyme: </label>
+    <label class="form_col" for="pseudonyme">Pseudonyme<span class="important">*</span> : </label>
     <input name="pseudonyme" id="pseudonyme" type="text"  value='<?= $pseudonyme ?>' onblur="indexDonnees(0, 1)">
     <span class="tooltip" id="tooltipPseudonyme">Doit être compris entre 1 et 30 caractères</span>
     <br>
     <br>
-    <label class="form_col" for="nom">Nom* : </label>
+    <label class="form_col" for="nom">Nom<span class="important">*</span> : </label>
     <input type="text" id="nom" name="nom" value='<?= $nom ?>' onblur="indexDonnees(1, 1)">
     <span class="tooltip" id="tooltipNom">Doit être compris entre 1 et 50 caractères</span>
     <br>
     <br>
-    <label class="form_col" for="prenom">Prénom* : </label>
+    <label class="form_col" for="prenom">Prénom<span class="important">*</span> : </label>
     <input type="text" id="prenom" name="prenom" value='<?= $prenom ?>' onblur="indexDonnees(2, 1)">
     <span class="tooltip" id="tooltipPrenom">Doit être compris entre 1 et 50 caractères</span>
     <br>
     <br>
-    <label class="form_col" for="adresseMail">Adresse mail* : </label>
+    <label class="form_col" for="adresseMail">Adresse mail<span class="important">*</span> : </label>
     <input type="email" id="adresseMail" name="adresseMail" value='<?= $adresseMail ?>' onblur="indexDonnees(3, 1)">
     <span class="tooltip" id="tooltipAdresseMail">Doit être compris entre 6 et 50 caractères</span>
     <br>
     <br>
-    <label class="form_col" for="mdp">Mot de passe* : </label>
+    <label class="form_col" for="mdp">Mot de passe<span class="important">*</span> : </label>
     <input type="password" id="mdp" name="mdp" value='<?= $mdp ?>' onblur="indexDonnees(4, 1)">
     <span class="tooltip" id="tooltipMdp">Doit être compris entre 6 et 50 caractères</span>
     <br>
     <br>
-    <label class="form_col" for="mdp2">Verification mot de passe* : </label>
+    <label class="form_col" for="mdp2">Verification mot de passe<span class="important">*</span> : </label>
     <input type="password" id="mdp2" name="mdp2" value='<?= $mdp2 ?>' onblur="validMdp()">
     <span class="tooltip" id="tooltipMdp2">Doit être identique</span>
     <br>
     <br>
-    <label class="form_col" for="telephone">Téléphone* : </label>
+    <label class="form_col" for="telephone">Téléphone<span class="important">*</span> : </label>
     <input type="text" id="telephone" name="telephone" value='<?= $telephone ?>' onblur="indexDonnees(5, 1)">
     <span class="tooltip" id="tooltipTelephone">Doit faire 10 caractères</span>
     <br>

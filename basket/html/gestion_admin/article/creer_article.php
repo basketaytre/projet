@@ -63,12 +63,12 @@ if (isset($_POST['titre']) && isset($_POST["descriptArticle"])) {
 <form  name="monForm" method="post" action="index.php?action=creer_article&texte=ok" >
 
     <br>
-    <label class="form_col" for="titre">Titre de l'article* : </label>
+    <label class="form_col" for="titre">Titre de l'article<span class="important">*</span> : </label>
     <input type="text" id="titre" name="titre" value='<?= $titre ?>' onblur="indexDonnees(0, 1)">
     <span class="tooltip" id="tooltipTitre">Doit être compris entre 1 et 100 caractères</span>
     <br>
     <br>
-    <label class="form_col" for="ville">Ville * : </label>
+    <label class="form_col" for="ville">Ville<span class="important">*</span> : </label>
     <input type="text" id="ville" name="villeArticle" value='<?= $villeArticle ?>' onblur="indexDonnees(1, 1)">
     <span class="tooltip" id="tooltipVille">Doit être compris entre 1 et 50 caractères</span>
     <br>

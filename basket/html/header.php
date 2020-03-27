@@ -4,7 +4,7 @@
         <title> Club de basket-ball d'Aytré</title> 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, intitial-scale=1.0">
-        <link rel="icon" type="image/png" href="images/logo_mini.png" />
+        <link rel="icon" type="image/ico" href="images/logo2.ico" />
         <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
 
         <!--        Police d'écriture-->
@@ -27,13 +27,13 @@
         <header >
             <div class="row mt-2 mb-2 m-0">
                 <div class="col-8">
-                    <div class=" pl-5"><strong class="align-middle">Retrouvez-nous sur Facebook ! </strong><img src="images/f_logo_facebook.png" class="ml-3"></img></div>
+                    <a target="blank" href="https://www.facebook.com/aytrebasket/"><div class=" pl-5"><strong class="align-middle">Retrouvez-nous sur Facebook ! </strong><img src="images/f_logo_facebook.png" class="ml-3"></img></a></div>
 
                 </div>
                 <div class=" col-4 text-right">
                     <input type="button" value="Inscription" class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=inscription_utilisateur'">
                     <input type="button" value="Connexion"class="bouton-design rounded " OnClick="window.location.href = 'index.php?action=connexion_utilisateur'">
-                    <!--     <a class="btn btn-outline-primary" href="index.php?action=connexion_utilisateur">Se connecter</a>-->
+                    <!--<a class="btn btn-outline-primary" href="index.php?action=connexion_utilisateur">Se connecter</a>-->
                 </div>
             </div>
         </div>

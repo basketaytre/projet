@@ -93,12 +93,12 @@ if (isset($_GET['valide'])) {
     <input type="text" name="dateArticle" readonly="" class="bg-grey" value='<?= $dateArticle ?>'>
     <br>
     <br>
-    <label class="form_col" for="titre">Titre* : </label>
+    <label class="form_col" for="titre">Titre<span class="important">*</span> : </label>
     <input type="text" id="titre" name="titre" value='<?= $titre ?>' onblur="indexDonnees(0, 1)">
     <span class="tooltip" id="tooltipTitre">Doit être compris entre 1 et 100 caractères</span>
     <br>
     <br>
-    <label class="form_col" for="ville">Ville* : </label>
+    <label class="form_col" for="ville">Ville<span class="important">*</span> : </label>
     <input type="text" id="ville" name="villeArticle" value='<?= $villeArticle ?>' onblur="indexDonnees(1, 1)">
     <span class="tooltip" id="tooltipVille">Doit être compris entre 1 et 50 caractères</span>
     <br>

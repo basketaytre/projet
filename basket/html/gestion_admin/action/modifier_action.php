@@ -68,23 +68,23 @@ if (isset($_GET['valide'])) {
     <br>
     <br>
     <!-- Champ ID Article -->
-    <label class="form_col" for="idArticle">Article* : </label>
+    <label class="form_col" for="idArticle">Article<span class="important">*</span> : </label>
     <input type="text" name="idArticle" readonly="" style ="background-color: #ccc;" value='<?= $titre ?>'>
     <br>
     <br>
     <!-- Champ ID Sponsors -->
-    <label class="form_col" for="idSponsor">Sponsor* : </label>
+    <label class="form_col" for="idSponsor">Sponsor<span class="important">*</span> : </label>
     <input type="text" name="idArticle" readonly="" style ="background-color: #ccc;" value='<?= $nom ?>'>
     <br>
     <br>
     <!-- Champ Type de don -->
-    <label class="form_col" for="typeDon">Type de don* : </label>
+    <label class="form_col" for="typeDon">Type de don<span class="important">*</span> : </label>
     <input type="text" id="typeDon" name="typeDon" value='<?= $typeDon ?>' onblur="indexDonnees(2, 1)">
     <span class="tooltip" id="tooltipTypeDon">Doit être compris entre 1 et 1000 caractères</span>
     <br>
     <br>
     <!-- Champ Montant -->
-    <label class="form_col" for="montant">Montant* : </label>
+    <label class="form_col" for="montant">Montant<span class="important">*</span> : </label>
     <input type="text" id="montant" name="montant" value='<?= $montant ?>' onblur="indexDonnees(3, 1)">
     <span class="tooltip" id="tooltipMontant">Doit être compris entre 1 et 10000 caractères</span>
     <br>

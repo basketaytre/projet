@@ -323,3 +323,8 @@ input:focus {
 .bg-grey{
     background-color: #ccc;
 }
+
+.important{
+    color: red;
+    font-weight: bold;
+}
