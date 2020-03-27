@@ -328,3 +328,6 @@ input:focus {
     color: red;
     font-weight: bold;
 }
+.alert-success{
+    position:static;
+}

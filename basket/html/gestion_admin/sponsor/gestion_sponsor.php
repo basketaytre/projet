@@ -1,5 +1,13 @@
 <?php
+
+if (isset($_GET['idSponsor'])) {
+    $idSponsor = $_GET['idSponsor'];
+    $requete = "delete from sponsor where idSponsor=$idSponsor";
+    echo "<div class='alert alert-warning position-static'><strong>Traitement effectué !</strong> Un sponsor a été supprimé .</div>";
+    $connexion->exec($requete);
+}
 $requete = "select idSponsor,nom,adresse,ville,codePostal,telephone,lien,description,image FROM `sponsor` ";
+
 //Exécution de  la requête qui renvoie le résultat dans  $resultats, 
 $resultats = $connexion->query($requete);
 $sponsor = array();
@@ -9,7 +17,7 @@ $cpt = 0;
 foreach ($lignes as $ligne) {
     $sponsor[$cpt] = [$ligne['idSponsor'], $ligne['nom'], $ligne['adresse'], $ligne['ville'], $ligne['codePostal'], $ligne['telephone'], $ligne['description'], $ligne['image']];
 
-//    Mise en forme du numéro de téléphone
+//  Mise en forme du numéro de téléphone
     $telephone = '';
     for ($i = 0; $i < 10; $i += 2) {
         $telephone = $telephone . substr($sponsor[$cpt][5], $i, 2);

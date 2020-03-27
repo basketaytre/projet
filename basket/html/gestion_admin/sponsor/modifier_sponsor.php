@@ -152,10 +152,12 @@ if (isset($_GET['valide'])) {
     <br>
     <br>
     <!-- Bouton -->
-    <div class="ml-5" >
-            <input  type='submit' value='Enregistrer' onclick="return validFormulaire()" />
-            <input type='reset' value="Réinitialiser le formulaire" />
-            <input type='button' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_sponsor'" />
+    <div class="row m-0">
+        <div class="col-lg-4 offset-1">
+            <input type="submit" value="Enregistrer" class="bouton-design rounded" OnClick="return validFormulaire()">
+            <input type='reset' value="Réinitialiser le formulaire"  class="bouton-design rounded" style="width:200px;"/>
+            <input type='button' value='Retour' class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=gestion_sponsor'" />
+        </div>
     </div>
     <br>
 </form>

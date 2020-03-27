@@ -27,15 +27,16 @@ if (isset($_GET['idSponsor'])) {
     $requete = "select idSponsor, nom, adresse, ville, codePostal, telephone, lien, description, image from sponsor where idSponsor='$idSponsor'";
     $resultats = $connexion->query($requete);
     $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
-    $ligne = $lignes[0];
-    $nom = $ligne['nom'];
-    $adresse = $ligne['adresse'];
-    $ville = $ligne['ville'];
-    $codePostal = $ligne['codePostal'];
-    $telephone = $ligne['telephone'];
-    $lien = $ligne['lien'];
-    $description = $ligne['description'];
-    $image = $ligne['image'];
+//    $ligne = $lignes[0];
+//    $nom = $ligne['nom'];
+//    $adresse = $ligne['adresse'];
+//    $ville = $ligne['ville'];
+//    $codePostal = $ligne['codePostal'];
+//    $telephone = $ligne['telephone'];
+//    $lien = $ligne['lien'];
+//    $description = $ligne['description'];
+//    $image = $ligne['image'];
+      $sponsor[0]=[$ligne['idSponsor'], $ligne['nom'], $ligne['adresse'], $ligne['ville'], $ligne['codePostal'], $ligne['telephone'], $ligne['lien'], $ligne['description'],$ligne['image']];
 }
 if (isset($_GET['valide'])) {
     $idSponsor = $_POST['idSponsor'];
@@ -120,5 +121,4 @@ if (isset($_GET['valide'])) {
 
 
 <script src="./js/article/modifier_article.js">
-
 </script>

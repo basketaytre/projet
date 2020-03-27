@@ -23,7 +23,7 @@ if (isset($_POST['nom'])) {
     if ((strlen($codePostal)) != 5) {
         $donneeErreur = $donneeErreur . "- Code postal invalide,<br>";
     }
-    if (strlen(preg_replace('/\s/', '', $telephone)) != 10){
+    if (strlen(preg_replace('/\s/', '', $telephone)) != 10) {
         $donneeErreur = $donneeErreur . "- Numero de téléphone invalide, <br>";
     }
     if (((strlen($nom)) > 70) || (strlen($nom)) < 1) {
@@ -49,7 +49,7 @@ if (isset($_POST['nom'])) {
     }
     if ($donneeErreur == '') {
         // suppresion des espace
-        $telephone=(preg_replace('/\s/', '', $telephone));
+        $telephone = (preg_replace('/\s/', '', $telephone));
         $requete = "insert into sponsor (nom,adresse,ville,codePostal,telephone,lien,description,image) values ('$nom','$adresse','$ville',$codePostal,$telephone,'$lien','$description','$image');";
         $message = "<div class='alert alert-success'><strong>Traitement effectué !</strong> Votre sponsor à bien été créé .</div>";
         $connexion->exec($requete);
@@ -114,10 +114,12 @@ if (isset($_POST['nom'])) {
     <br>
     <br>
     <!-- Boutton -->
-    <div class="ml-5" >
-            <input  type='submit' value='Enregistrer' onclick="return validFormulaire()" />
-            <input type='reset' value="Réinitialiser le formulaire" />
-            <input type='button' value='Retour' OnClick="window.location.href = 'index.php?action=gestion_sponsor'" />
+    <div class="row m-0">
+        <div class="col-lg-4 offset-1">
+            <input type="submit" value="Enregistrer" class="bouton-design rounded" OnClick="return validFormulaire()">
+            <input type='reset' value="Réinitialiser le formulaire"  class="bouton-design rounded" style="width:200px;"/>
+            <input type='button' value='Retour' class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=gestion_sponsor'" />
+        </div>
     </div>
     <br>
 </form>
