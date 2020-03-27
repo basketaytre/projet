@@ -10,7 +10,7 @@ function indexDonnees(nb,choix)  {
         ['tooltipCodePost','codePost',5,5],         // 3
         ['tooltipTelephone','telephone',10,10],     // 4
         ['tooltipLien','lien',1,70],                // 5
-        ['tooltipDescription','description',1,750], // 6
+        ['tooltipDescription','description',1,1000], // 6
         ['tooltipImage','image',1,750]              // 7
     ];
     if (choix==0){

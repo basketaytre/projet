@@ -77,6 +77,9 @@ elseif ($action=='plan_site') {
 elseif ($action=='regarder_article') {
     include './html/article/regarder_article.php';
 }
+elseif ($action=='regarder_sponsor') {
+    include './html/sponsor/regarder_sponsor.php';
+}
 else{
     include './page_erreur.php';
 }

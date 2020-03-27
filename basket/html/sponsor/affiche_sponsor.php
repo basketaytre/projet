@@ -26,7 +26,7 @@ for ($i = 1; $i <= $nbSponsor; $i++) {
     . '<img class="img-responsive img-fluid" src="images/' . $sponsor[$i - 1][6] . '" alt="">'
     . '<div class="overlay">'
     . '<h2>' . $sponsor[$i - 1][1] . '</h2>'
-    . "<a class='info' href='#'>Plus d'informations</a>"
+    . "<a class='info' href='index.php?action=regarder_sponsor&idSponsor=" . $sponsor[$i - 1][0] . "'" . ">Plus d'informations</a>"
     . '</div>'
     . '</div>'
     . '</div>';

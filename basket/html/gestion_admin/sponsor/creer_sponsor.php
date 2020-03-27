@@ -38,7 +38,7 @@ if (isset($_POST['nom'])) {
     if (((strlen($lien)) > 70) || (strlen($lien)) < 1) {
         $donneeErreur = $donneeErreur . "- Lien sponsor invalide, <br>";
     }
-    if (((strlen($description)) > 750) || (strlen($description)) < 1) {
+    if (((strlen($description)) > 1000) || (strlen($description)) < 1) {
         $donneeErreur = $donneeErreur . "- Description invalide, <br>";
     }
     if (((strlen($image)) > 750) || (strlen($image)) < 1) {

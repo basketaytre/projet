@@ -30,7 +30,6 @@ $articleDeux_date = explode(' ', $article[1][2]);
 <div class="rounded text-center text-white p-3 m-3 mt-5 bg-dark">
     <h1><i>Actualité</i></h1>
 </div>
-
 <div class="row m-2">
     <!--Premier article-->
     <div class="col-md-6 mt-4 ">
