@@ -113,5 +113,5 @@ if (isset($_POST['pseudonyme'])) {
     <br>
 </form>
 <!--Fin du formulaire d'inscription-->
-<script src="js/utilisateur/modifier_utilisateur.js"></script>
+<script src="js/utilisateur/inscription_utilisateur.js"></script>
 <!-------------------------------------------------------Fin de la page d'inscription---------------------------------------------------------------->

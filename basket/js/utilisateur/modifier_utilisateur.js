@@ -9,7 +9,7 @@ function indexDonnees(nb,choix)  {
         ['tooltipNom','nom',1,50],                      // 2
         ['tooltipPrenom','prenom',1,50],                // 3
         ['tooltipAdresseMail','adresseMail',6,50],      // 4
-        ['tooltipMdp','mdp',6,50],                      // 5
+        ['tooltipMdp','mdp',6,255],                      // 5
         ['tooltipTelephone','telephone',10,10],         // 6
     ];
     if (choix==0){
