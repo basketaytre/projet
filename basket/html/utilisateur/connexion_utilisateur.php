@@ -39,9 +39,9 @@
 ?>
 
 <!-------------------------------------------------------Page de connexion---------------------------------------------------------------->
-<div class="text-center p-5" action="index.php?action=connexion_utilisateur">
+<div class="text-center p-5" >
     <!--Formulaire de connexion-->
-    <form  class="form-connexion pt-5 pb-5">
+    <form  class="form-connexion pt-5 pb-5" method="post" action="index.php?action=connexion_utilisateur">
         <!--Logo ABBA & titre -->
         <img src="images/logo_mini.PNG">
         <h1 class="pb-3">Se connecter</h1>
