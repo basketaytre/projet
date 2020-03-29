@@ -24,62 +24,94 @@
         <link rel="stylesheet" href="css/graphisme.css" />
     </head>
     <body>
+        <?php
+        $nav_en_cours='';
+        if (isset($_GET['action'])) {
+            $nav_en_cours = $_GET['action'];
+        }
+        ?>
         <header >
             <div class="row mt-2 mb-2 m-0">
-                <div class="col-8">
-                    <a target="blank" href="https://www.facebook.com/aytrebasket/"><div class=" pl-5"><strong class="align-middle">Retrouvez-nous sur Facebook ! </strong><img src="images/f_logo_facebook.png" class="ml-3"></img></a></div>
-
+                <div class="col-8 my-auto">
+                    <div class=" pl-5 "> 
+                        <a href="https://www.facebook.com/aytrebasket/" class="lien_neutre" ><strong>Retrouvez-nous sur Facebook ! </strong><img src="images/f_logo_facebook.png" class="ml-3"></img></a>
+                    </div>
                 </div>
                 <div class=" col-4 text-right">
                     <input type="button" value="Inscription" class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=inscription_utilisateur'">
                     <input type="button" value="Connexion"class="bouton-design rounded " OnClick="window.location.href = 'index.php?action=connexion_utilisateur'">
-                    <!--<a class="btn btn-outline-primary" href="index.php?action=connexion_utilisateur">Se connecter</a>-->
                 </div>
             </div>
-        </div>
-        <div class=" text-center bg-dark row  navigbar">
-            <div class="col-lg-5 col-md-12 mt-auto mb-auto">
-                <div class="row">
-                    <div class="col-4 col-md-4 col-sm-12 col-xs-12">
-                        <a class='p-2 navig-link' href='index.php'>Accueil</a>
-                    </div>
-                    <div class="col-4 col-md-4 col-sm-12 col-xs-12">
-                        <a class='p-2 navig-link' href='index.php?action=affiche_article'>Actualité</a>
-                    </div>
-                    <div class="col-4 col-md-4 col-sm-12 col-xs-12">
-                        <a class='p-2 navig-link' href='index.php?action=affiche_sponsor'>Partenaires</a>
+            <!--            Navbar                -->
+            <div class=" text-center bg-dark row navigbar">
+                <!-- Ligne vide qui apparait au format réduit--> 
+                <div class="row m-0 d-sm-block d-md-none"><small style="color:transparent; font-size:4px;">.</small></div>
+                <!-- Partie gauche -->
+                <div class="col-lg-5 col-md-12 my-auto ">
+                    <div class="row ">
+                        <div class="col-lg-4 col-md-4 d-md-block d-none ">
+                            <a class='p-2 navig-link' <?php if ($nav_en_cours == '') {
+            echo ' id="en_cours"';
+        } ?> href='index.php'>Accueil</a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 d-md-block d-none ">
+                            <a class='p-2 navig-link' <?php if ($nav_en_cours == 'affiche_article') {
+            echo ' id="en_cours"';
+        } ?> href='index.php?action=affiche_article'>Actualité</a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 d-md-block d-none  ">
+                            <a class='p-2 navig-link ' <?php if ($nav_en_cours == 'affiche_sponsor') {
+            echo ' id="en_cours"';
+        } ?> href='index.php?action=affiche_sponsor'>Partenaires</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-2 d-none d-lg-block ">
-                <a class="logo justify-content-center" href="#">
-                    <img src="images/logo_grand.PNG" style="width:100px;" id="logonav">
-                </a>
-            </div>
-            <div class="col-lg-5 mt-auto mb-auto">
-                <div class="row">
-                    <div class="col-4 col-md-4 col-sm-12 col-xs-12">
-                        <a class='p-2 navig-link' href='index.php?action=affiche_utilisateur'>Utilisateurs</a>
-                    </div>
-                    <div class="col-4 col-md-4 col-sm-12 col-xs-12">
-                        <a class='p-2 navig-link' href='index.php?action=affiche_action'>Actions</a>
-                    </div>
-                    <div class="col-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="dropdown">
-                            <div class=" boutonmenuprincipal ml-auto mr-auto">
-                                <img src="images/menu.svg"></img>
-                            </div>
-                            <div class=" mt-2 dropdown-child mr-0">
-                                <a href="index.php?action=gestion_admin">Mon compte</a>
-                                <a href="index.php?action=gestion_article">Gérer articles</a>
-                                <a href="index.php?action=gestion_sponsor">Gérer sponsors</a>
-                                <a href="index.php?action=gestion_action">Gérer actions</a>
+                <!-- Logo central -->
+                <div class="col-lg-2 d-none d-lg-block ">
+                    <a class="logo justify-content-center" href="#">
+                        <img src="images/logo_grand.PNG" style="width:100px;" id="logonav">
+                    </a>
+                </div>
+                <!-- Ligne vide qui apparait au format réduit--> 
+                <div class="row m-0 d-md-block d-sm-none d-lg-none"><small style="color:transparent; font-size:10px;">.</small></div>
+                <!-- Partie droite -->
+                <div class="col-lg-5 col-md-12 my-auto">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 d-md-block d-none my-auto">
+                            <a class='p-2 navig-link'  <?php if ($nav_en_cours == 'affiche_utilisateur') {
+            echo ' id="en_cours"';
+        } ?>href='index.php?action=affiche_utilisateur'>Utilisateurs</a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 d-md-block d-none col-sm-12 my-auto">
+                            <a class='p-2 navig-link' href='#'>Contact</a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 my-auto">
+                            <div class="btn-group">
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" style="background-color:#fe882a;">
+                                    <img src="images/menu.svg"></img>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-center dropdown-menu-md-right dropdown-menu-lg-right">
+                                    <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php'">Accueil</button>
+                                    <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=affiche_article'">Actualité</button>
+                                    <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=affiche_sponsor'">Partenaires</button>
+                                    <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=affiche_utilisateur'">Utilisateurs</button>
+                                    <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=affiche_action'">Contact</button>
+                                    <hr class="hrp d-sm-block d-md-none">
+                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_admin'">Mon compte</button>
+                                    <hr class="hrp">
+                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_admin'">Contact</button>
+                                    <hr class="hrp">
+                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_article'">Gérer articles</button>
+                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_sponsor'">Gérer sponsors</button>
+                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_action'">Gérer actions</button>
+                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_utilisateur'">Gérer utilisateurs</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Ligne vide qui apparait au format réduit--> 
+                <div class="row m-0 d-md-block d-lg-none"><small style="color:transparent; font-size:4px;">.</small></div>
             </div>
-        </div>
-    </div>
-</header>
-<!-------------------------------------------------------Fin de la page du header---------------------------------------------------------------->
+        </header>
+        <!-------------------------------------------------------Fin de la page du header---------------------------------------------------------------->

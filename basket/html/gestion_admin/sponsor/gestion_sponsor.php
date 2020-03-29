@@ -1,10 +1,15 @@
 <?php
-
 if (isset($_GET['idSponsor'])) {
     $idSponsor = $_GET['idSponsor'];
-    $requete = "delete from sponsor where idSponsor=$idSponsor";
-    echo "<div class='alert alert-warning position-static'><strong>Traitement effectué !</strong> Un sponsor a été supprimé .</div>";
-    $connexion->exec($requete);
+    try {
+        $requete = "delete from sponsor where idSponsor=$idSponsor";
+        $connexion->exec($requete);
+        echo "<div class='alert alert-warning position-static'><strong>Traitement effectué !</strong> Un sponsor a été supprimé .</div>";
+    } catch (Exception $e) {
+        echo "<div class='alert alert-danger position-static'><strong>La suppression a échoué !</strong> Des actions sont encore reliées à cet article." . ' ' . '<input type="button" value="Accès rapide" class="btn btn-danger rounded ml-3" onclick="window.location.href =' . "'index.php?action=gestion_action'" . '"></div>';
+    }
+} else {
+    echo '<div class="alert alert-info position-static"><strong> Information !</strong>' . "<br>Pour supprimer un sponsor, vous devez vous assurer qu'il n'a aucune actions reliées." . ' ' . '<input type="button" value="ici" class="bouton-design rounded" style="max-width:50px;" onclick="window.location.href =' . "'index.php?action=gestion_action'" . '"></div>';
 }
 $requete = "select idSponsor,nom,adresse,ville,codePostal,telephone,lien,description,image FROM `sponsor` ";
 
@@ -52,8 +57,8 @@ for ($i = 0; $i < $nbSponsor; $i++) {
     . '</div>'
     . '</div>'
     . '<div class="col-7 p-3 bg-light">'
-    . '<div class="row m-0 mt-3 ">'
-    . '<small class="mb-0" style="font-size:2rem;">' . $sponsor[$i][1] . '</small>'
+    . '<div class="row m-0 mt-3">'
+    . '<small class="mb-0 mx-auto" style="font-size:2rem;">' . $sponsor[$i][1] . '</small>'
     . '</div>'
     . '<hr class="hrp bg-dark">'
     . '<div class="row m-">'

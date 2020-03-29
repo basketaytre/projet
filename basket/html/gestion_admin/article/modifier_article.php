@@ -76,73 +76,71 @@ if (isset($_GET['valide'])) {
     }
 }
 ?>
-    <div>
-        <?= $message ?>
-    </div>
-<div class="rounded text-center text-white p-3 m-3 mt-5 bg-orange" >
-    <h1 style="font-size:2em;"><i>Modifier un article</i></h1>
+<div>
+    <?= $message ?>
 </div>
-<form  name="monForm" method="post" action="index.php?action=modifier_article&valide=ok&texte=ok" >
+<div class="mr-5 ml-5">
+    <div class="my-3 p-3 rounded box-shadow mr-5 ml-5" style="background-color: #ededed;">
 
-    <h1>Page de modification d'article</h1>
-    <label class="form_col" for="idArticle">ID Article : </label>
-    <input type="text" name="idArticle" class="bg-grey" readonly="" value='<?= $idArticle ?>'>
-    <br>
-    <br>
-    <label class="form_col" for="dateArticle">Date de l'article : </label>
-    <input type="text" name="dateArticle" readonly="" class="bg-grey" value='<?= $dateArticle ?>'>
-    <br>
-    <br>
-    <label class="form_col" for="titre">Titre<span class="important">*</span> : </label>
-    <input type="text" id="titre" name="titre" value='<?= $titre ?>' onblur="indexDonnees(0, 1)">
-    <span class="tooltip" id="tooltipTitre">Doit être compris entre 1 et 100 caractères</span>
-    <br>
-    <br>
-    <label class="form_col" for="ville">Ville<span class="important">*</span> : </label>
-    <input type="text" id="ville" name="villeArticle" value='<?= $villeArticle ?>' onblur="indexDonnees(1, 1)">
-    <span class="tooltip" id="tooltipVille">Doit être compris entre 1 et 50 caractères</span>
-    <br>
-    <br>
-    <label class="form_col" for="departement">Departement : </label>
-    <input type="text" id="departement" name="departement" value='<?= $departement ?>' onblur="indexDonnees(2, 1)">
-    <span class="tooltip" id="tooltipDepartement">Doit faire 2 caractères</span>
-    <br>
-    <br>
-    <label class="form_col" for="resume">Résumé : </label>
-    <textarea id="resume" name="resumeArticle" onblur="indexDonnees(3, 1)"  style='width:400px;' ><?= stripslashes($resumeArticle) ?> </textarea>
-    <span class="tooltip" id="tooltipResume">Doit faire entre 2 et 400 caractères</span>
-    <br>
-    <br>
-    <label class="form_col" for="image">Image de présentation : </label>
-    <input type="text" id="image" name="imageArticle" value='<?= $imageArticle ?>' onblur="indexDonnees(4, 1)">
-    <span class="tooltip" id="tooltipImage">Doit être compris entre 1 et 100 caractères</span>
-    <br>
-    <br>
-    <div class="row m-0">
-        <div class="col-lg-12 p-5">
-            <textarea id='summernote' name='descriptArticle' >
+        <div class="rounded text-center text-white p-3 m-3 mt-5 bg-orange" >
+            <h1 style="font-size:2em;"><i>Modifier un article</i></h1>
+        </div>
+        <form  name="monForm" method="post" action="index.php?action=modifier_article&valide=ok&texte=ok" >
+            <div class='mt-5'>
+                <label class="form_col" for="idArticle">ID Article : </label>
+                <input type="text" name="idArticle" class="bg-grey" readonly="" value='<?= $idArticle ?>'>
+                <br>
+                <br>
+                <label class="form_col" for="dateArticle">Date de l'article : </label>
+                <input type="text" name="dateArticle" readonly="" class="bg-grey" value='<?= $dateArticle ?>'>
+                <br>
+                <br>
+                <hr class="hrp" style='background-color:grey;'>
+                <br>
+                <br>
+                <label class="form_col" for="titre">Titre<span class="important">*</span> : </label>
+                <input type="text" id="titre" name="titre" value='<?= $titre ?>' onblur="indexDonnees(0, 1)">
+                <span class="tooltip" id="tooltipTitre">Doit être compris entre 1 et 100 caractères</span>
+                <br>
+                <br>
+                <label class="form_col" for="ville">Ville<span class="important">*</span> : </label>
+                <input type="text" id="ville" name="villeArticle" value='<?= $villeArticle ?>' onblur="indexDonnees(1, 1)">
+                <span class="tooltip" id="tooltipVille">Doit être compris entre 1 et 50 caractères</span>
+                <br>
+                <br>
+                <label class="form_col" for="departement">Departement : </label>
+                <input type="text" id="departement" name="departement" value='<?= $departement ?>' onblur="indexDonnees(2, 1)">
+                <span class="tooltip" id="tooltipDepartement">Doit faire 2 caractères</span>
+                <br>
+                <br>
+                <label class="form_col" for="resume">Résumé : </label>
+                <textarea id="resume" name="resumeArticle" onblur="indexDonnees(3, 1)"  style='width:400px;' ><?= stripslashes($resumeArticle) ?> </textarea>
+                <span class="tooltip" id="tooltipResume">Doit faire entre 2 et 400 caractères</span>
+                <br>
+                <br>
+                <label class="form_col" for="image">Image de présentation : </label>
+                <input type="text" id="image" name="imageArticle" value='<?= $imageArticle ?>' onblur="indexDonnees(4, 1)">
+                <span class="tooltip" id="tooltipImage">Doit être compris entre 1 et 100 caractères</span>
+                <br>
+                <br>
+                <div class="row m-0">
+                    <div class="col-lg-12 p-5">
+                        <textarea id='summernote' name='descriptArticle' >
                 <p><?= $descriptionArticle ?></p>
-            </textarea>
-        </div>
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-lg-4 offset-1">
+                    <input type="submit" value="Enregistrer" class="bouton-design rounded" OnClick="return validFormulaire()">
+                    <input type='reset' value="Réinitialiser le formulaire"  class="bouton-design rounded" style="width:200px;"/>
+                    <input type='button' value='Retour' class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=gestion_article'" />
+                </div>
+            </div>
+            <br>
+        </form>
     </div>
-    <div class="row m-0">
-        <div class="col-lg-4 offset-1">
-            <input type="submit" value="Enregistrer" class="bouton-design rounded" OnClick="return validFormulaire()">
-            <input type='reset' value="Réinitialiser le formulaire"  class="bouton-design rounded" style="width:200px;"/>
-            <input type='button' value='Retour' class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=gestion_article'" />
-        </div>
-    </div>
-    <br>
-</form>
+</div>
 <script src="./js/article/verif_article.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
-<script>
-                $(document).ready(function () {
-                    $('#summernote').summernote({
-                        height: 400
-                    });
-                });
 </script>

@@ -13,9 +13,15 @@ foreach ($lignes as $ligne) {
 $nbArticle = count($article);
 if (isset($_GET['idArticle'])) {
     $idArticle = $_GET['idArticle'];
-    $requete = "delete from article where idArticle=$idArticle";
-    echo "<div class='alert alert-warning position-static'><strong>Traitement effectué !</strong> Un article a été supprimé .</div>";
-    $connexion->exec($requete);
+    try {
+        $requete = "delete from article where idArticle=$idArticle";
+        $connexion->exec($requete);
+        echo "<div class='alert alert-warning position-static'><strong>Traitement effectué !</strong> Un article a été supprimé .</div>";
+    } catch (Exception $e) {
+        echo "<div class='alert alert-danger position-static'><strong>La suppression a échoué !</strong> Des actions sont encore reliées à cet article." . ' ' . '<input type="button" value="Accès rapide" class="btn btn-danger rounded ml-3" onclick="window.location.href =' . "'index.php?action=gestion_action'" . '"></div>';
+    }
+} else {
+    echo '<div class="alert alert-info position-static"><strong> Information !</strong>' . "<br>Pour supprimer un article, vous devez vous assurer qu'il n'a aucune actions reliées." . ' ' . '<input type="button" value="ici" class="bouton-design rounded" style="max-width:50px;" onclick="window.location.href =' . "'index.php?action=gestion_action'" . '"></div>';
 }
 ?>
 <br>
@@ -32,7 +38,7 @@ for ($i = 0; $i < $nbArticle; $i++) {
     echo '<div class="row m-0 mt-4">'
     . '<div class="col-9 offset-1 p-0">'
     . '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white ">'
-    . '<div class="col-5 mb-auto mt-auto">'
+    . '<div class="col-5">'
     . '<div class="p-3 d-flex flex-column position-static d-inline">'
     . '<img class="img-responsive img-fluid miniature ombres " src="images/' . $article[$i][7] . '">'
     . '</div>'
@@ -65,8 +71,10 @@ for ($i = 0; $i < $nbArticle; $i++) {
     . '</div>'
     . '<div class="col-1 mb-auto mt-auto">'
     . '<input type="button" value="Modifier" class="bouton-design rounded" OnClick="window.location.href =' . "'" . 'index.php?action=modifier_article&idArticle=' . $article[$i][0] . "&texte=ok'" . '">'
-    . '<input type="button" value="Supprimer" class="bouton-design rounded mt-2" OnClick="window.location.href =' . "'" . 'index.php?action=gestion_article&idArticle=' . $article[$i][0] . "'" . '">'
+    . '<input type="button" value="Supprimer" class="bouton-design rounded mt-2"  OnClick="window.location.href =' . "'" . 'index.php?action=gestion_article&idArticle=' . $article[$i][0] . "'" . '">'
     . '</div>'
     . '</div>';
 }
 ?>
+<!--  -->
+<script src="./js/article/verif_article.js"></script>

@@ -38,19 +38,18 @@ $articleDeux_date = explode(' ', $article[1][2]);
                 <h3 class="mb-0"><?= $article[0][1] ?></h3>
                 <div class="mb-1 text-muted"><?= $articleUn_date[0] ?></div>
                 <p class="card-text mb-auto"><?= $article[0][6] ?> ...</p>
-                <a href="index.php?action=regarder_article&idArticle=<?= $article[0][0]?>" class="stretched-link text-right">Continuer à lire</a>
+                <input type="button" value="Continuer à lire" class="bouton-design rounded ml-auto mr-4 " OnClick="window.location.href = 'index.php?action=regarder_article&idArticle=<?= $article[0][0] ?>'" style='width: 150px;'>
             </div>
-
         </div>
     </div>
     <!--Second article-->
     <div class="col-md-6 mt-4">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
-            <div class="col p-4 d-flex flex-column position-static">
+            <div class="col p-4 d-flex flex-column position-static d-inline">
                 <h3 class="mb-0"><?= $article[1][1] ?></h3>
                 <div class="mb-1 text-muted"><?= $articleDeux_date[0] ?></div>
                 <p class="card-text mb-auto"><?= $article[1][6]; ?> ...</p>
-                <a href="index.php?action=regarder_article&idArticle=<?= $article[1][0]?>" class="stretched-link text-right">Continuer à lire</a>
+                <input type="button" value="Continuer à lire" class="bouton-design rounded ml-auto mr-4 " OnClick="window.location.href = 'index.php?action=regarder_article&idArticle=<?= $article[1][0] ?>'" style='width: 150px;'>
             </div>
         </div>
     </div>

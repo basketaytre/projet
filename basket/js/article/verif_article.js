@@ -45,3 +45,8 @@ function validFormulaire() {
     }
     return coderet;
 }
+
+// Pour la suppression d'un article
+function confirmer(){
+    confirm("ça fonctionne");
+}

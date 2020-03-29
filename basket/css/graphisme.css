@@ -183,7 +183,7 @@ input:focus {
     background-color: #ffa862;
 }
 
-.dropdown-child {
+/*.dropdown-child {
     position: absolute;
     display: none;
     background-color: #5e5e5e;
@@ -204,7 +204,7 @@ input:focus {
 
 .dropdown:hover .dropdown-child {
     display: block;
-}
+}*/
 
 
 
@@ -330,4 +330,34 @@ input:focus {
 }
 .alert-success{
     position:static;
+}
+@media (max-width: 720px) {
+    .dropdown-menu-center {
+        right: auto;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+}
+.dropdown-item:hover{
+    background-color:  #fe882a;
+    color: white;
+    font-family: 'Baloo Thambi 2', cursive;
+
+}
+
+.lien_neutre{
+    color:black;
+    text-decoration: none;
+}
+.lien_neutre:hover {
+    color:#fe882a;
+    text-decoration: none;
+}
+
+#en_cours{
+    text-decoration:none; 
+    border-bottom: 4px solid #fe882a;
+    color:#fe882a;
 }
