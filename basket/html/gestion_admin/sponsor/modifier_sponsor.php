@@ -95,12 +95,12 @@ if (isset($_GET['valide'])) {
 </div>
 <div class="mr-5 ml-5">
     <div class="my-3 p-3 rounded box-shadow mr-5 ml-5" style="background-color: #ededed;">
-
+        <div class="rounded text-center text-white p-3 m-3 mt-5 bg-orange mb-5" >
+            <h1 style="font-size:2em;"><i>Modifier un sponsor</i></h1>
+        </div>
         <!-- Formulaire de modification de sponsors -->
         <form  name="monForm" method="post" action="index.php?action=modifier_sponsor&valide=ok">
-            <div class="rounded text-center text-white p-3 m-3 mt-5 bg-orange mb-5" >
-                <h1 style="font-size:2em;"><i>Modifier un sponsor</i></h1>
-            </div>
+
             <br>
             <br>
             <!-- Champ id sponsor -->
@@ -172,5 +172,5 @@ if (isset($_GET['valide'])) {
     </div>
 </div>
 <!-- Fin du formulaire de modification de sponsors -->
-<script src="./js/sponsor/modifier_sponsor.js"></script>
+<script src="./js/sponsor/verif_sponsor.js"></script>
 <!-------------------------------------------------------Fin de la page de modification de sponsors---------------------------------------------------------------->

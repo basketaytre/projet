@@ -131,5 +131,5 @@ if (isset($_POST['nom'])) {
         </div>
     </div>
     <!--Fin du formulaire de creation des sponsors-->
-    <script src="./js/sponsor/creer_sponsor.js"></script>
+    <script src="./js/sponsor/verif_sponsor.js"></script>
     <!-------------------------------------------------------Fin de la page de creation de sponsors---------------------------------------------------------------->

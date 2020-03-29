@@ -16,7 +16,7 @@
                                 <li class="mb-3">17440 AYTRÉ</li>
                                 <li>Téléphone : xx-xx-xx-xx-xx                            </ul>
                         </small>
-                        <button class="btn btn-outline-light pr-2 pl-2">Nous contacter</button>
+                        <input type="button" value="Nous contacter" class="btn btn-outline-light pr-2 pl-2" OnClick="window.location.href = 'index.php?action=en_travaux'">
 
                     </div>
                 </div>
@@ -26,14 +26,14 @@
                 <div class="row">
                     <div class="col text-right">
                         <ul class="list-unstyled">
-                            <li>Accueil</li>
-                            <li>Article</li>
+                            <li><a href="index" class="text-white" >Accueil</a></li>
+                            <li><a href="index?action=affiche_article" class="text-white" >Article</li>
                         </ul>
                     </div>
                     <div class="col text-left">
                         <ul class="list-unstyled">
-                            <li><a href="html/sponsor/affiche_sponsor.php" class="text-white" >Partenaires</a></li>
-                            <li><a href="#" class="text-white" >Utilisateurs</a></li>
+                            <li><a href="index?action=affiche_sponsor" class="text-white" >Partenaires</a></li>
+                            <li><a href="index?action=en_travaux" class="text-white" >[vide]</a></li>
                         </ul>
                     </div>
                 </div>

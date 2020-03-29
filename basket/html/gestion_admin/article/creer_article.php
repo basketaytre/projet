@@ -10,6 +10,7 @@ $donneeErreur = '';
 
 if (isset($_POST['titre']) && isset($_POST["descriptArticle"])) {
     $titre = $_POST["titre"];
+    $titre =  addslashes($titre);
     $villeArticle = $_POST["villeArticle"];
     $departement = $_POST["departement"];
     $departement = preg_replace('/\s/', '', $departement);
@@ -50,6 +51,7 @@ if (isset($_POST['titre']) && isset($_POST["descriptArticle"])) {
         $message = "<div class='alert alert-success position-static'><strong>Traitement effectué !</strong> Votre sponsor à bien été créé .</div>";
         $connexion->exec($requete);
         $resumeArticle = stripslashes($resumeArticle);
+        $titre = stripslashes($titre);
     }
 }
 ?>

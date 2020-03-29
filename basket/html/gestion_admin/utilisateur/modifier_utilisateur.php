@@ -87,7 +87,7 @@ if (isset($_GET['valide'])) {
         $anonyme=0;
     }   
     if ($donneeErreur != '') {
-        $message = "<div class='alert alert-danger'><strong>Erreur !</strong> Le sponsor n'a pas pu être modifié.<br> $donneeErreur </div>";
+        $message = "<div class='alert alert-danger'><strong>Erreur !</strong> Les options de l'utilisateur n'ont pas pu être modifiées.<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
         $option = ['cost' => 12,];
@@ -100,17 +100,20 @@ if (isset($_GET['valide'])) {
 }
 ?>
 <!-------------------------------------------------------Page de modification d'utilisateur---------------------------------------------------------------->
-<!-- Formulaire de modofication d'utilisateur-->
-<form  name="monForm" method="post" action="index.php?action=modifier_utilisateur&valide=ok">
     <div>
         <?= $message ?>
     </div>
-    <h1>Modification d'un utilisateur</h1>
-    <br>
-    <br>
+<div class="mr-5 ml-5">
+    <div class="my-3 p-3 rounded box-shadow mr-5 ml-5" style="background-color: #ededed;">
+            <div class="rounded text-center text-white p-3 m-3 mt-5 bg-orange mb-5" >
+                <h1 style="font-size:2em;"><i>Éditer un utilisateur</i></h1>
+            </div>
+<!-- Formulaire de modofication d'utilisateur-->
+<form  name="monForm" method="post" action="index.php?action=modifier_utilisateur&valide=ok">
+
     <!-- Champ -->
     <label class="form_col" for="pseudonyme">ID Utilisateur : </label>
-    <input type="text" name="idUtilisateur" readonly="" value='<?= $idUtilisateur ?>'>
+    <input type="text" name="idUtilisateur" class="bg-grey" readonly="" value='<?= $idUtilisateur ?>'>
     <br>
     <br>
     <!-- Champ pseudonyme -->
@@ -139,7 +142,7 @@ if (isset($_GET['valide'])) {
     <br>
     <!-- Champ adresse mail-->
     <label class="form_col" for="adresseMail">Adresse mail<span class="important">*</span> : </label>
-    <input type="email" id="adresseMail" name="adresseMail" value='<?= $adresseMail ?>' onblur="indexDonnees(4, 1)">
+    <input type="email" id="adresseMail" name="adresseMail" class="bg-grey" readonly="" value='<?= $adresseMail ?>' onblur="indexDonnees(4, 1)">
     <span class="tooltip" id="tooltipAdresseMail">Doit être compris entre 6 et 50 caractères</span>
     <br>
     <br>
@@ -157,13 +160,13 @@ if (isset($_GET['valide'])) {
     <br>
     <!-- Champ telephone-->
     <label class="form_col" for="telephone">Téléphone<span class="important">*</span> : </label>
-    <input type="text" id="telephone" name="telephone" value='<?= $telephone ?>' onblur="indexDonnees(6, 1)">
+    <input type="text" id="telephone" name="telephone" readonly=""  class="bg-grey" value='<?= $telephone ?>' onblur="indexDonnees(6, 1)">
     <span class="tooltip" id="tooltipTelephone">Doit faire 10 caractères</span>
     <br>
     <br>
     <!-- Case anonyme -->
     <label class="form_col" for="anonyme">Anonyme </label>
-    <input type="checkbox" id="anonyme" name='anonyme' <?php if ($anonyme) echo 'checked'; ?>/>
+    <input type="checkbox" id="anonyme" name='anonyme' readonly="" <?php if ($anonyme) echo 'checked'; ?>/>
     <!-- Bouton -->
     <div>
         <input type='submit' value='Enregistrer' OnClick="return validFormulaire()"/>

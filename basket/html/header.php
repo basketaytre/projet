@@ -78,12 +78,10 @@
                 <div class="col-lg-5 col-md-12 my-auto">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 d-md-block d-none my-auto">
-                            <a class='p-2 navig-link'  <?php if ($nav_en_cours == 'affiche_utilisateur') {
-            echo ' id="en_cours"';
-        } ?>href='index.php?action=affiche_utilisateur'>Utilisateurs</a>
+                            <a class='p-2 navig-link' href='index.php?action=en_travaux'>[vide]</a>
                         </div>
                         <div class="col-lg-4 col-md-4 d-md-block d-none col-sm-12 my-auto">
-                            <a class='p-2 navig-link' href='#'>Contact</a>
+                            <a class='p-2 navig-link' href='index.php?action=en_travaux'>Contact</a>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 my-auto">
                             <div class="btn-group">
@@ -94,12 +92,12 @@
                                     <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php'">Accueil</button>
                                     <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=affiche_article'">Actualité</button>
                                     <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=affiche_sponsor'">Partenaires</button>
-                                    <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=affiche_utilisateur'">Utilisateurs</button>
-                                    <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=affiche_action'">Contact</button>
+                                    <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">[vide]</button>
+                                    <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Contact</button>
                                     <hr class="hrp d-sm-block d-md-none">
-                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_admin'">Mon compte</button>
+                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Mon compte</button>
                                     <hr class="hrp">
-                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_admin'">Contact</button>
+                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Contact</button>
                                     <hr class="hrp">
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_article'">Gérer articles</button>
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_sponsor'">Gérer sponsors</button>

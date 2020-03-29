@@ -23,7 +23,7 @@ $articleDeux_date = explode(' ', $article[1][2]);
             <h2 class="lead text-white">Accueil du site</h2>
         </div>
         <div class="bouton text-center mt-4 mb-5">
-            <button class="btn btn-outline-light pr-5 pl-5 mt-3">Nous contacter</button>
+            <input type="button" value="Nous contacter" class="btn btn-outline-light pr-5 pl-5 mt-3" OnClick="window.location.href = 'index.php?action=en_travaux'">
         </div>
     </div>
 </div>
