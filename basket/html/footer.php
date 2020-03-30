@@ -26,14 +26,14 @@
                 <div class="row">
                     <div class="col text-right">
                         <ul class="list-unstyled">
-                            <li><a href="index" class="text-white" >Accueil</a></li>
-                            <li><a href="index?action=affiche_article" class="text-white" >Article</li>
+                            <li><a href="index.php" class="text-white" >Accueil</a></li>
+                            <li><a href="index.php?action=affiche_article" class="text-white" >Article</li>
                         </ul>
                     </div>
                     <div class="col text-left">
                         <ul class="list-unstyled">
-                            <li><a href="index?action=affiche_sponsor" class="text-white" >Partenaires</a></li>
-                            <li><a href="index?action=en_travaux" class="text-white" >[vide]</a></li>
+                            <li><a href="index.php?action=affiche_sponsor" class="text-white" >Partenaires</a></li>
+                            <li><a href="index.php?action=en_travaux" class="text-white" >[vide]</a></li>
                         </ul>
                     </div>
                 </div>
