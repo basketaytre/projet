@@ -98,11 +98,15 @@
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=mon_profil'">Mon compte</button>
                                     <hr class="hrp">
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Contact</button>
-                                    <hr class="hrp">
-                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_article'">Gérer articles</button>
-                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_sponsor'">Gérer sponsors</button>
-                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_action'">Gérer actions</button>
-                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=gestion_utilisateur'">Gérer utilisateurs</button>
+                                    <?php
+                                        if($_SESSION['statut'] == 'administrateur'){
+                                            echo "<hr class="."hrp".">";
+                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."window.location.href = ".'index.php?action=gestion_article'.">Gérer articles</button>";
+                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."window.location.href = ".'index.php?action=gestion_sponsor'.">Gérer sponsors</button>";
+                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."window.location.href = ".'index.php?action=gestion_action'.">Gérer actions</button>";
+                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."window.location.href = ".'index.php?action=gestion_utilisateur'.">Gérer utilisateurs</button>";
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>
