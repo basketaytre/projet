@@ -8,7 +8,7 @@
         </div>
         <!--Fond orande sous-titre-->
         <div class="rounded text-center text-white p-3 m-3 mt-5 bg-orange" >
-            <h1 style="font-size:2em;"><i>Vos Informations</i></h1>
+            <h1 style="font-size:2em;"><i>Mes Informations</i></h1>
         </div>
         <!--Fond blanc-->
         <div class="ml-5 mr-5 mt-5 border rounded shadow-sm  mb-4 bg-white ">
