@@ -95,7 +95,7 @@
                                     <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">[vide]</button>
                                     <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Contact</button>
                                     <hr class="hrp d-sm-block d-md-none">
-                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Mon compte</button>
+                                    <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=mon_profil'">Mon compte</button>
                                     <hr class="hrp">
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Contact</button>
                                     <hr class="hrp">

@@ -160,7 +160,7 @@ if (isset($_GET['valide'])) {
     <br>
     <!-- Champ telephone-->
     <label class="form_col" for="telephone">Téléphone<span class="important">*</span> : </label>
-    <input type="text" id="telephone" name="telephone" readonly=""  class="bg-grey" value='<?= $telephone ?>' onblur="indexDonnees(6, 1)">
+    <input type="text" id="telephone" name="telephone" class="bg-grey" value='<?= $telephone ?>' onblur="indexDonnees(6, 1)">
     <span class="tooltip" id="tooltipTelephone">Doit faire 10 caractères</span>
     <br>
     <br>

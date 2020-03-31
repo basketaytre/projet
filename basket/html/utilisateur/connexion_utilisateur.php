@@ -1,53 +1,52 @@
 <?php
 // si le formulaire a été soumis
 if (isset($_POST['formconnect'])) {
+    $emailconnect = $_POST["emailconnect"];
+    $mdpconnect = $_POST["mdpconnect"];
     // si l'email et le mot de passe n'est pas vide
     if (!empty($emailconnect) && !empty($mdpconnect)) {
         // recherche de l'utilisateur qui possede l'email inscrit
         $requete = "select * from utilisateur where adresseMail = '$emailconnect'";
         // execution de la requette
-        $resultats->exec($requete);
-        // resultat de la requette inscrit dans un tableau associatif 
-        $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
-        // si une ligne existe alors le var_dump seras vrais
-        var_dump($lignes);
+        $resultat=$connexion->query($requete);
+        // resultat de la requette inscrit dans un tableau associatif
+        $lignes=$resultat->fetchAll(PDO::FETCH_ASSOC);
         // si le var_dump a trouver une ligne
         if ($lignes == true) {
             // recuperation du mot de passe associé au mail
-            $hasspass = $lignes['mdp'];
+            foreach ($lignes as $ligne) {
+                $hasspass = $ligne['mdp'];
+            }
             // comparaison du mot de passe crypté et de celui inscrit
             // si indentique
             if (password_verify($mdpconnect, $hasspass)) {
-                echo "le mot de passe est bon";
-                $_SESSION['emailconnect'] = $lignes['adresseMail'];
+                echo "<div class='alert alert-success'><strong>Identifiants Corrects</strong>, connexion effectuée  .</div>";
+                $_SESSION['pseudonyme'] = $ligne['pseudonyme'];
+                $_SESSION['statut'] = $ligne['statut'];
+                $_SESSION['nom'] = $ligne['nom'];
+                $_SESSION['prenom'] = $ligne['prenom'];
+                $_SESSION['email'] = $ligne['adresseMail'];
+                $_SESSION['telephone'] = $ligne['telephone'];
             }
             // si pas identique
             else {
-                echo "le mot de passe n'est pas bon";
+                echo "<div class='alert alert-danger'><strong>Erreur !</strong> Le mot de passe est incorrect.</div>";
             }
         }
         // si le var_dump n'as pas trouver de ligne
         else {
-            echo "l'email '$emailconnect' n'existe pas";
+            echo "<div class='alert alert-danger'><strong>Erreur !</strong> L'email '$emailconnect' n'existe pas.</div>";
         }
     }
     // si il y a un champ vide
     else {
-        echo"Veuillez completer l'ensemble des champs";
+        echo"<div class='alert alert-danger'><strong>Erreur !</strong> Veuillez completer les champs requis.</div>";
     }
 }
 ?>
 
 <!-------------------------------------------------------Page de connexion---------------------------------------------------------------->
 <div class="text-center p-5" >
-    <div class="mr-5 ml-5">
-        <div class="my-3 p-3 rounded box-shadow mr-5 ml-5" style="background-color: #ededed;">
-
-            <div class="rounded text-center text-white p-3 m-3 mt-5 bg-orange mb-5" >
-                <h1 style="font-size:2em;"><i>Page en travaux</i></h1>
-            </div>
-        </div>
-    </div>
     <!--Formulaire de connexion-->
     <form  class="form-connexion pt-5 pb-5" method="post" action="index.php?action=connexion_utilisateur">
         <!--Logo ABBA & titre -->

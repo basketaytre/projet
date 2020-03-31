@@ -65,6 +65,9 @@ elseif ($action=='inscription_utilisateur') {
 elseif ($action=='connexion_utilisateur') {
     include './html/utilisateur/connexion_utilisateur.php';
 }
+elseif ($action=='mon_profil') {
+    include './html/utilisateur/mon_profil.php';
+}
 elseif ($action=='protec_donnees') {
     include './html/information/protec_donnees.php';
 }
