@@ -328,7 +328,7 @@ input:focus {
     color: red;
     font-weight: bold;
 }
-.alert-success, .alert-danger , .alert-warning , .alert-info{
+.alert-success, .alert-danger, .alert-warning , .alert-info{
     position:static;
 }
 @media (max-width: 720px) {
