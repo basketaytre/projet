@@ -11,7 +11,7 @@ if (isset($_POST['formconnect'])) {
         $resultat=$connexion->query($requete);
         // resultat de la requette inscrit dans un tableau associatif
         $lignes=$resultat->fetchAll(PDO::FETCH_ASSOC);
-        // si le var_dump a trouver une ligne
+        // si trouver une ligne
         if ($lignes == true) {
             // recuperation du mot de passe associé au mail
             foreach ($lignes as $ligne) {
@@ -33,14 +33,14 @@ if (isset($_POST['formconnect'])) {
                 echo "<div class='alert alert-danger'><strong>Erreur !</strong> Le mot de passe est incorrect.</div>";
             }
         }
-        // si le var_dump n'as pas trouver de ligne
+        // si n'as pas trouver de ligne
         else {
             echo "<div class='alert alert-danger'><strong>Erreur !</strong> L'email '$emailconnect' n'existe pas.</div>";
         }
     }
     // si il y a un champ vide
     else {
-        echo"<div class='alert alert-danger'><strong>Erreur !</strong> Veuillez completer les champs requis.</div>";
+        echo"<div class='alert alert-danger'><strong>Erreur !</strong> Veuillez saisir les champs requis .</div>";
     }
 }
 ?>
@@ -54,11 +54,11 @@ if (isset($_POST['formconnect'])) {
         <h1 class="pb-3">Se connecter</h1>
 
         <!--Email-->
-        <label for="champsemail" class="sr-only">Email address</label>
+        <label for="champsemail" class="sr-only">Adresse Mail</label>
         <input type="email" name="emailconnect" id="emailconnect" class="form-control" placeholder="Adresse-mail" required="" autofocus="">
 
         <!--Mot de passe-->
-        <label for="champsmdp" class="sr-only">Password</label>
+        <label for="champsmdp" class="sr-only">Mot de passe</label>
         <input type="password" name="mdpconnect" id="mdpconnect" class="form-control" placeholder="Mot de passe" required="" autofocus="">
 
         <!--Bouton connexion-->
