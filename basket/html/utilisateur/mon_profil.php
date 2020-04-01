@@ -13,7 +13,7 @@
         <!--Fond blanc-->
         <div class="ml-5 mr-5 mt-5 border rounded shadow-sm  mb-4 bg-white ">
             <?php
-                if(@$_SESSION['pseudonyme'] != ""){
+                if(@$_SESSION['statut'] != ""){
                     echo"<h5>".
                         "<br>".
                         "<!-- Pseudonyme -->".

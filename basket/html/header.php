@@ -96,19 +96,20 @@
                                     <button class="dropdown-item d-sm-block d-md-none" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Contact</button>
                                     <hr class="hrp d-sm-block d-md-none">
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=mon_profil'">Mon compte</button>
+                                    <?php
+                                        if(@$_SESSION['statut'] != ""){
+                                            echo "<button class=\"dropdown-item\" type=\"button\" OnClick=".session_destroy().">Deconnexion</button>";
+                                        }
+                                    ?>
                                     <hr class="hrp">
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Contact</button>
                                     <?php
-                                        try{
-                                            if(@$_SESSION['statut'] == 'administrateur'){
-                                                echo "<hr class="."hrp".">";
-                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_article'\"".">Gérer articles</button>";
-                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_sponsor'\"".">Gérer sponsors</button>";
-                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_action'\"".">Gérer actions</button>";
-                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_utilisateur'\"".">Gérer utilisateurs</button>";
-                                            }
-                                        }
-                                        catch(Exception $e){
+                                        if(@$_SESSION['statut'] == 'administrateur'){
+                                            echo "<hr class="."hrp".">";
+                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_article'\"".">Gérer articles</button>";
+                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_sponsor'\"".">Gérer sponsors</button>";
+                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_action'\"".">Gérer actions</button>";
+                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_utilisateur'\"".">Gérer utilisateurs</button>";
                                         }
                                     ?>
                                 </div>
