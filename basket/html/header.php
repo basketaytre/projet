@@ -99,12 +99,16 @@
                                     <hr class="hrp">
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Contact</button>
                                     <?php
-                                        if($_SESSION['statut'] == 'administrateur'){
-                                            echo "<hr class="."hrp".">";
-                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_article'\"".">Gérer articles</button>";
-                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_sponsor'\"".">Gérer sponsors</button>";
-                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_action'\"".">Gérer actions</button>";
-                                            echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_utilisateur'\"".">Gérer utilisateurs</button>";
+                                        try{
+                                            if(@$_SESSION['statut'] == 'administrateur'){
+                                                echo "<hr class="."hrp".">";
+                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_article'\"".">Gérer articles</button>";
+                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_sponsor'\"".">Gérer sponsors</button>";
+                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_action'\"".">Gérer actions</button>";
+                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_utilisateur'\"".">Gérer utilisateurs</button>";
+                                            }
+                                        }
+                                        catch(Exception $e){
                                         }
                                     ?>
                                 </div>

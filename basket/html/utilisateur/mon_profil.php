@@ -12,45 +12,52 @@
         </div>
         <!--Fond blanc-->
         <div class="ml-5 mr-5 mt-5 border rounded shadow-sm  mb-4 bg-white ">
-            <h5>
-                <br>
-                <!-- Pseudonyme -->
-                <div>
-                    <label class="form_col" for="pseudonyme">Pseudonyme : </label>
-                    <span><?php echo $_SESSION['pseudonyme'] ?></span>
-                </div>
-                <br>
-                <!-- statut -->
-                <div>
-                    <label class="form_col" for="statut">Statut : </label>
-                    <span><?php echo $_SESSION['statut'] ?></span>
-                </div>
-                <br>
-                <!-- Email -->
-                <div>
-                    <label class="form_col" for="email">Email : </label>
-                    <span><?php echo $_SESSION['email'] ?></span>
-                </div>
-                <br>
-                <!-- Nom -->
-                <div>
-                    <label class="form_col" for="nom">Nom : </label>
-                    <span><?php echo $_SESSION['nom'] ?></span>
-                </div>
-                <br>
-                <!-- Prenom -->
-                <div>
-                    <label class="form_col" for="prenom">Prenom : </label>
-                    <span><?php echo $_SESSION['prenom'] ?></span>
-                </div>
-                <br>
-                <!-- Telephone -->
-                <div>
-                    <label class="form_col" for="telephone">Telephone : </label>
-                    <span><?php echo $_SESSION['telephone'] ?></span>
-                </div>
-                <br>
-            </h5>
+            <?php
+                if(@$_SESSION['pseudonyme'] != ""){
+                    echo"<h5>".
+                        "<br>".
+                        "<!-- Pseudonyme -->".
+                        "<div>".
+                            "<label class=\"form_col\" for=\"pseudonyme\">Pseudonyme : </label>".
+                            "<span>".$_SESSION['pseudonyme']."</span>".
+                        "</div>".
+                        "<br>".
+                        "<!-- statut -->".
+                        "<div>".
+                            "<label class=\"form_col\" for=\"statut\">Statut : </label>".
+                            "<span>". $_SESSION['statut'] ."</span>".
+                        "</div>".
+                        "<br>".
+                        "<!-- Email -->".
+                        "<div>".
+                            "<label class=\"form_col\" for=\"email\">Email : </label>".
+                            "<span>".$_SESSION['email']."</span>".
+                        "</div>".
+                        "<br>".
+                        "<!-- Nom -->".
+                        "<div>".
+                            "<label class=\"form_col\" for=\"nom\">Nom : </label>".
+                            "<span>".$_SESSION['nom']."</span>".
+                        "</div>".
+                        "<br>".
+                        "<!-- Prenom -->".
+                        "<div>".
+                            "<label class=\"form_col\" for=\"prenom\">Prenom : </label>".
+                            "<span>".$_SESSION['prenom']."</span>".
+                        "</div>".
+                        "<br>".
+                        "<!-- Telephone -->".
+                        "<div>".
+                            "<label class=\"form_col\" for=\"telephone\">Telephone : </label>".
+                            "<span>".$_SESSION['telephone']."</span>".
+                        "</div>".
+                        "<br>".
+                    "</h5>";
+                }
+                else {
+                    echo "<p><h3 style=\"text-align: center\">Veuillez vous connecter pour avoir accès a vos informations</h3><p>";
+                }
+            ?>
         </div>
     </div>
 </div>
