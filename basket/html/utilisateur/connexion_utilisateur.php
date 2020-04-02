@@ -20,7 +20,7 @@ if (isset($_POST['formconnect'])) {
             // comparaison du mot de passe crypté et de celui inscrit
             // si indentique
             if (password_verify($mdpconnect, $hasspass)) {
-                echo "<div class='alert alert-success'><strong>Identifiants Corrects</strong>, connexion effectuée  .</div>";
+                echo "<div class='alert alert-success'><strong>Identifiants corrects</strong>, connexion effectuée  .</div>";
                 $_SESSION['pseudonyme'] = $ligne['pseudonyme'];
                 $_SESSION['statut'] = $ligne['statut'];
                 $_SESSION['nom'] = $ligne['nom'];

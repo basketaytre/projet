@@ -108,7 +108,7 @@ if (isset($_POST['nom'])) {
             <br>
             <!-- Champ Description -->
             <label class="form_col" for="description">Description<span class="important">*</span> : </label>
-            <input type="text" id="description" name="description" value='<?= $description ?>' onblur="indexDonnees(6, 1)">
+            <textarea id="resume" name="description" onblur="indexDonnees(6, 1)"  style='width:400px;' ><?= $description ?> </textarea>
             <span class="tooltip" id="tooltipDescription">Doit être compris entre 1 et 750 caractères</span>
             <br>
             <br>

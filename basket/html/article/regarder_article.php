@@ -6,6 +6,7 @@ $descriptionArticle = '';
 $imageArticle = '';
 $villeArticle = '';
 $departement = '';
+$actions = [];
 $message = '';
 $donneeErreur = '';
 $valide = '';
@@ -22,28 +23,18 @@ if (isset($_GET['idArticle'])) {
     $imageArticle = $ligne['imageArticle'];
     $villeArticle = $ligne['villeArticle'];
     $departement = $ligne['departement'];
-}
-if (isset($_GET['valide'])) {
-    $idArticle = $_POST['idArticle'];
-    $dateArticle = $_POST['dateArticle'];
-    if (isset($_POST["titre"])) {
-        $titre = $_POST["titre"];
+
+    // Récupération des données sur l'action en rapport avec l'article
+    $requete = "select idArticle,idSponsor,typeDon,montant,date from action where idArticle=$idArticle;";
+    $resultats = $connexion->query($requete);
+    $lignes = $resultats->fetchALL(PDO::FETCH_ASSOC);
+    $cpt = 0;
+    foreach ($lignes as $ligne) {
+        $actions[$cpt] = [$ligne['idArticle'], $ligne['idSponsor'], $ligne['typeDon'], $ligne['montant'], $ligne['date']];
+        $cpt = $cpt + 1;
     }
-    if (isset($_POST["descriptionArticle"])) {
-        $descriptionArticle = $_POST["descriptionArticle"];
-    }
-    if (isset($_POST["imageArticle"])) {
-        $imageArticle = $_POST["imageArticle"];
-    }
-    if (isset($_POST["villeArticle"])) {
-        $villeArticle = $_POST["villeArticle"];
-    }
-    if (isset($_POST["departement"])) {
-        $departement = $_POST["departement"];
-        $departement = preg_replace('/\s/', '', $departement);
-    }
-    if ((strlen(preg_replace('/\s/', '', $departement))) != 2) {
-        $donneeErreur = $donneeErreur . "- Departement invalide<br>";
+    if (count($actions) != 0) {
+        $nbActions = count($actions);
     }
 }
 ?>
@@ -66,7 +57,24 @@ if (isset($_GET['valide'])) {
     </div>
     <div class="row m-0 mt-1 ">
         <div class='col-12 p-5'>
-            <?= $descriptionArticle?>
+            <?= $descriptionArticle ?>
+        </div>
+    </div>
+    <div class="row m-0 mt-1 text-center ">
+        <div class="col-12">
+            <hr class="hrp" style="background-color: dark;">
+            <p><ul>
+                <?php
+                if (count($actions) != 0) {
+                    for ($i = 0; $i < $nbActions; $i++) {
+                        echo '<li>'
+                        . $actions[$i][2] . ' : ' . $actions[$i][3] . ' - ' . '<input type="button" value="En savoir plus" class="bouton-design rounded mt-3 " OnClick="window.location.href =' . "'" . 'index.php?action=regarder_sponsor&idSponsor=' . $actions[$i][1] . "'" . '">'
+                        . '</li>';
+                    }
+                }
+                ?>
+            </ul>
+            </p>
         </div>
     </div>
 </div>

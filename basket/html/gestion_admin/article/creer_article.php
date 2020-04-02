@@ -48,7 +48,7 @@ if (isset($_POST['titre']) && isset($_POST["descriptArticle"])) {
         $message = "<div class='alert alert-danger'><strong>Erreur !</strong> L'article n'a pas pu être créé .<br> $donneeErreur </div>";
     }
     if ($donneeErreur == '') {
-        $message = "<div class='alert alert-success position-static'><strong>Traitement effectué !</strong> Votre sponsor à bien été créé .</div>";
+        $message = "<div class='alert alert-success position-static'><strong>Traitement effectué !</strong> Votre article à bien été créé .</div>";
         $connexion->exec($requete);
         $resumeArticle = stripslashes($resumeArticle);
         $titre = stripslashes($titre);
