@@ -109,7 +109,7 @@ if (isset($_POST['pseudonyme'])) {
                 <div class="col-lg-4 offset-1">
                     <input type="submit" value="Enregistrer" class="bouton-design rounded" OnClick="return validFormulaire()">
                     <input type='reset' value="Réinitialiser le formulaire"  class="bouton-design rounded" style="width:200px;"/>
-                    <input type='button' value='Retour' class="bouton-design rounded" OnClick="window.location.href = 'index'" />
+                    <input type='button' value='Retour' class="bouton-design rounded" OnClick="window.location.href = 'index.php'" />
                 </div>
             </div>
             <br>
