@@ -1,6 +1,5 @@
-
-<?php
-session_start();
+<?php session_start();
+echo '<pre>'.print_r($_SESSION, true).'</pre>';
 include 'connexion.php';
 include 'html/header.php';
 
@@ -90,4 +89,5 @@ else{
     include './page_erreur.php';
 }
 include 'html/footer.php';
+echo '<pre>'.print_r($_SESSION, true).'</pre>';
 ?>
