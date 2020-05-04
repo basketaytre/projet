@@ -1,12 +1,17 @@
 <?php session_start();
-echo '<pre>'.print_r($_SESSION, true).'</pre>';
-include 'connexion.php';
-include 'html/header.php';
 
 $action='';
 if(isset($_GET['action'])){
     $action=$_GET['action'];
 }
+if($action=='deconnexion'){
+    session_destroy();
+    header ('Location: index.php');
+}
+include 'connexion.php';
+include 'html/header.php';
+
+
 if($action==''){
     include 'html/acceuil/accueil.php';
 }
@@ -89,5 +94,4 @@ else{
     include './page_erreur.php';
 }
 include 'html/footer.php';
-echo '<pre>'.print_r($_SESSION, true).'</pre>';
 ?>

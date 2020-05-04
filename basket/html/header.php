@@ -98,7 +98,7 @@
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=mon_profil'">Mon compte</button>
                                     <?php
                                         if (isset($_SESSION['statut'])){
-                                            echo "<button class=\"dropdown-item\" type=\"button\" OnClick=".session_destroy().">Deconnexion</button>";
+                                            echo '<button class="dropdown-item" type="button" OnClick="window.location.href = \'index.php?action=deconnexion\'">Deconnexion</button>';
                                         }
                                     ?>
                                     <hr class="hrp">
