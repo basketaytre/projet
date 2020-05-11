@@ -25,7 +25,7 @@
     </head>
     <body>
         <?php
-        $nav_en_cours='';
+        $nav_en_cours = '';
         if (isset($_GET['action'])) {
             $nav_en_cours = $_GET['action'];
         }
@@ -38,8 +38,15 @@
                     </div>
                 </div>
                 <div class=" col-4 text-right">
-                    <input type="button" value="Inscription" class="bouton-design rounded" OnClick="window.location.href = 'index.php?action=inscription_utilisateur'">
-                    <input type="button" value="Connexion"class="bouton-design rounded " OnClick="window.location.href = 'index.php?action=connexion_utilisateur'">
+                    <?php
+                    if (empty($_SESSION['idUtilisateur'])) {
+                        echo'<input type="button" value="Inscription" class="bouton-design rounded mr-1 mt-1" OnClick="window.location.href=\'index.php?action=inscription_utilisateur\'">'
+                        . '<input type="button" value="Connexion"class="bouton-design rounded mr-1 mt-1" OnClick="window.location.href=\'index.php?action=connexion_utilisateur\'">';
+                    } else {
+                        echo '<input type="button" value="Déconnexion"class="bouton-design rounded mr-1 mt-1" OnClick="window.location.href=\'index.php?action=deconnexion\'">'
+                        . '<input type="button" value="Mon compte"class="bouton-design rounded mr-1 mt-1" OnClick="window.location.href=\'index.php?action=mon_profil\'">';
+                    }
+                    ?>
                 </div>
             </div>
             <!--            Navbar                -->
@@ -50,19 +57,25 @@
                 <div class="col-lg-5 col-md-12 my-auto ">
                     <div class="row ">
                         <div class="col-lg-4 col-md-4 d-md-block d-none ">
-                            <a class='p-2 navig-link' <?php if ($nav_en_cours == '') {
-            echo ' id="en_cours"';
-        } ?> href='index.php'>Accueil</a>
+                            <a class='p-2 navig-link' <?php
+                            if ($nav_en_cours == '') {
+                                echo ' id="en_cours"';
+                            }
+                            ?> href='index.php'>Accueil</a>
                         </div>
                         <div class="col-lg-4 col-md-4 d-md-block d-none ">
-                            <a class='p-2 navig-link' <?php if ($nav_en_cours == 'affiche_article') {
-            echo ' id="en_cours"';
-        } ?> href='index.php?action=affiche_article'>Actualité</a>
+                            <a class='p-2 navig-link' <?php
+                            if ($nav_en_cours == 'affiche_article') {
+                                echo ' id="en_cours"';
+                            }
+                            ?> href='index.php?action=affiche_article'>Actualité</a>
                         </div>
                         <div class="col-lg-4 col-md-4 d-md-block d-none  ">
-                            <a class='p-2 navig-link ' <?php if ($nav_en_cours == 'affiche_sponsor') {
-            echo ' id="en_cours"';
-        } ?> href='index.php?action=affiche_sponsor'>Partenaires</a>
+                            <a class='p-2 navig-link ' <?php
+                            if ($nav_en_cours == 'affiche_sponsor') {
+                                echo ' id="en_cours"';
+                            }
+                            ?> href='index.php?action=affiche_sponsor'>Partenaires</a>
                         </div>
                     </div>
                 </div>
@@ -97,22 +110,22 @@
                                     <hr class="hrp d-sm-block d-md-none">
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=mon_profil'">Mon compte</button>
                                     <?php
-                                        if (isset($_SESSION['statut'])){
-                                            echo '<button class="dropdown-item" type="button" OnClick="window.location.href = \'index.php?action=deconnexion\'">Deconnexion</button>';
-                                        }
+                                    if (isset($_SESSION['statut'])) {
+                                        echo '<button class="dropdown-item" type="button" OnClick="window.location.href = \'index.php?action=deconnexion\'">Deconnexion</button>';
+                                    }
                                     ?>
                                     <hr class="hrp">
                                     <button class="dropdown-item" type="button" OnClick="window.location.href = 'index.php?action=en_travaux'">Contact</button>
                                     <?php
-                                        if (isset($_SESSION['statut'])){
-                                            if($_SESSION['statut'] == 'administrateur'){
-                                                echo "<hr class="."hrp".">";
-                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_article'\"".">Gérer articles</button>";
-                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_sponsor'\"".">Gérer sponsors</button>";
-                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_action'\"".">Gérer actions</button>";
-                                                echo "<button class="."dropdown-item"." type="."button"." OnClick="."\"window.location.href='index.php?action=gestion_utilisateur'\"".">Gérer utilisateurs</button>";
-                                            }
+                                    if (isset($_SESSION['statut'])) {
+                                        if ($_SESSION['statut'] == 'administrateur') {
+                                            echo "<hr class=" . "hrp" . ">";
+                                            echo "<button class=" . "dropdown-item" . " type=" . "button" . " OnClick=" . "\"window.location.href='index.php?action=gestion_article'\"" . ">Gérer articles</button>";
+                                            echo "<button class=" . "dropdown-item" . " type=" . "button" . " OnClick=" . "\"window.location.href='index.php?action=gestion_sponsor'\"" . ">Gérer sponsors</button>";
+                                            echo "<button class=" . "dropdown-item" . " type=" . "button" . " OnClick=" . "\"window.location.href='index.php?action=gestion_action'\"" . ">Gérer actions</button>";
+                                            echo "<button class=" . "dropdown-item" . " type=" . "button" . " OnClick=" . "\"window.location.href='index.php?action=gestion_utilisateur'\"" . ">Gérer utilisateurs</button>";
                                         }
+                                    }
                                     ?>
                                 </div>
                             </div>
